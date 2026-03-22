@@ -19,6 +19,10 @@ build/
 logs/
 *.log
 
+# 数据文件
+data/
+*.json
+
 # 临时文件
 tmp/
 temp/
@@ -65,3 +69,6 @@ coverage/
 
 # 文档临时文件
 ~$*
+
+# Claude Code 本地数据
+.claude/

@@ -497,10 +497,22 @@ export class PluginManager extends EventEmitter {
   }
 
   /**
+   * 卸载所有插件
+   */
+  async unloadAllPlugins(): Promise<void> {
+    const pluginIds = Array.from(this.plugins.keys());
+    for (const id of pluginIds) {
+      await this.unloadPlugin(id);
+    }
+  }
+
+  /**
    * 销毁插件管理器
    */
-  async destroy(): Promise<void> {
-    await this.cleanup();
+  destroy(): void {
+    this.cleanup().catch(err => {
+      this.logger.error('插件管理器销毁失败:', err);
+    });
     this.logger.info('PluginManager 已销毁');
   }
 }

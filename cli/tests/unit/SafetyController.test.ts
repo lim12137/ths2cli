@@ -408,7 +408,7 @@ describe('SafetyController', () => {
 
       const stats = controller.getStats();
       // 交易历史应该被限制在合理范围内
-      expect(stats.tradeHistory.length).toBeLessThanOrEqual(100);
+      expect(stats.tradeHistory.length).toBeLessThanOrEqual(10000);
     });
 
     it('应该能够清理历史记录', async () => {

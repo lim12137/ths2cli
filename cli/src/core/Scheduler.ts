@@ -475,4 +475,11 @@ export class Scheduler extends EventEmitter {
       activePlugins: pluginStats.enabledPlugins,
     };
   }
+
+  /**
+   * 公开的 executeTrade 方法（供测试和外部调用）
+   */
+  async executeTrade(request: TradeRequest): Promise<void> {
+    await this.processTradeRequest(request);
+  }
 }
