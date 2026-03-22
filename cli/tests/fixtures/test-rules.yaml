@@ -1,0 +1,76 @@
+# 测试规则配置文件
+
+rules:
+  # 简单价格规则 - 用于测试基本交易流程
+  - id: test-rule-1
+    name: 测试规则1 - 价格触发买入
+    enabled: true
+    priority: 1
+    condition:
+      type: price
+      code: "600000"
+      operator: "<"
+      value: 10.0
+      volume_check: false
+    action:
+      type: buy
+      amount_type: fixed
+      amount: 1000
+      price_type: market
+    constraints:
+      max_execution: 10
+      cooldown_seconds: 60
+
+  # 时间规则 - 用于测试时间条件
+  - id: test-rule-2
+    name: 测试规则2 - 时间触发
+    enabled: true
+    priority: 2
+    condition:
+      type: time
+      start: "09:30:00"
+      end: "15:00:00"
+    action:
+      type: buy
+      amount_type: fixed
+      amount: 500
+      price_type: market
+
+  # 复合条件规则 - 用于测试复杂逻辑
+  - id: test-rule-3
+    name: 测试规则3 - 复合条件
+    enabled: false
+    priority: 3
+    condition:
+      type: composite
+      operator: AND
+      conditions:
+        - type: price
+          code: "600000"
+          operator: ">"
+          value: 5.0
+        - type: price
+          code: "600000"
+          operator: "<"
+          value: 15.0
+    action:
+      type: sell
+      amount_type: ratio
+      ratio: 0.5
+      price_type: market
+
+  # 禁用的规则 - 用于测试规则启用/禁用
+  - id: test-rule-disabled
+    name: 测试规则4 - 禁用状态
+    enabled: false
+    priority: 4
+    condition:
+      type: price
+      code: "600001"
+      operator: ">"
+      value: 10.0
+    action:
+      type: buy
+      amount_type: fixed
+      amount: 100
+      price_type: market

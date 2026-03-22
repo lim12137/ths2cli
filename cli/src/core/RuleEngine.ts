@@ -313,4 +313,21 @@ export class RuleEngine extends EventEmitter {
   private sleep(ms: number): Promise<void> {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
+
+  /**
+   * 销毁规则引擎
+   */
+  destroy(): void {
+    this.stopMonitoring();
+    this.ruleExecutions.clear();
+    this.logger.info('RuleEngine 已销毁');
+  }
+
+  /**
+   * 添加规则（用于测试和动态扩展）
+   */
+  addRule(rule: RuleConfig): void {
+    this.rules.set(rule.id, rule);
+    this.logger.info(`添加规则: ${rule.name} (${rule.id})`);
+  }
 }

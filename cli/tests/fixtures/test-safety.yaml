@@ -1,0 +1,16 @@
+# 测试用安全配置
+
+funds:
+  max_single_trade: 50000      # 单笔交易最大金额
+  max_daily_trade: 200000       # 单日交易最大金额
+  min_reserve: 10000            # 最小保留资金
+
+position:
+  max_single_stock: 0.3         # 单只股票最大仓位比例
+  max_total_position: 0.8       # 总仓位最大比例
+
+circuit_breaker:
+  enabled: true                 # 启用熔断机制
+  max_consecutive_losses: 3     # 最大连续亏损次数
+  cooldown_minutes: 30          # 熔断冷却时间（分钟）
+  notify_on_trigger: true       # 触发时通知

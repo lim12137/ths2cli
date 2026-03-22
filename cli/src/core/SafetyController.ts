@@ -250,4 +250,12 @@ export class SafetyController extends EventEmitter {
     this.tradeHistory = [];
     this.logger.info('交易历史已清理');
   }
+
+  /**
+   * 销毁控制器
+   */
+  destroy(): void {
+    this.clearHistory();
+    this.logger.info('SafetyController 已销毁');
+  }
 }

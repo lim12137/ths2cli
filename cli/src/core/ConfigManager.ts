@@ -324,6 +324,15 @@ export class ConfigManager extends EventEmitter {
   }
 
   /**
+   * 销毁资源配置管理器
+   */
+  destroy(): void {
+    this.stopWatching();
+    this.configs.clear();
+    this.logger.info('ConfigManager 已销毁');
+  }
+
+  /**
    * 重载所有配置
    */
   async reloadAll(): Promise<void> {

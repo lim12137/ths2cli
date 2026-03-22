@@ -495,4 +495,12 @@ export class PluginManager extends EventEmitter {
     this.stopMonitoring();
     this.logger.info('✓ 所有插件已清理');
   }
+
+  /**
+   * 销毁插件管理器
+   */
+  async destroy(): Promise<void> {
+    await this.cleanup();
+    this.logger.info('PluginManager 已销毁');
+  }
 }

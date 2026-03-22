@@ -115,19 +115,44 @@ export class Logger {
   private writeToFile(timestamp: string, level: string, message: string, args: any[]): void {
     try {
       const filePath = path.join(this.logDir, this.logFile);
+
+      // 安全的深度拷贝，避免循环引用
+      const safeArgs = args.map(arg => {
+        try {
+          if (typeof arg === 'object' && arg !== null) {
+            // 使用安��序列化处理循环引用
+            const json = JSON.stringify(arg, (key, value) => {
+              if (typeof value === 'bigint') {
+                return String(value);
+              }
+              if (value instanceof Error) {
+                return { message: value.message, name: value.name };
+              }
+              if (typeof value === 'function') {
+                return undefined;
+              }
+              return value;
+            });
+            return JSON.parse(json);
+          }
+          return arg;
+        } catch {
+          return String(arg);
+        }
+      });
+
       const logEntry = {
         timestamp,
         level,
         logger: this.name,
         message,
-        args: args.length > 0 ? args : undefined
+        args: safeArgs.length > 0 ? safeArgs : undefined
       };
 
       const line = JSON.stringify(logEntry) + '\n';
       fs.appendFileSync(filePath, line, 'utf8');
     } catch (err) {
       // 静默失败，避免日志影响主逻辑
-      // 但可以输出到 stderr 以便调试
       if (this.enableConsole) {
         console.error('写入日志文件失败:', err);
       }

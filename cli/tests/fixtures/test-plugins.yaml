@@ -1,0 +1,31 @@
+# 测试插件配置文件
+
+plugins:
+  # JavaScript 测试插件
+  - id: test-plugin-js
+    name: JavaScript测试插件
+    enabled: true
+    priority: 1
+    file: test-plugin.js
+    type: javascript
+    config:
+      threshold: 10
+      symbols:
+        - "600000"
+        - "600001"
+    schedule:
+      enabled: true
+      interval: 10
+    performance:
+      enabled: true
+      max_trades_per_day: 5
+
+  # 禁用的插件 - 用于测试插件启用/禁用
+  - id: test-plugin-disabled
+    name: 禁用测试插件
+    enabled: false
+    priority: 2
+    file: test-plugin-disabled.js
+    type: javascript
+    config:
+      test_mode: true
