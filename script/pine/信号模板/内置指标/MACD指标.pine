@@ -1,0 +1,15 @@
+//@version=6
+indicator("MACD指")
+
+// 设置MACD指标参数（默认值：12, 26, 9）
+fastLength = 12
+slowLength = 26
+signalSmoothing = 9
+// 计算MACD值和信号线
+[macdLine, signalLine, _] = ta.macd(close, fastLength, slowLength, signalSmoothing)
+// 判断金叉和死叉
+goldenCross = ta.crossover(macdLine, signalLine) // 金叉：MACD线上穿信号线
+deathCross = ta.crossunder(macdLine, signalLine) // 死叉：MACD线下穿信号线
+// 设置预警条件
+alertcondition(goldenCross, title="金叉")
+alertcondition(deathCross, title="死叉")

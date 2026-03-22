@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+	<Default name="Menu" shared="true" value="bordersize=&quot;1,1,1,1&quot; bordercolor=&quot;#FF339CE4&quot; bkcolor=&quot;#FFEBF3F6&quot; itemtextpadding=&quot;10,0,0,0&quot; itemselectedbkcolor=&quot;#FF86CEF6&quot; itemdisabledbkcolor=&quot;#00000000&quot;" />
+  <Menu >
+		<MenuElement name="btnadd" text="添加按钮" />
+		<MenuElement name="btnmdf" text="修改按钮" />
+		<MenuElement name="btndel" text="删除按钮" />
+		<MenuElement linetype="true" linecolor="#FF9BCFF3" linepadding="8,0,8,0" />
+		<MenuElement name="topmost" text="窗口置顶" />
+		<MenuElement name="hidetitle" text="隐藏标题栏" />
+		<MenuElement linetype="true" linecolor="#FF9BCFF3" linepadding="8,0,8,0" />
+		<MenuElement name="cfgs" text="设置" />
+		<MenuElement name="cfgfile" text="编辑源代码" />
+		<MenuElement name="help" text="帮助" />
+		<MenuElement name="close" text="关闭" />
+	</Menu>
+</Window>

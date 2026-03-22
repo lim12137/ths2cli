@@ -1,0 +1,14 @@
+//@version=6
+indicator("创新高")
+
+
+// 设置N日的周期
+N = input.int(20, title="N日")
+
+// 计算最近N日的最高值
+highestHigh = ta.highest(high[1], N-1)
+
+// 判断当前现价是否大于最近N日的最高值
+condition = close > highestHigh
+
+alertcondition(condition, title = '创新高')

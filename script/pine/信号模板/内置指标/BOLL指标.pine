@@ -1,0 +1,24 @@
+//@version=6
+indicator("BOLL轨道指标", overlay=true)
+
+// 设置BOLL的默认参数（20, 2）
+length = 20
+mult = 2
+
+// 计算Bollinger Bands的中轨、上轨和下轨
+basis = ta.sma(close, length) // 中轨：20日简单移动平均线
+dev = mult * ta.stdev(close, length) // 标准差乘以2得到带宽
+upper = basis + dev  // 上轨：中轨 + 2倍标准差
+lower = basis - dev  // 下轨：中轨 - 2倍标准差
+
+// 判断突破中轨、突破上轨、跌破中轨、跌破下轨
+overUpper = close > upper  // 收盘价高于上轨
+overBasis = close > basis  // 收盘价中轨上方
+belowBasis = close < basis // 收盘价中轨下方
+belowLower = close < lower // 收盘价低于下轨
+
+// 设置预警条件
+alertcondition(overUpper, title="股价高于上轨")
+alertcondition(overBasis, title="股价高于中轨")
+alertcondition(belowBasis, title="股价低于中轨")
+alertcondition(belowLower, title="股价低于下轨")

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+	<HorizontalLayout width="80" height="21" childalign="center">
+		<Edit name="SpinEdit" width="60" height="21" bordersize="1,1,1,1" bordercolor="FFAAB8C5" bkcolor="#00000000"/>
+		<VerticalLayout height="21" padding="-1,0,0,0">
+			<Button name="EditSpinAdd" text="+" width="20" height="11" bordersize="1,1,1,1" bordercolor="FFAAB8C5" cursor="hand"/>
+			<Button name="EditSpinDel" text="-" width="20" height="11" bordersize="1,0,1,1" bordercolor="FFAAB8C5" cursor="hand" padding="0,-1,0,0"/>
+		</VerticalLayout>
+  </HorizontalLayout>
+</Window>

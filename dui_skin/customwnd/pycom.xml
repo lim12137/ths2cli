@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="200,200" sizebox="2,2,2,2" >
+	<Include source="customwnd/defaultsettings.xml" />
+	<VerticalLayout bkcolor="#FFCCCCCC" >
+		<Include source="customwnd/caption.xml" />
+		<VerticalLayout name="client" bkcolor="#FFECF3F6" inset="0,4,0,4" >
+			<HorizontalLayout name="first" childpadding="4" inset="15,0,15,0" >
+				<!-- <FsLabel name="fslbl" /> -->
+				<Edit name="zqdm" visible="false" tipvalue="请输入证券代码" />
+				<Combo name="wtjg" visible="false" >
+					<ListLabelElement text="固定价" value="gdjg" selected="true" />
+					<ListLabelElement text="涨停价" value="ztjg" />
+					<ListLabelElement text="对手价5" value="dsj5" />
+					<ListLabelElement text="对手价3" value="dsj3" />
+					<ListLabelElement text="对手价1" value="dsj1" />
+					<ListLabelElement text="最新价" value="zxjg" />
+					<ListLabelElement text="本方价1" value="bfj1" />
+					<ListLabelElement text="本方价3" value="bfj3" />
+					<ListLabelElement text="本方价5" value="bfj5" />
+					<ListLabelElement text="跌停价" value="dtjg" />
+				</Combo>
+				<Edit name="priceedt" visible="false" tipvalue="请输入价格"/>
+				<Combo name="wtfs" visible="false" >
+					<ListLabelElement text="数量" value=" " selected="true" />
+					<ListLabelElement text="金额" value="-m" />
+					<ListLabelElement text="可用仓位" value="-cw" />
+					<ListLabelElement text="目标总仓位" value="-zcw" />
+					<ListLabelElement text="总资产仓位" value="-zzc" />
+				</Combo>
+				<Edit name="wtsl" visible="false" tipvalue="请输入数量"/>
+			</HorizontalLayout>
+		</VerticalLayout>
+	</VerticalLayout>
+</Window>

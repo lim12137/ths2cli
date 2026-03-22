@@ -1,0 +1,76 @@
+
+@import url(sp://res/button.css);
+@import url(sp://res/table.css);
+@import url(sp://res/input.css);
+@import url(sp://res/user_def.css);
+@import url(sp://res/menu.css);
+@import url(sp://res/div.css);
+@import url(sp://res/scrollbar.css);
+@import url(sp://res/tabs.css);
+@import url(sp://res/业务.css);
+@import url(sp://res/tooltip.css);
+*
+{
+	font-family: 宋体;
+	font-size: 9pt; 
+}
+
+body 
+{ 
+  margin: 0; padding: 0; 
+  color: black; 
+  size:*;
+  background-color: #EBF3F6;
+  color: #B9CBDF;
+}
+
+html
+{
+   overflow-x:hidden;
+   overflow-y:hidden;
+}
+
+h1 
+{
+	font:15pt "宋体";
+}
+
+.caption
+{
+	font:bold 15pt "宋体";
+	margin:10dip 22dip;
+	margin-left:25dip;
+	margin-bottom:5dip;
+	margin-top:11dip;
+}
+
+.vcaption
+{
+	font:bold 15pt "宋体";
+	margin-left:12dip;
+}
+
+.mairu
+{
+	color:#DE3535;
+}
+
+.maichu
+{
+	color:#198EFA;
+}
+
+.accesskey
+{
+	behavior:accesskeys;
+}
+
+.normal
+{
+	color:black;
+}
+
+.green
+{
+	color:green;
+}

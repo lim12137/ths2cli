@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="1366,768" sizebox="4,4,4,4" caption="0,0,0,32" roundcorner="6,6,6,6" >
+	<!-- 导入默认样式设置 -->
+	<Include source="py/default.xml" />
+	
+  <VerticalLayout bkcolor="#FF111111" >
+		<VerticalLayout >
+			<!-- 标题栏 -->
+			<HorizontalLayout height="32" bkcolor="#FF252525" >
+				<Label text="Python策略编辑器" height="32" textpadding="10" align="left" valign="vcenter"/>
+				<Control />
+				<Button name="minbtn" tooltip="最小化" width="27" height="32" bkimage="file=&apos;py/image/btn_caption.png&apos; source=&apos;45,0,60,15&apos; dest=&apos;6,8,21,23&apos; " textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" hotimage="file=&apos;py/image/btn_style_caption.png&apos; source=&apos;27,0,54,30&apos;" pushedimage="file=&apos;py/image/btn_style_caption.png&apos; source=&apos;54,0,81,30&apos;" />
+				<Button name="maxbtn" tooltip="最大化" width="27" height="32" bkimage="file=&apos;py/image/btn_caption.png&apos; source=&apos;60,0,75,15&apos; dest=&apos;6,8,21,23&apos; " textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" hotimage="file=&apos;py/image/btn_style_caption.png&apos; source=&apos;27,0,54,30&apos;" pushedimage="file=&apos;py/image/btn_style_caption.png&apos; source=&apos;54,0,81,30&apos;" />
+				<Button name="restorebtn" tooltip="还原" visible="false" width="27" height="32" bkimage="file=&apos;py/image/btn_caption.png&apos; source=&apos;75,0,90,15&apos; dest=&apos;6,8,21,23&apos; " textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" hotimage="file=&apos;py/image/btn_style_caption.png&apos; source=&apos;27,0,54,30&apos;" pushedimage="file=&apos;py/image/btn_style_caption.png&apos; source=&apos;54,0,81,30&apos;" />
+				<Button name="closebtn" tooltip="关闭" width="36" height="32" bkimage="file=&apos;py/image/btn_caption.png&apos; source=&apos;90,0,105,15&apos; dest=&apos;11,8,26,23&apos; " textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" hotimage="file=&apos;py/image/btn_style_close.png&apos; source=&apos;36,0,72,30&apos;" pushedimage="file=&apos;py/image/btn_style_close.png&apos; source=&apos;72,0,108,30&apos;" />
+			</HorizontalLayout>
+			<!-- 主体：目录树、编辑器、参数页 -->
+			<HorizontalLayout >
+				<VerticalLayout width="220" bkcolor="#FF1B1B1B" >
+					<!-- 文件操作工具栏 -->
+					<HorizontalLayout name="toolbar" height="24" bkcolor="#FF202020">
+						<Edit   name="searchedt" textcolor="#FF787878" tipvalue="请输入搜索关键词" tipvaluecolor="#FF787878" />
+						<Button name="searchbtn" tooltip="查找" width="22" padding="2,1,0,1" hotbkcolor="#FF353535" pushedbkcolor="#FF181818" normalimage="file=&apos;py/image/search.png&apos; dest='1,2,21,22' " />
+						<Button name="addfilebtn" tooltip="新建" width="22" padding="0,1,0,1" hotbkcolor="#FF353535" pushedbkcolor="#FF181818" normalimage="file=&apos;py/image/addfile.png&apos; dest='1,2,21,22' " />
+						<Button name="addfolderbtn" tooltip="新建组" width="22" padding="0,1,0,1" hotbkcolor="#FF353535" pushedbkcolor="#FF181818" normalimage="file=&apos;py/image/addfolder.png&apos; dest='1,2,21,22' " />
+						<Button name="importbtn" tooltip="导入" width="22" padding="0,1,0,1" hotbkcolor="#FF353535" pushedbkcolor="#FF181818" normalimage="file=&apos;py/image/import.png&apos; dest='1,2,21,22' " />
+						<Button name="refreshbtn" tooltip="刷新" width="22" padding="0,1,2,1" hotbkcolor="#FF353535" pushedbkcolor="#FF181818" normalimage="file=&apos;py/image/refresh.png&apos; dest='1,2,21,22' " />
+					</HorizontalLayout>
+					<!-- 目录树 -->
+					<TreeView name="pytreeview" childpadding="2" padding="30,10,0,0" itemhotbkcolor="#FF202020" itemselectedbkcolor="#FF252525" vscrollbar="true" />
+				</VerticalLayout>
+				<VerticalLayout >
+					<!-- 编辑器工具栏 -->
+					<HorizontalLayout name="docbar" height="24" childpadding="2" bkcolor="#FF202020" />
+					<HorizontalLayout bkcolor="#FF1B1B1B">
+						<!-- 背景LOGO -->
+						<HorizontalLayout name="bk" bkcolor="#FF111111">
+							<Control />
+							<VerticalLayout width="216" >
+								<Control />
+								<Control height="174" bkimage="file=&apos;py/image/bkicon.png&apos;" />
+								<Control />
+							</VerticalLayout>
+							<Control />
+						</HorizontalLayout>
+						<!-- Scintilla -->
+						<PyEdtr visible="false" vscrollbar="true" hscrollbar="true" bkcolor="#FF111111" />
+						<!-- 动态参数按钮 -->
+						<VerticalLayout width="6" visible="false" >
+							<Control />
+							<Button name="paramsbtn" height="70" tooltip="动态参数" />
+							<Control />
+						</VerticalLayout>
+						<!-- 动态参数页 -->
+						<TabLayout name="paramTL" selectedid="0" visible="false" >
+							<Include source="py/normal_param.xml" />
+							<Include source="py/risk_param.xml" />
+						</TabLayout>
+					</HorizontalLayout>
+				</VerticalLayout>
+			</HorizontalLayout>
+			<!-- 综合信息工具栏，表格/日志/命令行 -->
+			<HorizontalLayout height="24" bkcolor="#FF202020">
+				<Option name="ccopt" text="持仓" group="infotab" width="100" bkcolor="#FF2F2F2F" hotbkcolor="#FF3C3C3C" selectedbkcolor="#FF3C8CF9" rightbordersize="1" bordercolor="#FF787878" />
+				<Option name="cjopt" text="成交" group="infotab" width="100" bkcolor="#FF2F2F2F" hotbkcolor="#FF3C3C3C" selectedbkcolor="#FF3C8CF9" rightbordersize="1" bordercolor="#FF787878" />
+				<Option name="wtopt" text="委托" group="infotab" width="100" bkcolor="#FF2F2F2F" hotbkcolor="#FF3C3C3C" selectedbkcolor="#FF3C8CF9" rightbordersize="1" bordercolor="#FF787878" />
+				<Option name="logopt" text="日志" userdata="log" selected="true" group="infotab" width="100" bkcolor="#FF2F2F2F" hotbkcolor="#FF3C3C3C" selectedbkcolor="#FF3C8CF9" rightbordersize="1" bordercolor="#FF787878" />
+				<Combo name="logmodecmb" width="110" rightbordersize="1" bordercolor="#FF787878" >
+						<ListLabelElement text="全部日志" selected="true" />
+				</Combo>
+				<Combo name="zjzhcmb" visible="false" width="130" rightbordersize="1" bordercolor="#FF787878" />
+				<Button text="刷新" visible="false" name="reinfobtn" width="50" textcolor="#FFF6F6F6" bkcolor="#FF252525" hotbkcolor="#FF3C3C3C" selectedbkcolor="#FF111111" rightbordersize="1" bordercolor="#FF787878" />
+				<Control />
+			</HorizontalLayout>
+		</VerticalLayout>
+		<VerticalLayout sepheight="-2" inset="0,2,0,0" height="150" >
+			<!-- 自定义显示 -->
+			<TabLayout name="infotab" selectedid="1" inset="2,2,2,2" bkcolor="#FF787878">
+				<XdTable />
+				<RichEdit name="infoedt" readonly="true" textcolor="#FFB6B6B6" bkcolor="#FF111111" hscrollbar="true" vscrollbar="true" autovscroll="true" autohscroll="true" />
+			</TabLayout>
+		</VerticalLayout>
+	</VerticalLayout>
+</Window>

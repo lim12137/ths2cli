@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312"?>
+<XD_Function>
+		<class id="129" name="股 票">
+		<item icon2="172" icon="172" id="0" id_pos="163" name="条件单"  gtlx="zyy">
+			<item icon2="167" icon="167"  type="ajax" id="8007" name="条件单监控" pkg="condition.pkg;" html="condition/html/condition.html" gtlx="zyy" pos ="first" zyy="1"/>
+			<item icon2="167" icon="167"  name="股价条件" type="pop_html" html="stockprice_ui.html" id="9040"  gtlx="zyy"/>
+			<item icon2="167" icon="167"  name="止盈止损" type="pop_html" html="zyzs_ui.html" id="9041"  gtlx="zyy"/>
+			<item icon2="167" icon="167"  name="涨停买入" type="pop_html" html="ztmr_ui.html" id="9042"  gtlx="zyy"/>
+			<item icon2="167" icon="167"  name="涨跌幅条件" type="pop_html" html="zdfd_ui.html" id="9043"  gtlx="zyy"/>
+			<item icon2="167" icon="167"  name="反弹买入" type="pop_html" html="ftmr_ui.html" id="9044"  gtlx="zyy"/>
+			<item icon2="167" icon="167"  name="回落卖出" type="pop_html" html="hlmc_ui.html" id="9045"  gtlx="zyy"/>
+			<item icon2="167" icon="167"  name="国债逆回购" type="pop_html" html="national_debt.html" id="9046"  gtlx="zyy"/>
+		</item>
+		</class>
+</XD_Function>

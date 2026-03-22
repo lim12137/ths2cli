@@ -1,0 +1,225 @@
+/*
+	1)标准按钮
+	2)锁定按钮
+		使用举例
+		<button type='menu' .lock >
+			<menu .menulock>
+				<li>不锁定</li>
+				<hr/>
+				<li type="check">锁定买一价</li>
+				<li>锁定买二价</li>
+				<li>锁定买三价</li>
+				<li>锁定买四价</li>
+				<li>锁定买五价</li>
+				<li>锁定涨停价</li>
+			</menu>
+    	</button>
+	3)重置按钮
+	4)提交按钮
+	5)撤单按钮
+	4)全部选中按钮
+	5)
+*/
+//------------------------------------begin----------------------------------------------------
+//--------------------------------------end----------------------------------------------------
+//------------------------------------标准按钮begin---------------------------------------------------
+input[type="button"] 
+{
+	background-image: url(images/button-back.bmp);
+	background-repeat: expand stretch-top stretch-left stretch-right stretch-bottom stretch-middle; /* h-smile specific */
+	background-position: 4px 4px 4px 4px;		
+    behavior:button;
+    transition:blend;
+	color: black;
+	width: 54px;
+	height: 17px;
+	text-align:center;
+	margin:2px;
+    padding:2px;
+	font-family: "宋体";
+	font-size: 9pt;
+}
+
+input[type="button"]:hover 
+{
+	background-image: url(images/button-back-hover.bmp);
+}
+
+input[type="button"]:active 
+{
+	background-image: url(images/button-back-active.bmp);
+}
+	
+input[type="button"]:focus
+{
+   background-image: url(images/button-back-hover.bmp);
+   outline-style:none;
+   outline-width:2px;
+   color:#F00;
+ }
+ 
+input[type="button"]:disabled
+{
+	color:#BBB;
+}
+//------------------------------------标准按end--------------------------------------------------
+
+//------------------------------------锁定按钮样式begin-----------------------------------------------------
+.lock
+{
+	background-image: url(images/s_nomarl.bmp);
+	behavior:button;
+    transition:blend;
+	color: #0c2e5a;
+	width: 14px;
+	height: 14px;
+	margin-top:-4px;
+	margin-left:-12px;
+	background-position: 100% 100%;	
+	-ctrl-lua-script: "bp://menu.lua"; 
+}
+
+.lock:hover 
+{
+	background-image: url(images/s_move.bmp);
+	color: #000;
+}
+
+.lock:active 
+{
+	background-image: url(images/s_down.bmp);
+}
+
+.lock:owns-popup /* button when popup is shown */
+{
+	background-image:url(images/s_down.bmp);
+}
+//------------------------------------锁定按钮样式end-----------------------------------------------------
+
+//------------------------------------重置begin----------------------------------------------------
+.reset
+{
+	-ctrl-lua-script: "bp://reset.lua"; 
+	click!: self.Reset();
+}
+
+.submit
+{
+	-ctrl-lua-script: "bp://submit.lua"; 
+	click!: self.Submit();
+}
+//--------------------------------------重置end----------------------------------------------------
+//------------------------------------begin撤单----------------------------------------------------
+.chedan
+{
+	-ctrl-lua-script: "bp://chedan.lua"; 
+	click!: self.Ok();
+}
+
+//--买卖撤单
+.chedan_mm
+{
+	-ctrl-lua-script: "bp://chedan_mm.lua"; 
+	click!: self.Ok();
+}
+
+//--------------------------------------end撤单----------------------------------------------------
+
+//------------------------------------begin翻页控件--------------------------------------------------
+.fanye
+{
+	-ctrl-lua-script: "bp://fanye.lua";
+}
+//------------------------------------end翻页-------------------------------------------------------
+
+//------------------------------------全部选中begin----------------------------------------------------
+.allselect
+{
+	-ctrl-lua-script: "bp://allselect.lua"; 
+	click!: self.Ok();
+}
+//--------------------------------------全部选中end----------------------------------------------------
+
+.btn-white
+{ 
+	width: 69px;
+	height: 22px; 
+	cursor: pointer; 
+	border-radius: 2px; 
+	box-shadow: 0 2px 3px #e4e4e6; 
+	border: 1px solid #d7d7d7;
+	background: #fdfdfd;
+	margin-top:20px; 
+	outline-color:silver;
+    outline-style:glow;
+    outline-shift:1px;
+	outline-width:2px; 
+	outline-offset:0px
+}
+
+.btn-white:hover 
+{ 
+	border: 1px solid #acacac; 
+	background: #fefefe; 
+	outline-offset:1px
+}
+
+.btn-white:active 
+{ 
+	border: 1px solid #b4b4b4; 
+	background: #f3f3f3; 
+	box-shadow: 1px 1px 3px #c8c7c8 inset, 0 0 2px #c8c7c8 inset;
+	outline-offset:-1px
+}
+
+.btn-white:focus
+{
+   outline-width:2px;
+   color:#F00;
+}
+
+.button_close_yellow
+{
+	background-image:url(images/close.png);
+	background-repeat: expand stretch-top stretch-left stretch-right stretch-bottom stretch-middle;
+    behavior:button;
+    transition:blend;
+	color:#0c2e5a;
+	max-width::64px;
+	z-index:-999;
+	width: 16px;
+	height: 16px;
+	border:0px;
+	background-color:transparent;
+	-ctrl-lua-script: "bp://close.lua"; 
+	click!: self.Close();
+}
+
+.button_close_yellow:hover 
+{
+	background-image: url(images/close_hover.png);
+}
+
+.button_close_yellow:active 
+{
+	background-image: url(images/close_active.png);
+}
+
+//-------------------------------------button 格式复选框-------------------------------------------------
+.checkbtn
+{
+	background-image: url(images/custombutton.bmp);
+	height:5px;
+	width:0px;
+	background-position:0px 0px
+}
+
+.checkbtn:disabled
+{
+	background-image: url(images/custombutton.bmp);
+	height:5px;
+	width:0px;
+	background-position:-91px 0px
+}
+
+//-------------------------------------button 格式复选框-------------------------------------------------

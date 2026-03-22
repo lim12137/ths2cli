@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+	<Default name="Menu" shared="true" value="itemtextcolor=&quot;0xffB6B6B6&quot; bordersize=&quot;1,1,1,1&quot; bordercolor=&quot;#FF111111&quot; bkcolor=&quot;#FF252525&quot; itemtextpadding=&quot;10,0,0,0&quot; itemselectedbkcolor=&quot;#FF5099FC&quot; " />
+   <Menu >
+    <MenuElement name="NewFile" text="新建文件" itemtextcolor="#FFB6B6B6"/>
+    <MenuElement name="NewFolder" text="新建文件夹" />
+    <MenuElement name="Rename" text="重命名" />
+    <MenuElement name="Delete" text="删除" textcolor="#FF252525" />
+	</Menu>
+</Window>

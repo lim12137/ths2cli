@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+	<Style name="no_style" value="valign=&quot;vcenter&quot; textpadding=&quot;0,0,0,0&quot; align=&quot;left&quot; width=&quot;13&quot; height=&quot;30&quot; font=&quot;2&quot;  rhaa=&quot;5&quot; textcolor=&quot;#696969&quot; padding=&quot;5,0,1,0&quot;" />
+	<Style name="op_buy_style"  value="width=&quot;45&quot; height=&quot;30&quot; padding=&quot;0,1,0,1&quot; visible=&quot;false&quot; normalimage=&quot;res='dui_skin\image\TwoWayFastTrade\buy_button_normal.bmp' corner='0,0,0,0'&quot; pushedimage=&quot;res='dui_skin\image\TwoWayFastTrade\buy_button_click.bmp' corner='0,0,0,0'&quot; align=&quot;center&quot; valign=&quot;vcenter&quot; " />
+	<Style name="op_sell_style" value="width=&quot;45&quot; height=&quot;30&quot; padding=&quot;0,1,0,1&quot; visible=&quot;false&quot; normalimage=&quot;res='dui_skin\image\TwoWayFastTrade\sell_button_normal.bmp' corner='0,0,0,0'&quot; pushedimage=&quot;res='dui_skin\image\TwoWayFastTrade\sell_button_click.bmp' corner='0,0,0,0'&quot; align=&quot;center&quot; valign=&quot;vcenter&quot; " />
+	<Style name="price_style" value="valign=&quot;vcenter&quot; align=&quot;right&quot; width=&quot;51&quot; height=&quot;30&quot; textpadding=&quot;0,0,2,0&quot; padding=&quot;0,1,0,1&quot; text=&quot;-&quot; font=&quot;2&quot; rhaa=&quot;5&quot; textcolor=&quot;#FFFF0000&quot;" />
+	<Style name="vol_style" value="valign=&quot;vcenter&quot; align=&quot;right&quot; text=&quot;-&quot; textpadding=&quot;0,0,3,0&quot; padding=&quot;0,0,0,0&quot; font=&quot;2&quot; rhaa=&quot;5&quot; textcolor=&quot;#FF0051E7&quot;" />
+	<Style name="vlayout_style"  value="padding=&quot;0,0,0,0&quot;height=&quot;30&quot;"/>
+	<Style name="control_style" value= "width=&quot;45&quot; visible=&quot;true&quot; enable=&quot;false&quot; padding=&quot;0,0,0,0&quot; align=&quot;center&quot; valign=&quot;vcenter&quot;"/>
+	<VerticalLayout  bkcolor="#00000000">
+		<VerticalLayout  mouse="true" bordercolor="#FFAAB8C5" bordersize="1,1,1,1" name="unv">		
+			<VerticalLayout bkimage="res='dui_skin/image/TwoWayFastTrade/background.png' dest='40,80,169,113'"  name="uv" >
+				<HorizontalLayout height = "5"/>
+				<HorizontalLayout Style="vlayout_style" name="umai10">
+					<Button text="10" name="usellno10" Style="no_style" />
+					<Button name="ubuybtn10" Style="op_buy_style" />
+					<Button name="ucontrol10" Style="control_style" />	
+					<Button name="usellprice10"  Style="price_style"/>
+					<Button name="usellbtn10" Style="op_sell_style" />
+					<Button name="uucontrol10" Style="control_style" />
+					<Button name="usellamount10" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style" name="umai9">
+					<Button text="9" name="usellno9"  Style="no_style" />
+					<Button name="ubuybtn9"  Style="op_buy_style" />
+					<Button name="ucontrol9"  Style="control_style" />	
+					<Button  name="usellprice9"  Style="price_style"/>
+					<Button name="usellbtn9" Style="op_sell_style" />
+					<Button name="uucontrol9"  Style="control_style" />	
+					<Button name="usellamount9" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style" name="umai8">	    
+					<Button text="8" name="usellno8"  Style="no_style" />
+					<Button name="ubuybtn8" Style="op_buy_style" />
+					<Button name="ucontrol8" Style="control_style" />	
+					<Button name="usellprice8"  Style="price_style"/>
+					<Button name="usellbtn8" Style="op_sell_style" />
+					<Button name="uucontrol8" Style="control_style" />	
+					<Button name="usellamount8" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style" name="umai7">		
+					<Button text="7" name="usellno7" Style="no_style" />
+					<Button name="ubuybtn7" Style="op_buy_style" />
+					<Button name="ucontrol7"  Style="control_style" />	
+					<Button name="usellprice7"  Style="price_style"/>
+					<Button name="usellbtn7" Style="op_sell_style" />
+					<Button name="uucontrol7"  Style="control_style" />	
+					<Button name="usellamount7" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style" name="umai6">	
+					<Button text="6" name="usellno6" Style="no_style" />
+					<Button name="ubuybtn6" Style="op_buy_style" />
+					<Button name="ucontrol6"  Style="control_style" />	
+					<Button name="usellprice6"  Style="price_style"/>
+					<Button name="usellbtn6" Style="op_sell_style" />
+					<Button name="uucontrol6"  Style="control_style" />	
+					<Button name="usellamount6" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style" name="umai5">
+					<Button text="5" name="usellno5" Style="no_style" />
+					<Button name="ubuybtn5" Style="op_buy_style" />
+					<Button name="ucontrol5" Style="control_style" />	
+					<Button name="usellprice5"  Style="price_style"/>
+					<Button name="usellbtn5" Style="op_sell_style" />
+					<Button name="uucontrol5" Style="control_style" />	
+					<Button name="usellamount5" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style"  name="umai4">	
+					<Button text="4" name="usellno4" Style="no_style" />
+					<Button name="ubuybtn4" Style="op_buy_style" />
+					<Button name="ucontrol4" Style="control_style" />	
+					<Button name="usellprice4"  Style="price_style"/>
+					<Button name="usellbtn4" Style="op_sell_style" />
+					<Button name="uucontrol4" Style="control_style" />	
+					<Button name="usellamount4" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style"  name="umai3">
+					<Button text="3" name="usellno3" Style="no_style" />
+					<Button name="ubuybtn3" Style="op_buy_style" />
+					<Button name="ucontrol3"  Style="control_style" />	
+					<Button name="usellprice3"  Style="price_style"/>
+					<Button name="usellbtn3" Style="op_sell_style" />
+					<Button name="uucontrol3" Style="control_style" />	
+					<Button name="usellamount3" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style"  name="umai2">
+					<Button text="2"  name="usellno2" Style="no_style" />
+					<Button name="ubuybtn2" Style="op_buy_style" />
+					<Button name="ucontrol2" Style="control_style" />	
+					<Button name="usellprice2"  Style="price_style"/>
+					<Button name="usellbtn2" Style="op_sell_style" />		
+					<Button name="uucontrol2" Style="control_style" />						
+					<Button name="usellamount2" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style"  name="umai1">
+					<Button text="1"  name="usellno1" Style="no_style" />
+					<Button name="ubuybtn1" Style="op_buy_style" />
+					<Button name="ucontrol1" Style="control_style" />	
+					<Button name="usellprice1"  Style="price_style" />
+					<Button name="usellbtn1" Style="op_sell_style" />
+					<Button name="uucontrol1" Style="control_style" />						
+					<Button name="usellamount1" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout height = "3"/>
+			</VerticalLayout>
+			<VerticalLayout bkimage="res='dui_skin/image/TwoWayFastTrade/background.png' dest='40,80,169,113'" bordercolor="#FFAAB8C5" bordersize="1,1,0,0" name="nv">
+				<HorizontalLayout height = "3"/>
+				<HorizontalLayout Style="vlayout_style" name="nmai1">
+					<Button text="1" name="nbuyno1" Style="no_style" />
+					<Button name="nbuybtn1" Style="op_buy_style" />
+					<Button name="ncontrol1" Style="control_style" />
+					<Button name="nbuyprice1"  Style="price_style"/>
+					<Button name="nsellbtn1" Style="op_sell_style"/>			
+					<Button name="nncontrol1" Style="control_style"/>
+					<Button name="nbuyamount1" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style" name="nmai2">
+					<Button text="2"  name="nbuyno2" Style="no_style" />
+					<Button name="nbuybtn2" Style="op_buy_style" />
+					<Button name="ncontrol2"  Style="control_style" />
+					<Button name="nbuyprice2"  Style="price_style"/>
+					<Button name="nsellbtn2" Style="op_sell_style" />
+					<Button name="nncontrol2"  Style="control_style"/>	
+					<Button name="nbuyamount2" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style" name="nmai3">
+					<Button text="3" name="nbuyno3" Style="no_style" />
+					<Button name="nbuybtn3" Style="op_buy_style" />
+					<Button name="ncontrol3"  Style="control_style" />
+					<Button name="nbuyprice3"  Style="price_style"/>
+					<Button name="nsellbtn3" Style="op_sell_style" />
+					<Button name="nncontrol3"  Style="control_style"/>	
+					<Button name="nbuyamount3" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style" name="nmai4">	
+					<Button text="4"  name="nbuyno4" Style="no_style" />
+					<Button name="nbuybtn4" Style="op_buy_style" />
+					<Button name="ncontrol4"  Style="control_style" />
+					<Button name="nbuyprice4"  Style="price_style"/>
+					<Button name="nsellbtn4" Style="op_sell_style" />
+					<Button name="nncontrol4" Style="control_style"/>	
+					<Button name="nbuyamount4" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style" name="nmai5">
+					<Button text="5" name="nbuyno5"  Style="no_style" />
+					<Button name="nbuybtn5" Style="op_buy_style" />
+					<Button name="ncontrol5" Style="control_style" />
+					<Button name="nbuyprice5"  Style="price_style"/>
+					<Button name="nsellbtn5" Style="op_sell_style" />
+					<Button name="nncontrol5"  Style="control_style"/>	
+					<Button name="nbuyamount5" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style" name="nmai6">
+					<Button text="6"  name="nbuyno6" Style="no_style" />
+					<Button name="nbuybtn6" Style="op_buy_style" />
+					<Button name="ncontrol6" Style="control_style" />
+					<Button name="nbuyprice6"  Style="price_style"/>
+					<Button name="nsellbtn6" Style="op_sell_style" />
+					<Button name="nncontrol6" Style="control_style"/>	
+					<Button name="nbuyamount6" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style" name="nmai7">
+					<Button text="7"  name="nbuyno7" Style="no_style" />
+					<Button name="nbuybtn7" Style="op_buy_style" />
+					<Button name="ncontrol7" Style="control_style" />
+					<Button name="nbuyprice7"  Style="price_style"/>
+					<Button name="nsellbtn7" Style="op_sell_style" />
+					<Button name="nncontrol7" Style="control_style"/>			
+					<Button name="nbuyamount7" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style" name="nmai8">
+					<Button text="8"  name="nbuyno8" Style="no_style" />
+					<Button name="nbuybtn8" Style="op_buy_style" />
+					<Button name="ncontrol8" Style="control_style" />
+					<Button name="nbuyprice8"  Style="price_style"/>
+					<Button name="nsellbtn8" Style="op_sell_style" />
+					<Button name="nncontrol8" Style="control_style"/>	
+					<Button name="nbuyamount8" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style" name="nmai9">
+					<Button text="9" name="nbuyno9" Style="no_style" />
+					<Button name="nbuybtn9" Style="op_buy_style" />
+					<Button name="ncontrol9" Style="control_style" />
+					<Button name="nbuyprice9"  Style="price_style"/>
+					<Button name="nsellbtn9" Style="op_sell_style" />
+					<Button name="nncontrol9" Style="control_style"/>			
+					<Button name="nbuyamount9" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout Style="vlayout_style" name="nmai10">	
+					<Button text="10" name="nbuyno10" Style="no_style" />
+					<Button name="nbuybtn10" Style="op_buy_style" />
+					<Button name="ncontrol10"  Style="control_style" />
+					<Button name="nbuyprice10"  Style="price_style"/>
+					<Button name="nsellbtn10" Style="op_sell_style" />
+					<Button name="nncontrol10"  Style="control_style"/>	
+					<Button name="nbuyamount10" Style="vol_style"/>
+				</HorizontalLayout>
+				<HorizontalLayout height = "5"/>
+				
+				<HorizontalLayout name="suspendpanel" visible="false" bkcolor="#00000000" bordersize="0,0,0,0" bkimage="res='dui_skin/image/TwoWayFastTrade/mask.PNG' mask='#D3D3D3' fade='220'" height="60" padding="0,-60,0,0">
+					<VerticalLayout padding="5,5,0,0" width="110">
+						<HorizontalLayout height="24" padding="0,0,0,3"> 
+							<Label text="价格" textcolor="#FFFFFFFF" width="25" font="6" padding="0,0,3,0"/>
+							<Edit width="60" name="priceedit" tabdefault="false" tabnext="amountedit" bordercolor="#FFAAB8C5" bordersize="1,1,1,1" notifykeydown="true"/>
+							<VerticalLayout padding="-1,0,0,0">
+								<Button text="+" name="priceaddbtn" width="20" height="12" bkcolor="#FFFFFFFF" bordercolor="#FFAAB8C5" cursor="hand"  bordersize="1,1,1,1" />
+								<Button text="-" name="pricedescbtn" width="20" height="13" bkcolor="#FFFFFFFF" bordercolor="#FFAAB8C5" cursor="hand" bordersize="1,1,1,1" padding="0,-1,0,0"/>
+							</VerticalLayout>
+						</HorizontalLayout>
+						<HorizontalLayout height="24"> 
+							<Label text="数量" textcolor="#FFFFFFFF" width="25" font="6" padding="0,0,3,0"/>
+							<Edit width="60" name="amountedit" tabdefault="false" tabnext="priceedit" maxchar="9" bordercolor="#FFAAB8C5" bordersize="1,1,1,1" numberonly="true" notifykeydown="true"/>
+							<VerticalLayout padding="-1,0,0,0">
+								<Button text="+" name="amountaddbtn" width="20" height="12" bkcolor="#FFFFFFFF" bordercolor="#FFAAB8C5" cursor="hand"  bordersize="1,1,1,1" />
+								<Button text="-" name="amountdescbtn" width="20" height="13" bkcolor="#FFFFFFFF" bordercolor="#FFAAB8C5" cursor="hand" bordersize="1,1,1,1" padding="0,-1,0,0"/>
+							</VerticalLayout>
+						</HorizontalLayout>
+					</VerticalLayout>
+					<VerticalLayout padding="0,5,0,0">
+						<HorizontalLayout height="24" padding="0,0,0,3"> 
+							<Combo name="czlbcomb" width="80" dropboxsize="80,600" itemtextpadding="2,5,0,0" textpadding="4,1,28,1" normalimage="res='image/TwoWayFastTrade/combo.png' source='0,0,161,20' corner='2,2,28,2'" dropbox="bordercolor=&quot;#FFBDCEE2&quot; bordersize=&quot;1,1,1,1&quot; width=&quot;80&quot; padding=&quot;2,0,0,0&quot; bkcolor=&quot;#FFFFFFFF&quot;">	
+							</Combo>
+						</HorizontalLayout>
+						<HorizontalLayout height="24"> 
+							<Button text="下单" name="xiadanbtn" width="80" font="6" textcolor="#FFFFFFFF" borderround="2,2,2,2" bkcolor="#FF189EFF"/>
+						</HorizontalLayout>
+					</VerticalLayout>
+				</HorizontalLayout>
+			</VerticalLayout>
+	</VerticalLayout>	
+</VerticalLayout>
+</Window>

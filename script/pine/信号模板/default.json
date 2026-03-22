@@ -1,0 +1,21 @@
+{
+    "variable": {
+        "股价": "close",
+        "涨跌幅": "zf",
+        "涨速": "zs",
+        "换手": "hs",
+        "成交额": "money",
+        "成交量": "daily_volume",
+        "量比": "lb",
+        "竞价金额": "auction_money",
+        "涨停板封单": "limit_up_money",
+        "跌停板封单": "limit_down_money",
+        "主力净额": "main_net_money",
+        "主力净量": "main_net_volume",
+        "均线": "ma",
+        "新高": "recordhigh"
+    },
+    "function": {
+        "止盈止损": "signal.tp_sl({0}, {1}, {2}, {3}, {4}), 输入冲高或下跌后生效"
+    }
+}

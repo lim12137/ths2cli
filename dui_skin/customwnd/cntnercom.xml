@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window size="400,400" sizebox="2,2,2,2" caption="0,0,0,32" >
+	<Font default="true" shared="true" name="微软雅黑" size="12" />
+	<Default name="DuiHwndCtrl" value="bkcolor=&quot;#FFFBFBFB&quot; " />
+	<Default name="VerticalLayout" value="bkcolor=&quot;#FFABB7C8&quot; sepimm=&quot;true&quot;" />
+	<Default name="HorizontalLayout" value="bkcolor=&quot;#FFABB7C8&quot; sepimm=&quot;true&quot;" />
+	<VerticalLayout >
+		<Include source="customwnd/caption.xml" />
+		<VerticalLayout name="client" >
+			<VerticalLayout name="defvl" >
+				<DuiHwndCtrl name="default" />
+			</VerticalLayout>
+		</VerticalLayout>
+	</VerticalLayout>
+</Window>

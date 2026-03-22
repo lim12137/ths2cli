@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window size="140,134" bordersize="1,1,1,1" bordercolor="#FF000000"> 
+	<Font id="13" name="宋体" size="13" default="true" color="#FF000000"/>
+
+	<VerticalLayout name="wndlayout" bkcolor="#FFF9F9F9">
+		<Control height="1" bkcolor="#FF4F687C"/>
+		 <HorizontalLayout>
+			<Control width="1" bkcolor="#FF4F687C"/>
+			<List name="listview">
+                <ListHeader>
+                  <ListHeaderItem width="22" />
+                  <ListHeaderItem width="117" />
+                </ListHeader>
+              </List>
+			 <Control width="1" bkcolor="#FF4F687C"/>
+		 </HorizontalLayout>
+		<Control height="1" bkcolor="#FF4F687C"/>
+    </VerticalLayout>
+
+</Window>

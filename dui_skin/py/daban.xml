@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window size="580,635" caption="0,0,0,25" mininfo="325, 185" sizebox="4,4,4,4" >
+	<Font id="0" name="微软雅黑" bold="true" />
+	
+	<Default name="Edit" value="height=&quot;23&quot; bordersize=&quot;1,1,1,1&quot; bordercolor=&quot;#FFAAAAAA&quot;" />
+	<Default name="CheckBox" value="padding=&quot;0,5,0,0&quot; height=&quot;13&quot; align=&quot;left&quot; textpadding=&quot;20,0,0,0&quot; normalimage=&quot;file=&apos;customwnd/image/untick.bmp&apos; corner=&apos;13,0,0,0&apos;&quot; selectedimage=&quot;file=&apos;customwnd/image/tick.bmp&apos;  corner=&apos;13,0,0,0&apos;&quot; " />
+	<Default name="Combo" value="scrollselect=&quot;false&quot; textpadding=&quot;5,0,19,0&quot; itemtextpadding=&quot;3,0,0,0&quot; itemvalign=&quot;vcenter&quot; bkcolor=&quot;#FFFFFFFF&quot; bordersize=&quot;1,1,1,1&quot; bordercolor=&quot;#FFAAAAAA&quot; itemhotbkcolor=&quot;#FFC7E5F3&quot; itemselectedbkcolor=&quot;#FFA0D9F1&quot; dropbox=&quot;bordersize=&quot;1,1,1,1&quot; bkcolor=&quot;#FFEBF3F6&quot; bordercolor=&quot;#FFAAAAAA&quot;&quot; normalimage=&quot;file='customwnd/image/cmb.png' source='63,0,83,20' corner='0,0,20,0'&quot; hotimage=&quot;file='customwnd/image/cmb.png' source='21,0,41,20' corner='0,0,20,0'&quot; pushedimage=&quot;file='customwnd/image/cmb.png' source='21,0,41,20' corner='0,0,20,0'&quot;" />
+	
+	<Style name="UnitStyleA" value="textcolor=&quot;#FF359EE8&quot; width=&quot;20&quot; " />
+	<Style name="UnitStyleB" value="padding=&quot;0,3,3,3&quot; textpadding=&quot;1,0,0,0&quot; width=&quot;17&quot; bordersize=&quot;1&quot; textcolor=&quot;#FF359EE8&quot; hottextcolor=&quot;#FFCC0000&quot; bordercolor=&quot;#FF359EE8&quot; hotbordercolor=&quot;#FFCC0000&quot; pushedbordercolor=&quot;#FFCC0000&quot; " />
+	<Style name="UnitStyleC" value="padding=&quot;0,3,3,3&quot; textpadding=&quot;1,0,0,0&quot; width=&quot;17&quot; bordersize=&quot;1&quot; textcolor=&quot;#FF95999C&quot; hottextcolor=&quot;#FFCC0000&quot; bordercolor=&quot;#FF95999C&quot; hotbordercolor=&quot;#FFCC0000&quot; pushedbordercolor=&quot;#FFCC0000&quot; " />
+	<Style name="UniqueCheckStyle" value="padding=&quot;0,3,0,0&quot; height=&quot;17&quot; align=&quot;left&quot; textpadding=&quot;20,0,0,0&quot; stateimage=&quot;res='image/TwoWayFastTrade/radio_normal.png' dest='0,0,17,17'&quot; statecount=&quot;2&quot; selectedstateimage=&quot;res='image/TwoWayFastTrade/radio_selected.png' dest='0,0,17,17'&quot; selectedstatecount=&quot;2&quot;" />
+
+	<VerticalLayout bkcolor="#FFAAB7C7" inset="2,2,2,2" bordersize="2,2,2,2" bordercolor="#FFC5D1E2">
+		<HorizontalLayout height="25" bkcolor="#FFCBDEF9" padding="0,0,0,1">
+			<Label name="title" text="打板" padding="5,0,0,0" textcolor="#FF359EE8" font="0" />
+			<Control />
+			<Button name="helpbtn" text="帮助" width="30" textcolor="#FF1A5BA2" hottextcolor="#FF4C83BF" pushedtextcolor="#FF64B7F2" />
+			<Button name="modebtn" text="小" tooltip="大/小模式切换" width="15" textcolor="#FF1A5BA2" hottextcolor="#FF4C83BF" pushedtextcolor="#FF64B7F2" />
+			<Button name="cfgbtn" text="设置" width="30" textcolor="#FF1A5BA2" hottextcolor="#FF4C83BF" pushedtextcolor="#FF64B7F2" />
+			<Button name="minbtn" tooltip="最小化" width="17" padding="2,4,4,4" bkimage="file=&apos;customwnd/image/min_nor.png&apos; " hotimage="file=&apos;customwnd/image/min_hot.png&apos;" pushedimage="file=&apos;customwnd/image/min_push.png&apos;" />
+			<Button name="closebtn" tooltip="关闭" width="17" padding="2,4,4,4" bkimage="file=&apos;customwnd/image/close_nor.png&apos; " hotimage="file=&apos;customwnd/image/close_hot.png&apos;" pushedimage="file=&apos;customwnd/image/close_push.png&apos;" />
+		</HorizontalLayout>
+		<VerticalLayout name="clientVL" bkcolor="#FFECF3F6" inset="20,15,20,10" childpadding="5" minmode="true" >
+			<HorizontalLayout height="23" childpadding="5" minmode="true" >
+				<Label text="资金账户" width="65" font="0" minmode="true" />
+				<Combo name="accountcmb" width="150" minmode="true" />
+				<Control />
+				<Button text="管理打板策略>>>" name="mgrbtn" width="120" textcolor="#FF1A5BA2" hottextcolor="#FF4C83BF" pushedtextcolor="#FF64B7F2" />
+			</HorizontalLayout>
+			<HorizontalLayout height="23" childpadding="5" minmode="true" >
+				<Label text="打板标的" width="65" font="0" minmode="true" />
+				<Edit name="stockedt" style="EdtStyle" width="127" tipvalue="请输入代码，支持沪深A股" numberonly="true" maxchar="6" minmode="true" />
+				<Button name="fillcodebtn" tooltip="填入当前行情中的代码" width="24" padding="-6,0,0,0" bkimage="file=&apos;py/image/follow_hq_code.png&apos; " hotimage="file=&apos;py/image/follow_hq_code_o.png&apos;" pushedimage="file=&apos;py/image/follow_hq_code_d.png&apos;" minmode="true" />
+			</HorizontalLayout>
+			<HorizontalLayout height="23" childpadding="5" minmode="true" >
+				<Label text="打板模板" width="65" font="0" minmode="true" />
+				<Button name="templatebtn1" text="1" style="UnitStyleC" minmode="true" />
+				<Button name="templatebtn2" text="2" style="UnitStyleC" minmode="true" />
+				<Button name="templatebtn3" text="3" style="UnitStyleC" minmode="true" />
+				<Label width="10" />
+				<Button name="savetemplatebtn" text="更新模板" width="60" borderround="6,6" minmode="true" textcolor="#FFFFFFFF" bkcolor="#FF349DE5" hotbkcolor="#FF34ACF0" pushedbkcolor="#FF1A69BB" />
+				<Control />
+			</HorizontalLayout>
+			<Control bkcolor="#FFAAAAAA" height="1" padding="0,5,0,0" />
+			<HorizontalLayout height="23" childpadding="5" >
+				<Label text="打板类型" width="50" font="0" />
+				<Label text="*到达涨停且满足条件即开始打板" textcolor="#FFAAAAAA" width="260" />
+				<Control />
+				<Combo name="unitcmb" width="70" >
+					<ListLabelElement text="按金额" selected="true" />
+					<ListLabelElement text="按手数" />
+				</Combo>
+			</HorizontalLayout>
+			<VerticalLayout inset="20,0,20,0" height="95" >
+				<HorizontalLayout height="23" childpadding="5" >
+					<Option text="扫板" name="sbchk" group="dbtype" width="50" selected="true" style="UniqueCheckStyle" />
+					<Option text="扫T字板" name="sbtchk" group="dbtype" style="UniqueCheckStyle" />
+				</HorizontalLayout>
+				<HorizontalLayout height="23" childpadding="5" padding="20" >
+					<CheckBox text="出现超过" name="sbchk1" width="73" />
+					<Edit name="sbedt1" style="EdtStyle" width="70" />
+					<Label name="sbunitlbl1" text="万" style="UnitStyleA" />
+					<Label text="以上的大单" width="65" />
+					<Control />
+					<CheckBox text="板上卖单小于" name="sbchk2" width="95" />
+					<Edit name="sbedt2" style="EdtStyle" width="70" />
+					<Label name="sbunitlbl2" text="万" style="UnitStyleA" />
+				</HorizontalLayout>
+				<HorizontalLayout height="23" childpadding="5" >
+					<Option text="排板" name="pbchk" group="dbtype" width="50" style="UniqueCheckStyle" />
+					<Option text="排T字板" name="pbtchk" group="dbtype" style="UniqueCheckStyle" />
+				</HorizontalLayout>
+				<HorizontalLayout height="23" childpadding="5" padding="20" >
+					<CheckBox text="出现超过" name="pbchk1" width="73" enabled="false" />
+					<Edit name="pbedt1" style="EdtStyle" width="70" enabled="false" />
+					<Label name="pbunitlbl1" text="万" style="UnitStyleA" />
+					<Label text="以上的大单" width="65" />
+					<Control />
+					<CheckBox text="板上封单大于" name="pbchk2" width="95" enabled="false" />
+					<Edit name="pbedt2" style="EdtStyle" width="70" enabled="false" />
+					<Label name="pbunitlbl2" text="万" style="UnitStyleA" />
+				</HorizontalLayout>
+			</VerticalLayout>
+			<Control bkcolor="#FFAAAAAA" height="1" padding="0,8,0,0" />
+			<HorizontalLayout height="23" childpadding="5" >
+				<Label text="自动撤单" width="50" font="0" />
+				<Label text="*可多选，勾选后满足任一条件即撤单" textcolor="#FFAAAAAA" />
+			</HorizontalLayout>
+			<VerticalLayout inset="20,0,20,0" childpadding="5" >
+				<HorizontalLayout height="23" childpadding="5" >
+					<CheckBox text="封单总量少于" name="cancelchk1" width="160" />
+					<Edit name="canceledt1" style="EdtStyle" width="70" />
+					<Button name="cancelunitbtn1" text="万" style="UnitStyleB" />
+				</HorizontalLayout>
+				<HorizontalLayout height="23" childpadding="5" >
+					<CheckBox text="队列前方单笔砸单超过" name="cancelchk2" width="160" />
+					<Edit name="canceledt2" style="EdtStyle" width="70" />
+					<Button name="cancelunitbtn2" text="万" style="UnitStyleB" />
+				</HorizontalLayout>
+				<HorizontalLayout height="23" childpadding="5" >
+					<CheckBox text="队列前方大笔撤单超过" name="cancelchk3" width="160" />
+					<Edit name="canceledt3" style="EdtStyle" width="70" />
+					<Button name="cancelunitbtn3" text="万" style="UnitStyleB" />
+					<Label text="*本条件仅深市股票有效" textcolor="#FFAAAAAA" />
+				</HorizontalLayout>
+			</VerticalLayout>
+			<Control bkcolor="#FFAAAAAA" height="1" />
+			<Label text="打板仓位*必填" font="0" />
+			<HorizontalLayout height="23" inset="20,0,20,0" childpadding="5" >
+				<Combo name="poscmb" width="85" >
+					<ListLabelElement text="金额" value="-m" unit="元" selected="true" />
+					<ListLabelElement text="数量" unit="股" />
+					<ListLabelElement text="可用仓位比例" value="-cw" unit="%" />
+					<ListLabelElement text="总仓位比例" value="-zzc" unit="%" />
+				</Combo>
+				<Edit name="posedt" style="EdtStyle" width="70" />
+				<Label name="posunitlbl" text="元" style="UnitStyleA"  />
+			</HorizontalLayout>
+			<Label text="打板时间" font="0" padding="0,15,0,0" />
+			<HorizontalLayout height="23" inset="20,0,20,0" childpadding="5" >
+				<Label text="起始时间" autocalcwidth="true" />
+				<Edit name="beginedt" text="09:25:00" style="EdtStyle" width="70" />
+				<Label text="截止时间" autocalcwidth="true" padding="30,0,0,0" />
+				<Edit name="endedt" text="14:57:00" style="EdtStyle" width="70" />
+			</HorizontalLayout>
+			<Control bkcolor="#FFAAAAAA" height="1" padding="0,8,0,0" />
+            <VerticalLayout height="35">
+                <HorizontalLayout height="34">
+                    <Label font="2" text="免责声明：投资有风险，入市需谨慎。最终成交价格及数量以交易所，登记结算机构记录为准。本功能不构成对您委托指令成交的承诺，也不构成取得收益或避免损失的承诺。" textcolor="#FF9D9D9D" rowheight="17" />
+                </HorizontalLayout>
+            </VerticalLayout>
+			<HorizontalLayout height="32" padding="0,10,0,0" minmode="true" >
+				<Control minmode="true" />
+				<Button text="重置" name="resetbtn" width="100" borderround="6,6" textcolor="#FFFFFFFF" bkcolor="#FF95999C" hotbkcolor="#FFB5BABE" pushedbkcolor="#FFB5BABE" minmode="true" />
+				<Control width="60" minmode="true" />
+				<Button text="创建" name="createbtn" width="100" borderround="6,6" textcolor="#FFFFFFFF" bkcolor="#FF349DE5" hotbkcolor="#FF34ACF0" pushedbkcolor="#FF1A69BB" minmode="true" />
+				<Control minmode="true" />
+			</HorizontalLayout>
+		</VerticalLayout>
+	</VerticalLayout>
+</Window>

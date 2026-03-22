@@ -1,0 +1,9 @@
+//@version=6
+indicator("自定义策略模板")
+
+// 参数
+A = input(1, "参数1")
+B = input(2, "参数2")
+
+// 使用alertcondition设置预警，condition为True时预警触发
+alertcondition(condition=A>B, title = "策略名称")

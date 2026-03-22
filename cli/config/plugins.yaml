@@ -1,0 +1,83 @@
+# 自动化交易插件配置
+
+plugins:
+  # 插件1: 移动平均线策略
+  - id: 'plugin_ma'
+    name: '移动平均线策略'
+    enabled: false
+    priority: 1
+    file: 'ma_strategy.js'
+    type: 'javascript'
+    config:
+      short_period: 5
+      long_period: 20
+      trade_amount: 10000
+    schedule:
+      check_interval: 60         # 检查间隔（秒）
+      trade_times:              # 交易时间窗口
+        - start: '09:30:00'
+          end: '11:30:00'
+        - start: '13:00:00'
+          end: '15:00:00'
+    performance:
+      backtest_days: 30
+      expected_win_rate: 0.55
+
+  # 插件2: Python 量化策略
+  - id: 'plugin_quant'
+    name: 'Python量化策略'
+    enabled: false
+    priority: 2
+    file: 'quant_strategy.py'
+    type: 'python'
+    config:
+      indicator: 'RSI'
+      rsi_threshold: 30
+      trade_amount: 15000
+      symbols:
+        - '600000'
+        - '000001'
+        - '600036'
+    schedule:
+      check_interval: 120
+    performance:
+      max_drawdown: 0.1
+
+  # 插件3: 网格交易策略
+  - id: 'plugin_grid'
+    name: '网格交易策略'
+    enabled: false
+    priority: 3
+    file: 'grid_strategy.js'
+    type: 'javascript'
+    config:
+      base_price: 10.00
+      grid_spacing: 0.10
+      grid_levels: 10
+      amount_per_level: 1000
+    schedule:
+      check_interval: 30
+    performance:
+      expected_profit: 0.05
+
+  # 插件4: 监控告警插件
+  - id: 'plugin_monitor'
+    name: '价格监控告警'
+    enabled: true
+    priority: 10
+    file: 'price_monitor.js'
+    type: 'javascript'
+    config:
+      watch_list:
+        - code: '600000'
+          name: '浦发银行'
+          high_threshold: 10.50
+          low_threshold: 9.50
+        - code: '000001'
+          name: '平安银行'
+          high_threshold: 15.00
+          low_threshold: 13.00
+    schedule:
+      check_interval: 300        # 5分钟检查一次
+    performance:
+      alert_only: true           # 仅告警，不交易

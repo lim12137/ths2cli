@@ -1,0 +1,34 @@
+# 环境配置
+
+# 全局配置
+global:
+  log_level: 'info'
+  check_interval: 5              # 规则和插件检查间隔（秒）
+  trade_time:
+    start: '09:30:00'
+    end: '15:00:00'
+  allow_empty: false            # 是否允许非交易时间交易
+
+# 开发环境
+development:
+  <<: *global
+  log_level: 'debug'
+  check_interval: 10
+  allow_empty: true
+
+# 测试环境
+test:
+  <<: *global
+  log_level: 'info'
+  check_interval: 5
+  allow_empty: true
+
+# 生产环境
+production:
+  <<: *global
+  log_level: 'info'
+  check_interval: 5
+  allow_empty: false
+
+# 当前激活的环境
+active_environment: 'development'

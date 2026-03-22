@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window >
+	<HorizontalLayout name="caption" height="25" bkcolor="#FFCBDEF9" bordercolor="#FFC5D1E2" inset="2,2,2,0" bordersize="2,2,2,0" visible="false">
+		<Edit name="title" autocalcwidth="true" textcolor="#FF359EE8" bkcolor="#00000000" bordersize="0,0,0,0" enabled="false" disabledtextcolor="#FF359EE8" />
+		<Control menu="true" />
+		<Button name="cfgbtn" tooltip="设置" width="17" padding="2,3,2,3" menu="false" bordersize="0,0,0,0" bkcolor="#00000000" bkimage="file=&apos;customwnd/image/cfg_nor.png&apos; " hotimage="file=&apos;customwnd/image/cfg_hot.png&apos;" pushedimage="file=&apos;customwnd/image/cfg_push.png&apos;" />
+		<Button name="minbtn" tooltip="最小化" width="17" padding="2,3,2,3" menu="false" bordersize="0,0,0,0" bkcolor="#00000000" bkimage="file=&apos;customwnd/image/min_nor.png&apos; " hotimage="file=&apos;customwnd/image/min_hot.png&apos;" pushedimage="file=&apos;customwnd/image/min_push.png&apos;" />
+		<Button name="maxbtn" tooltip="最大化" width="17" padding="2,3,2,3" menu="false" bordersize="0,0,0,0" bkcolor="#00000000" bkimage="file=&apos;customwnd/image/max_nor.png&apos; " hotimage="file=&apos;customwnd/image/max_hot.png&apos;" pushedimage="file=&apos;customwnd/image/max_push.png&apos;" />
+		<Button name="restorebtn" tooltip="还原" visible="false" width="17" menu="false" bordersize="0,0,0,0" bkcolor="#00000000" padding="2,3,2,3" bkimage="file=&apos;customwnd/image/rst_nor.png&apos; " hotimage="file=&apos;customwnd/image/rst_hot.png&apos;" pushedimage="file=&apos;customwnd/image/rst_push.png&apos;" />
+		<Button name="closebtn" tooltip="关闭" width="17" padding="2,3,4,3" menu="false" bordersize="0,0,0,0" bkcolor="#00000000" bkimage="file=&apos;customwnd/image/close_nor.png&apos; " hotimage="file=&apos;customwnd/image/close_hot.png&apos;" pushedimage="file=&apos;customwnd/image/close_push.png&apos;" />
+	</HorizontalLayout>
+</Window>

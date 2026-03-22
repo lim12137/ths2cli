@@ -1,0 +1,38 @@
+//@version=6
+indicator("均线对比")
+
+
+// 第一个input.option函数，控制第一个入参选择的均线或现价
+firstOption = input.string("MA5", title="比较值1", options=['MA5', 'MA10', 'MA20', 'MA30', "现价"], inline="1")
+
+// 第二个input.option函数，控制第二个入参是高于或低于
+comparisonType = input.string("高于", title="比较", options=["高于", "低于"], inline="1")
+
+// 第三个input.option函数，控制第二个入参选择的均线或现价
+secondOption = input.string("MA10", title="比较值2", options=['MA5', 'MA10', 'MA20', 'MA30', "现价"], inline="1")
+
+// 计算不同周期的均线
+ma5 = ta.sma(close, 5)
+ma10 = ta.sma(close, 10)
+ma20 = ta.sma(close, 20)
+ma30 = ta.sma(close, 30)
+
+// 根据用户选择的均线或现价来设置入参
+A = switch firstOption
+    "MA5" => ma5
+    "MA10" => ma10
+    "MA20" => ma20
+    "MA30" => ma30
+    "现价" => close
+
+B = switch secondOption
+    "MA5" => ma5
+    "MA10" => ma10
+    "MA20" => ma20
+    "MA30" => ma30
+    "现价" => close
+
+condition = comparisonType == "高于"? A>B:A<B
+
+// 设置预警条件
+alertcondition(condition, title="均线比较")

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window size="230,100" caption="0,0,0,25" >
+	<VerticalLayout bkcolor="#FFAAB7C7" inset="2,2,2,2" bordersize="2,2,2,2" bordercolor="#FFC5D1E2">
+		<HorizontalLayout height="25" bkcolor="#FFCBDEF9" padding="0,0,0,1">
+			<Label text="新建自定义组件" padding="5,0,0,0" textcolor="#FF359EE8" />
+			<Control />
+			<Button name="closebtn" tooltip="关闭" width="17" padding="2,4,4,4" bkimage="file=&apos;customwnd/image/close_nor.png&apos; " hotimage="file=&apos;customwnd/image/close_hot.png&apos;" pushedimage="file=&apos;customwnd/image/close_push.png&apos;" />
+		</HorizontalLayout>
+		<VerticalLayout bkcolor="#FFECF3F6" >
+			<HorizontalLayout padding="20,10,20,5" >
+				<Label text="请输入组件名：" />
+				<Edit name="nameedt" bordersize="1,1,1,1" bordercolor="#FF359EE8" />
+			</HorizontalLayout>
+			<HorizontalLayout padding="45,5,0,5" >
+				<Button name="yesbtn" text="确定" height="25" width="60" bordersize="1,1,1,1" bordercolor="#FFC4D1E1" borderround="2,2" textcolor="#FFFFFFFF" bkcolor="#FF349DE5" hotbkcolor="#FF34ACF0" pushedbkcolor="#FF1A69BB" />
+				<Button name="nobtn" text="取消" height="25" width="60" padding="20,0,0,0" bordersize="1,1,1,1" bordercolor="#FFC4D1E1" borderround="2,2" textcolor="#FFFFFFFF" bkcolor="#FF349DE5" hotbkcolor="#FF34ACF0" pushedbkcolor="#FF1A69BB" />
+			</HorizontalLayout>
+		</VerticalLayout>
+	</VerticalLayout>
+</Window>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window >
+	<!-- 动态参数页 -->
+	<Include source="py/default.xml" />
+	<VerticalLayout name="normalVL" bkcolor="#FF1B1B1B" width="200" childpadding="4" inset="9,4,15,4" >
+		<HorizontalLayout height="24" padding="0,10,0,0" >
+		 <Label text="策略名称：" textcolor="#FFB6B6B6" autocalcwidth="true" />
+		 <Edit name="p_name" enabled="false" />
+		</HorizontalLayout>
+		<HorizontalLayout height="24" >
+			<Label text="资金账户：" textcolor="#FFB6B6B6" autocalcwidth="true" />
+			<Combo name="p_zjzh" padding="2,0,0,0" />
+		</HorizontalLayout>
+		<HorizontalLayout height="24" childpadding="20" padding="0,10,0,0" >
+			<Control />
+			<Button name="p_stop" width="60" text="停止" borderround="4,4" bkcolor="#FFD22A00" textcolor="#FFF6F6F6" hotbkcolor="#FFBB2E0B" pushedbkcolor="#FFE20909" />
+			<Button name="p_run" width="60" text="运行" borderround="4,4" bkcolor="#FF3E93E2" textcolor="#FFF6F6F6" hotbkcolor="#FF3889D4" pushedbkcolor="#FF3D9FF8" />
+			<Control />
+		</HorizontalLayout>
+	</VerticalLayout>
+</Window>

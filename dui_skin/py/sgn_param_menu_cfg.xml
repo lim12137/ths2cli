@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+	<Default name="Menu" value="bordersize=&quot;1,1,1,1&quot; bordercolor=&quot;#FF339CE4&quot; bkcolor=&quot;#FFEBF3F6&quot; itemtextpadding=&quot;10,0,0,0&quot; itemselectedbkcolor=&quot;#FF86CEF6&quot; itemdisabledbkcolor=&quot;#00000000&quot;" />
+	<Default name="CheckBox" value="textpadding=&quot;30,0,0,0&quot; normalimage=&quot;file=&apos;py/image/untick_menu.png&apos;  corner=&apos;30,0,0,0&apos;&quot; selectedimage=&quot;file=&apos;py/image/tick_menu.png&apos;  corner=&apos;30,0,0,0&apos;&quot; " />
+  <Menu >
+		<MenuElement >
+			<CheckBox name="savestate" text="默认保存上次参数" />
+		</MenuElement>
+	</Menu>
+</Window>

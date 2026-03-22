@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同花顺适配器测试</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+        }
+
+        .status {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .status-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .status-label {
+            font-weight: bold;
+            width: 120px;
+            color: #495057;
+        }
+
+        .status-value {
+            flex: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .badge-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .badge-error {
+            background: #dc3545;
+            color: white;
+        }
+
+        .badge-warning {
+            background: #ffc107;
+            color: #212529;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .test-section {
+            margin-bottom: 30px;
+        }
+
+        .test-section h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .code-block {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .step {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background: #667eea;
+            color: white;
+            text-align: center;
+            line-height: 25px;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .warning-box h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .warning-box ul {
+            margin-left: 20px;
+            color: #856404;
+        }
+
+        .warning-box li {
+            margin: 5px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .result-box {
+            background: #e7f5ff;
+            border: 1px solid #74c0fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .result-box h3 {
+            color: #1864ab;
+            margin-bottom: 15px;
+        }
+
+        .result-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #a5d8ff;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            font-weight: bold;
+            color: #1864ab;
+            display: inline-block;
+            width: 150px;
+        }
+
+        .copy-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .copy-btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 同花顺适配器测试</h1>
+            <p>快速检测同花顺API是否可用</p>
+        </div>
+
+        <div class="status">
+            <div class="status-item">
+                <span class="status-label">同花顺进程:</span>
+                <span class="status-value">
+                    <span class="badge badge-success">✓ 运行中</span>
+                    <span style="margin-left: 10px; color: #666;">xiadan.exe (PID: 4624)</span>
+                </span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Python API:</span>
+                <span class="status-value">
+                    <span class="badge badge-success">✓ 已安装</span>
+                    <span style="margin-left: 10px; color: #666;">ths_api</span>
+                </span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">当前时间:</span>
+                <span class="status-value" id="currentTime">--</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">交易状态:</span>
+                <span class="status-value">
+                    <span class="badge badge-warning" id="tradingStatus">检查中...</span>
+                </span>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="test-section">
+                <h2>📝 快速测试步骤</h2>
+
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>打开同花顺策略平台</strong>
+                    <p style="margin-left: 35px; margin-top: 8px; color: #666;">
+                        在同花顺客户端中，按 <code>Ctrl + T</code> 或点击菜单：<code>工具 → 策略交易平台</code>
+                    </p>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>创建测试策略</strong>
+                    <p style="margin-left: 35px; margin-top: 8px; color: #666;">
+                        点击"新建策略"，复制以下代码粘贴到编辑器中
+                    </p>
+                </div>
+
+                <div class="code-block">
+from ths_api import *
+api = hq.ths_hq_api()
+quote = api.get_quote('600000')
+print('浦发银行价格:', quote['600000']['price'])
+print('涨幅:', round(quote['600000']['zf']*100, 2), '%')
+import xiadan as xd
+print('总资产:', xd.g_money['zzc'])
+print('持仓数:', len(xd.g_position))
+print('✓ 测试完成！')
+                    <button class="copy-btn" onclick="copyCode()">复制代码</button>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>运行测试</strong>
+                    <p style="margin-left: 35px; margin-top: 8px; color: #666;">
+                        点击"运行"按钮，查看输出结果
+                    </p>
+                </div>
+
+                <div class="result-box">
+                    <h3>🎯 预期结果</h3>
+                    <div class="result-item">
+                        <span class="result-label">浦发银行价格:</span>
+                        <span>XX.XX 元</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">涨幅:</span>
+                        <span>X.XX %</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">总资产:</span>
+                        <span>XXXXX.XX 元</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">持仓数:</span>
+                        <span>X 个股票</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">状态:</span>
+                        <span style="color: #28a745; font-weight: bold;">✓ 测试完成！</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="test-section">
+                <h2>⚠️ 安全提示</h2>
+                <div class="warning-box">
+                    <h3>重要提醒</h3>
+                    <ul>
+                        <li><strong>先在模拟账户测试！</strong>不要直接使用真实资金</li>
+                        <li>测试时使用小金额，避免大额交易</li>
+                        <li>设置好风险控制参数（止损、止盈）</li>
+                        <li>记录所有操作，便于事后分析</li>
+                        <li>建议在交易时间（9:30-15:00）测试，功能最全</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="test-section">
+                <h2>🔧 故障排查</h2>
+
+                <div style="margin-top: 15px;">
+                    <strong>如果出现 "No module named 'ths_api'"：</strong>
+                    <p style="color: #666; margin: 5px 0;">→ API路径问题，检查Python环境配置</p>
+                </div>
+
+                <div style="margin-top: 15px;">
+                    <strong>如果出现 "无法连接行情服务器"：</strong>
+                    <p style="color: #666; margin: 5px 0;">→ 网络连接问题，检查网络设置</p>
+                </div>
+
+                <div style="margin-top: 15px;">
+                    <strong>如果出现 "KeyError" 或数据为空：</strong>
+                    <p style="color: #666; margin: 5px 0;">→ 可能是非交易时间，行情数据未更新</p>
+                </div>
+
+                <div style="margin-top: 15px;">
+                    <strong>如果资金/持仓数据异常：</strong>
+                    <p style="color: #666; margin: 5px 0;">→ 检查是否已登录交易账户</p>
+                </div>
+            </div>
+
+            <div class="test-section">
+                <h2>📚 相关文档</h2>
+                <div>
+                    <button class="btn" onclick="location.href='../src/adapters/desktop/10jqka/README.md'">查看完整文档</button>
+                    <button class="btn btn-secondary" onclick="location.href='script/README_TEST.md'">测试指南</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 更新当前时间
+        function updateTime() {
+            const now = new Date();
+            const timeStr = now.toLocaleString('zh-CN', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
+            document.getElementById('currentTime').textContent = timeStr;
+
+            // 检查是否在交易时间
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            const day = now.getDay();
+            const time = hour * 60 + minute;
+
+            const statusBadge = document.getElementById('tradingStatus');
+
+            // 周末
+            if (day === 0 || day === 6) {
+                statusBadge.className = 'badge badge-warning';
+                statusBadge.textContent = '周末休市';
+            }
+            // 交易时间 9:30-15:00
+            else if (time >= 9 * 60 + 30 && time < 15 * 60) {
+                statusBadge.className = 'badge badge-success';
+                statusBadge.textContent = '✓ 交易中';
+            }
+            // 非交易时间
+            else {
+                statusBadge.className = 'badge badge-error';
+                statusBadge.textContent = '休市';
+            }
+        }
+
+        // 复制代码
+        function copyCode() {
+            const code = `from ths_api import *
+api = hq.ths_hq_api()
+quote = api.get_quote('600000')
+print('浦发银行价格:', quote['600000']['price'])
+print('涨幅:', round(quote['600000']['zf']*100, 2), '%')
+import xiadan as xd
+print('总资产:', xd.g_money['zzc'])
+print('持仓数:', len(xd.g_position))
+print('✓ 测试完成！')`;
+
+            navigator.clipboard.writeText(code).then(() => {
+                alert('代码已复制到剪贴板！');
+            }).catch(err => {
+                // 如果不支持clipboard API，使用传统方法
+                const textArea = document.createElement('textarea');
+                textArea.value = code;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('代码已复制到剪贴板！');
+            });
+        }
+
+        // 初始化
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>

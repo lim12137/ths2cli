@@ -1,0 +1,103 @@
+# 自动化交易规则配置
+
+rules:
+  # 规则1: 价格条件买入
+  - id: 'rule_001'
+    name: '浦发银行价格买入'
+    enabled: true
+    priority: 1
+    condition:
+      type: 'price'
+      code: '600000'
+      operator: '<'
+      value: 9.80
+      volume_check: true
+    action:
+      type: 'buy'
+      amount_type: 'money'
+      amount: 10000
+      price_type: 'market'
+    constraints:
+      max_execution: 3
+      cooldown_seconds: 300
+      position_limit: 0.2
+
+  # 规则2: 时间段卖出
+  - id: 'rule_002'
+    name: '尾盘卖出'
+    enabled: true
+    priority: 2
+    condition:
+      type: 'composite'
+      operator: 'AND'
+      conditions:
+        - type: 'price'
+          code: '600000'
+          operator: '>'
+          value: 10.00
+        - type: 'time'
+          start: '14:30:00'
+          end: '15:00:00'
+    action:
+      type: 'sell'
+      amount_type: 'ratio'
+      ratio: 0.5
+      price_type: 'market'
+    constraints:
+      max_execution: 1
+      cooldown_seconds: 60
+
+  # 规则3: 价格止损
+  - id: 'rule_003'
+    name: '浦发银行止损'
+    enabled: false
+    priority: 3
+    condition:
+      type: 'price'
+      code: '600000'
+      operator: '<='
+      value: 9.50
+      volume_check: true
+    action:
+      type: 'sell'
+      amount_type: 'fixed'
+      amount: 100
+      price_type: 'opponent1'
+    constraints:
+      max_execution: 2
+      cooldown_seconds: 600
+
+  # 规则4: 外部信号示例（未启用）
+  - id: 'rule_004'
+    name: '外部信号交易'
+    enabled: false
+    priority: 4
+    condition:
+      type: 'external'
+      source: 'http://localhost:3000/signal'
+    action:
+      type: 'buy'
+      amount_type: 'money'
+      amount: 5000
+      price_type: 'limit'
+      price: 9.85
+    constraints:
+      max_execution: 10
+      cooldown_seconds: 120
+
+# 安全配置
+safety:
+  funds:
+    max_single_trade: 50000      # 单笔交易最大金额（元）
+    max_daily_trade: 200000      # 单日交易最大金额（元）
+    min_reserve: 10000           # 最小保留资金（元）
+
+  position:
+    max_single_stock: 0.3        # 单只股票最大仓位（30%）
+    max_total_position: 0.8      # 总仓位上限（80%）
+
+  circuit_breaker:
+    enabled: true                # 启用熔断机制
+    max_consecutive_losses: 3    # 最大连续亏损次数
+    cooldown_minutes: 30         # 熔断冷却时间（分钟）
+    notify_on_trigger: true      # 触发时通知

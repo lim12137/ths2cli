@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window size="480,695" caption="0,0,0,25" >
+	<Font id="0" name="微软雅黑" bold="true" />
+	<Font id="1" name="微软雅黑" size="10" color="#FF95999C"/>
+    <Font id="2" name="微软雅黑" size="11.5"/>
+	
+	<Default name="Edit" value="height=&quot;23&quot; bordersize=&quot;1,1,1,1&quot; bordercolor=&quot;#FFAAAAAA&quot;" />
+	<Default name="CheckBox" value="padding=&quot;0,5,0,0&quot; height=&quot;13&quot; align=&quot;left&quot; textpadding=&quot;20,0,0,0&quot; normalimage=&quot;file=&apos;customwnd/image/untick.bmp&apos; corner=&apos;13,0,0,0&apos;&quot; selectedimage=&quot;file=&apos;customwnd/image/tick.bmp&apos;  corner=&apos;13,0,0,0&apos;&quot; " />
+	<Default name="Combo" value="scrollselect=&quot;false&quot; textpadding=&quot;5,0,19,0&quot; itemtextpadding=&quot;3,0,0,0&quot; itemvalign=&quot;vcenter&quot; bkcolor=&quot;#FFFFFFFF&quot; bordersize=&quot;1,1,1,1&quot; bordercolor=&quot;#FFAAAAAA&quot; itemhotbkcolor=&quot;#FFC7E5F3&quot; itemselectedbkcolor=&quot;#FFA0D9F1&quot; dropbox=&quot;bordersize=&quot;1,1,1,1&quot; bkcolor=&quot;#FFEBF3F6&quot; bordercolor=&quot;#FFAAAAAA&quot;&quot; normalimage=&quot;file='customwnd/image/cmb.png' source='63,0,83,20' corner='0,0,20,0'&quot; hotimage=&quot;file='customwnd/image/cmb.png' source='21,0,41,20' corner='0,0,20,0'&quot; pushedimage=&quot;file='customwnd/image/cmb.png' source='21,0,41,20' corner='0,0,20,0'&quot;" />
+	
+	<Style name="UnitStyleA" value="textcolor=&quot;#FF359EE8&quot; width=&quot;20&quot; " />
+	<Style name="UnitStyleB" value="padding=&quot;0,3,0,3&quot; textpadding=&quot;1,0,0,0&quot; width=&quot;15&quot; bordersize=&quot;1&quot; textcolor=&quot;#FF359EE8&quot; hottextcolor=&quot;#FFCC0000&quot; bordercolor=&quot;#FF359EE8&quot; hotbordercolor=&quot;#FFCC0000&quot; pushedbordercolor=&quot;#FFCC0000&quot; " />
+	<Style name="UnitStyleC" value="textcolor=&quot;#FF000000&quot; bkcolor=&quot;#FFFFFFFF&quot; hotbkcolor=&quot;#FFFFFFFF&quot; bordercolor=&quot;#FFAAAAAA&quot; hotbordercolor=&quot;#FF2B99CF&quot; forecolor=&quot;##FFF3F3F3&quot; " />
+	<Style name="UnitStyleD" value="textcolor=&quot;#FFFFFFFF&quot; bkcolor=&quot;#FF349DE5&quot; hotbkcolor=&quot;#FF34ACF0&quot; " />
+
+  <Style name="UniqueCheckStyle" value="padding=&quot;0,3,0,0&quot; height=&quot;17&quot; align=&quot;left&quot; textpadding=&quot;20,0,0,0&quot; stateimage=&quot;res='image/TwoWayFastTrade/radio_normal.png' dest='0,0,17,17'&quot; statecount=&quot;2&quot; selectedstateimage=&quot;res='image/TwoWayFastTrade/radio_selected.png' dest='0,0,17,17'&quot; selectedstatecount=&quot;2&quot;" />
+
+	<Style name="mairu" value="text=&quot;买入&quot; "/>
+	<Style name="after" value="text=&quot; 后&quot; "/>
+	<Style name="maichu" value="text=&quot;卖出&quot; "/>
+	<Style name="null" value="text=&quot;&quot; "/>
+  
+	<VerticalLayout bkcolor="#FFAAB7C7" inset="2,2,2,2" bordersize="2,2,2,2" bordercolor="#FFC5D1E2">
+    <HorizontalLayout name = "gridtitle" height="25" bkcolor="#FFCBDEF9" padding="0,0,0,1">
+      <Label name="title" text="网格交易" padding="5,0,0,0" textcolor="#FF359EE8" font="0" />
+			<Control />
+            <Button name="helpbtn" text="帮助" width="30" textcolor="#FF1A5BA2" hottextcolor="#FF4C83BF" pushedtextcolor="#FF64B7F2" />
+			<Button name="cfgbtn" text="设置" width="30" textcolor="#FF1A5BA2" hottextcolor="#FF4C83BF" pushedtextcolor="#FF64B7F2" />
+			<Button name="minbtn" tooltip="最小化" width="17" padding="2,4,4,4" bkimage="file=&apos;customwnd/image/min_nor.png&apos; " hotimage="file=&apos;customwnd/image/min_hot.png&apos;" pushedimage="file=&apos;customwnd/image/min_push.png&apos;" />
+			<Button name="closebtn" tooltip="关闭" width="17" padding="2,4,4,4" bkimage="file=&apos;customwnd/image/close_nor.png&apos; " hotimage="file=&apos;customwnd/image/close_hot.png&apos;" pushedimage="file=&apos;customwnd/image/close_push.png&apos;" />
+    </HorizontalLayout>
+	<VerticalLayout bkcolor="#FFECF3F6" inset="20,15,20,10" childpadding="5" >
+		<HorizontalLayout height="23" childpadding="5">
+			<Label text="资金账户" width="65" font="0" />
+				<Combo name="accountcmb" width="140" />
+				<Control />
+				<Button text="管理网格策略>>>" name="mgrbtn" width="120" textcolor="#FF1A5BA2" hottextcolor="#FF4C83BF" pushedtextcolor="#FF64B7F2" />
+		</HorizontalLayout>
+		<Control bkcolor="#FFAAAAAA" height="1" padding="0,8,0,0" />
+		<HorizontalLayout height="23" childpadding="5" >
+			<Label text="证券代码" width="65" font="0" />
+			<Edit name="stockedt" keydown="true" style="EdtStyle" width="117" tipvalue="请输入股票代码" numberonly="true" maxchar="6" />
+			<Button name="fillcodebtn" tooltip="填入当前行情中的代码" width="23" padding="-6,0,0,0" bkimage="file=&apos;py/image/follow_hq_code.png&apos; " hotimage="file=&apos;py/image/follow_hq_code_o.png&apos;" pushedimage="file=&apos;py/image/follow_hq_code_d.png&apos;"/>
+			<Label width="11"/>
+			<Label text="可买:" width="40" />
+			<Label text="0" name="artlbl1" width="65"/>
+			<Label text="持仓:" width="40" />
+			<Label text="0" name="artlbl2" width="65"/>
+		</HorizontalLayout>              
+		<HorizontalLayout height="23" childpadding="5" >
+			<Label text="当前价:" width="40" />
+			<Label text="0.00" name="artlbl3" width="65"/>
+			<Label text="涨跌幅:" width="40" />
+			<Label text="0.00%" name="artlbl4" width="65"/>
+			<Label text="涨停价:" width="40" />
+			<Label text="0.00" name="artlbl5" width="65"/>
+			<Label text="跌停价:" width="40" />
+			<Label text="0.00" name="artlbl6" width="65"/>
+		</HorizontalLayout>
+		<Control bkcolor="#FFAAAAAA" height="1" padding="0,8,0,0" />      
+		<HorizontalLayout height="23" childpadding="5" >
+			<Label text="触发条件" width="65" font="0" />
+		</HorizontalLayout>
+		<VerticalLayout inset="10,0,0,0" height="165" childpadding="5">
+			<HorizontalLayout height="23" childpadding="5" >
+				<Label text="价格区间" width="65"/>
+				<Edit name="lowprice" keydown="true" style="EdtStyle" width="95" tipvalue="价格下限" />
+				<Label text="元" width="55"/>
+				<Label text="至" width="29" />
+				<Control />
+				<Edit name="highprice" keydown="true" style="EdtStyle" width="95" tipvalue="价格上限" />
+				<Label text="元" width="20"/>
+				<Control />
+			</HorizontalLayout>
+			<HorizontalLayout height="23" childpadding="5" >
+				<Label text="启动价格" width="65" />
+				<Combo name="excmb" width="95" >
+					<ListLabelElement text="自定义输入"  selected="true" />	
+					<ListLabelElement text="当前价格" />
+					<ListLabelElement text="持仓成本价" />
+				</Combo>
+				<Edit name="exedt" keydown="true" float="true" pos="71,1,0,0" bordercolor="#FFFFFFFF" textcolor="#FF000000" tipvalue="自定义输入" style="EdtStyle" width="80" height="21"/>
+			</HorizontalLayout>
+			<HorizontalLayout height="23" childpadding="5">
+				<Label text="网格区间" width="65" />
+				<Option text="按百分比" name="intervalopt1" group="wgtype" width="70" selected="true" style="UniqueCheckStyle" />
+				<Option text="按价格" name="intervalopt2" group="wgtype" width="80" style="UniqueCheckStyle" />
+			</HorizontalLayout>
+			<HorizontalLayout height="23" childpadding="5">
+				<Label text="股价上涨" width="65" />
+				<Edit name="sellprice1" keydown="true" style="EdtStyle" width="95" tipvalue="" />
+				<Label text="%" name="changelbl1" width="15" />
+				<Label name="nochecksell" value="maichu" width="25" />
+				<Control />
+				<CheckBox text="回落" name="sellchk" width="55" />
+				<Edit name="sellprice2" keydown="true" style="EdtStyle" width="95" tipvalue="" enabled="false"/>
+				<Label text="%" name="changelbl2" width="13"/>
+				<Label name="checkedlbl1" value="null" width="27"/>
+			</HorizontalLayout>
+			<HorizontalLayout height="10" childpadding="5">
+				<Label text = "" width="65" />
+				<Label name = "rate2pricelbl1" text="" width="105" font="1"/>
+				<Control />
+				<Label name = "rate2pricelbl2" text = "" width="105" font="1"/>
+			</HorizontalLayout>
+			<HorizontalLayout height="23" childpadding="5">
+				<Label text="股价下跌" width="65" />
+				<Edit name="buyprice1" keydown="true" style="EdtStyle" width="95" tipvalue="" />
+				<Label text="%" name="changelbl3" width="15" />
+				<Label name="nocheckbuy" value="mairu" width="25" />
+				<Control />
+				<CheckBox text="反弹" name="buychk" width="55" />
+				<Edit name="buyprice2" keydown="true" style="EdtStyle" width="95" tipvalue="" enabled="false"/>
+				<Label text="%" name="changelbl4" width="13"/>
+				<Label name="checkedlbl2" value="null" width="27"/>
+			</HorizontalLayout>
+			<HorizontalLayout height="10" childpadding="5">
+				<Label text = "" width="65" />
+				<Label name = "rate2pricelbl3" text="" width="105" font="1"/>
+				<Control />
+				<Label name = "rate2pricelbl4" text = "" width="105" font="1"/>
+			</HorizontalLayout>
+			</VerticalLayout>
+		<Control bkcolor="#FFAAAAAA" height="1" padding="0,2,0,0" />      
+		<HorizontalLayout height="23">
+			<Label text="委托设置" width="65" font="0" />
+		</HorizontalLayout>
+		<VerticalLayout inset="10,0,10,0" childpadding="5" height="110">
+			<HorizontalLayout height="23">
+				<Label text="买入价格" width="65"/>
+				<Combo name="pricecmb1" width="95" padding="5" >
+					<ListLabelElement text="卖一价" value="mcj1" selected="true" />
+					<ListLabelElement text="卖二价" value="mcj2" />
+					<ListLabelElement text="卖三价" value="mcj3" />
+					<ListLabelElement text="卖四价" value="mcj4" />
+					<ListLabelElement text="卖五价" value="mcj5" />
+					<ListLabelElement text="买一价" value="mrj1" />
+					<ListLabelElement text="买二价" value="mrj2" />
+					<ListLabelElement text="买三价" value="mrj3" />
+					<ListLabelElement text="买四价" value="mrj4" />
+					<ListLabelElement text="买五价" value="mrj5" />
+				</Combo>			
+				<Label width="55"/>
+				<Label text="买价浮动" width="65" />
+				<Edit name="floatedt1" keydown="true" style="EdtStyle" width="79" tipvalue="选填" />
+				<Label bkcolor="#FFFFFFFF" float="true" pos="360,1,0,0" width="10" height="21" />
+				<VerticalLayout width="16" bkcolor="#FFFFFFFF" inset="3,0,0,0" bordersize="0,1,1,1" bordercolor="#FFAAAAAA" >
+					<Control/>
+					<Button name="upbuyprice"  height="8" width="10" bkimage="file=&apos;py/image/三角_上 copy.png&apos;" hotimage="file=&apos;py/image/三角_上 悬停.png&apos;" pushedimage="file=&apos;py/image/三角_上按下.png&apos;" />
+					<Button name="lowbuyprice" height="8" width="10" bkimage="file=&apos;py/image/三角_下 copy.png&apos;" hotimage="file=&apos;py/image/三角_下 悬停.png&apos;" pushedimage="file=&apos;py/image/三角_下按下.png&apos;" />
+					<Control/>
+				</VerticalLayout>
+				<Label text="" width="5" />
+				<Button name="floatchange1" text="元" width="20" bordersize="1,1,1,1" borderround="3,3" style="UnitStyleC" />
+			</HorizontalLayout>
+			<HorizontalLayout height="23">
+				<Label text="卖出价格" width="65"/>
+				<Combo name="pricecmb2" width="95" padding="5">
+					<ListLabelElement text="买一价" value="mrj1" selected="true" />
+					<ListLabelElement text="买二价" value="mrj2" />
+					<ListLabelElement text="买三价" value="mrj3" />
+					<ListLabelElement text="买四价" value="mrj4" />
+					<ListLabelElement text="买五价" value="mrj5" />
+					<ListLabelElement text="卖一价" value="mcj1" />
+					<ListLabelElement text="卖二价" value="mcj2" />
+					<ListLabelElement text="卖三价" value="mcj3" />
+					<ListLabelElement text="卖四价" value="mcj4" />
+					<ListLabelElement text="卖五价" value="mcj5" />
+				</Combo>				
+				<Label width="55"/>
+				<Label text="卖价浮动" width="65" />
+				<Edit name="floatedt2" keydown="true" style="EdtStyle" width="79" tipvalue="选填" />
+				<Label bkcolor="#FFFFFFFF" float="true" pos="360,1,0,0" width="10" height="21" />
+				<VerticalLayout width="16" bkcolor="#FFFFFFFF" inset="3,0,0,0" bordersize="0,1,1,1" bordercolor="#FFAAAAAA" >
+					<Control/>
+					<Button name="upsellprice" height="8" width="10" bkimage="file=&apos;py/image/三角_上 copy.png&apos;" hotimage="file=&apos;py/image/三角_上 悬停.png&apos;" pushedimage="file=&apos;py/image/三角_上按下.png&apos;" />
+					<Button name="lowsellprice" height="8" width="10" bkimage="file=&apos;py/image/三角_下 copy.png&apos;" hotimage="file=&apos;py/image/三角_下 悬停.png&apos;" pushedimage="file=&apos;py/image/三角_下按下.png&apos;" />
+					<Control/>
+				</VerticalLayout>
+				<Label text="" width="5" />
+				<Button name="floatchange2" text="元" width="20" bordersize="1,1,1,1" borderround="3,3" style="UnitStyleC" />
+			</HorizontalLayout>
+			<HorizontalLayout height="23" childpadding="5">
+				<Label text="委托类型" width="60"/>
+				<Option text="按数量" name="wtlxopt1" group="gridtype" width="60" selected="true" style="UniqueCheckStyle" />
+				<Option text="按金额" name="wtlxopt2" group="gridtype" width="60" style="UniqueCheckStyle" />
+				<Control />
+				<Label text="最大持仓" width="60" />
+				<Edit name="maxamount" keydown="true" style="EdtStyle" width="95" tipvalue="选填" numberonly="true"/>
+				<Label name="amountlbl1" padding="3" text="股" width="28"/>
+			</HorizontalLayout>
+			<HorizontalLayout height="23" childpadding="5">
+				<Label text="每笔委托" width="65"/>
+				<Edit name="amountedt" keydown="true" style="EdtStyle" width="95" tipvalue=""/>
+				<Label text="股" width="29" name="amountlbl"/>
+				<Control />
+				<Label text="最小持仓" width="60" />
+				<Edit name="minamount" keydown="true" style="EdtStyle" width="95" tipvalue="选填" numberonly="true"/>
+				<Label name="amountlbl2" padding="3" text="股" width="28"/>
+			</HorizontalLayout>
+		</VerticalLayout>
+		<Control bkcolor="#FFAAAAAA" height="1" padding="0,8,0,0" />
+		<HorizontalLayout height="23" childpadding="5" >
+			<Label text="执行时间" width="65" font="0" />
+		</HorizontalLayout>
+		<VerticalLayout inset="10,0,20,0" childpadding="5" height="23">
+			<HorizontalLayout height="23" childpadding="5">
+				<Label text="策略有效期" width="65" />
+				<DateTime name="validdate" textpadding="4,0,0,0" bordersize="1,1,1,1" bordercolor="#FFAAAAAA" width="80" bkcolor="#FFFFFFFF" />
+				<Control />
+				<Button text="5日" name="validdatebtn1" width="30" bordersize="1,1,1,1" borderround="3,3" style="UnitStyleC" />
+				<Label text="" width="10" />
+				<Button text="20日" name="validdatebtn2" width="30" bordersize="1,1,1,1" borderround="3,3" style="UnitStyleC" />
+				<Label text="" width="10" />
+				<Button text="60日" name="validdatebtn3" width="30" bordersize="1,1,1,1" borderround="3,3" style="UnitStyleC" />					
+				<Label text="" width="10" />
+				<Button text="长期有效" name="validdatebtn4" width="50" bordersize="1,1,1,1" borderround="3,3" style="UnitStyleC" />
+			</HorizontalLayout>
+		</VerticalLayout>
+        <Control bkcolor="#FFAAAAAA" height="1" padding="0,8,0,0" />
+        <VerticalLayout height="35" childpadding="2">
+            <HorizontalLayout height="34">
+                <Label font="2" text="免责声明：投资有风险，入市需谨慎。最终成交价格及数量以交易所，登记结算机构记录为准。本功能不构成对您委托指令成交的承诺，也不构成取得收益或避免损失的承诺。" textcolor="#FF9D9D9D" rowheight="17" />
+                <Button float="true" name="showdisclaimer" height="15" width="15" pos="415,17,0,0" bkimage="file=&apos;py/image/说明-1.png&apos;" hotimage="file=&apos;py/image/说明-2.png&apos;" pushedimage="file=&apos;py/image/说明-2.png&apos;"/>
+            </HorizontalLayout>
+        </VerticalLayout>
+        <HorizontalLayout height="32" inset="80,0,80,0" padding="0,10,0,0" >
+			<Button text="重置" name="resetbtn" width="80" borderround="6,6"  textcolor="#FF9D9D9D" bkcolor="#FFDADADA" hotbkcolor="#FFB5BABE" pushedbkcolor="#FFB5BABE" />
+			<Control />
+			<Button text="创建" name="createbtn" width="80" borderround="6,6"  textcolor="#FFFFFFFF" bkcolor="#FF349DE5" hotbkcolor="#FF34ACF0" pushedbkcolor="#FF1A69BB" />
+        </HorizontalLayout>
+    </VerticalLayout>
+	</VerticalLayout>
+</Window>

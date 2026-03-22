@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window name="dlgWndTwoWaySet" size="435,705" mininfo="300,200" caption="0,0,0,32" layered="true"> <!-- 窗口的初始尺寸(宽400，高600)、标题栏拖拽区域(高32)、可拖拽边框大小(这里添加sizebox后就可以拖拽边框调整大小了) -->
+	
+	<Font shared="true" id="13" name="宋体" size="13" bold="false"/>
+	<Style name="option_style" value="cursor=&quot;hand&quot; align=&quot;left&quot; valign=&quot;vcenter&quot;  textcolor=&quot;#FFAFADAD&quot; textpadding=&quot;20,0,6,0&quot;"/>
+	<Style name="cb_style" shared="true" value="style=&quot;option_style&quot; height=&quot;15&quot; normalimage=&quot;res='image/TwoWayFastTrade/cb_normal.png' dest='0,0,16.16'&quot; hotimage=&quot;res='image/TwoWayFastTrade/cb_hot.png' dest='0,0,16.16'&quot; pushedimage=&quot;res='image/TwoWayFastTrade/cb_pushed.png' dest='0,0,16.16'&quot; selectedimage=&quot;res='image/TwoWayFastTrade/cb_selected.png' dest='0,0,16,16'&quot;" />
+	<Style name="group_style" shared="true" value="bkcolor=&quot;#FFFFFFFF&quot; textcolor=&quot;#FF1F79FF&quot; bordercolor=&quot;#FFBDCEE2&quot; bordersize=&quot;1&quot; borderround=&quot;2,2&quot;"/>
+    <Style name="edit_style" value="width=&quot;45&quot; height=&quot;18&quot; textcolor&quot;#FFFFFFFF&quot; textpadding=&quot;6,6,6,6&quot; bkcolor=&quot;#FFFFFFFF&quot; bkimage=&quot;res='common/edit_bk.png' corner='6,6,6,6'&quot; bordercolor=&quot;#FFBDCEE2&quot; bordersize=&quot;1,1,1,1&quot;"/>
+	<Style name="btn_style" value="drag=&quot;false&quot; height=&quot;30&quot; textpadding=&quot;6,0,6,0&quot; normalimage=&quot;res='image/TwoWayFastTrade/ft_dmdm_maichu_nor.BMP' corner='4,4,4,4'&quot; hotimage=&quot;res='image/TwoWayFastTrade/ft_dmdm_maichu_over.BMP' corner='4,4,4,4'&quot; pushedimage=&quot;res='image/TwoWayFastTrade/ft_dmdm_maichu_down.BMP' corner='4,4,4,4'&quot; focusedimage=&quot;res='image/TwoWayFastTrade/ft_dmdm_maichu_over.BMP' corner='4,4,4,4'&quot;  "  />
+	<Style name="radio_style" shared="true" value="stateimage=&quot;res='image/TwoWayFastTrade/radio_normal.png' dest='0,0,17,17'&quot; statecount=&quot;2&quot; selectedstateimage=&quot;res='image/TwoWayFastTrade/radio_selected.png' dest='0,0,17,17'&quot; selectedstatecount=&quot;2&quot;" />
+	<Style name="combo_style" value="height=&quot;20&quot; textcolor=&quot;#FF333435&quot; itemvalign=&quot;vcenter&quot; textpadding=&quot;2,1,2,1&quot; normalimage=&quot;res='image/TwoWayFastTrade/combo.png' source='0,0,161,21' corner='2,2,28,2'&quot;"/>
+	<Style name="kjkeyedit_style" value="readonly=&quot;true&quot; bordercolor=&quot;#FFAAB8C5&quot; bordersize=&quot;1,1,1,1&quot; height=&quot;20&quot; width=&quot;100&quot; tipvalue=&quot;       无&quot;"/>
+
+	<VerticalLayout name="uimain" bkcolor="#FFF9F9F9" bordersize="1,1,1,1" bordercolor="#FFAAB8C5"> <!-- 整个窗口的背景色 -->
+        <!-- 标题栏区 -->
+        <HorizontalLayout name="syssettitle" height="32" bkimage="image/TwoWayFastTrade/title.png" bordersize="1,1,1,1" bordercolor="#FFAAB8C5" padding="0,0,1,0"> <!-- 标题栏背景色 bkcolor、bkcolor2、bkcolor3分别是渐变色的三个值-->         
+            <VerticalLayout> <!-- 占空位，占据左边所有的空位-->
+				<Text name="syssettitletext" text="双向快捷下单设置" pos="5,10,160,25" float="true" textcolor="#FF000000" font="13" align="left"/>
+			</VerticalLayout>
+            <VerticalLayout width="77">
+                <Button name="closebtn" tooltip="关闭"   float="true" pos="50,8,0,0" height="16" width="16" normalimage=" file='image/TwoWayFastTrade\setclose.bmp' "/>
+            </VerticalLayout>      
+        </HorizontalLayout>
+		
+		 <VerticalLayout height="12"/>
+        
+        <!-- 客户区 -->
+        <HorizontalLayout>
+			<HorizontalLayout width="3"/>
+		
+			 <VerticalLayout>
+				<GroupBox name="group_kuaijiejiaoyi" text="快捷交易" style="group_style" height="165"><!--快捷交易-->
+					<VerticalLayout>
+						<Option name="optionNum" text="双击盘口数量扫单" textcolor="#FF000000" style="cb_style" autocalcwidth="true"/>
+						<Control height="5" />
+						<Option name="optionusemaxval" text="超出可用按最大可用进行委托" textcolor="#FF000000" style="cb_style" autocalcwidth="true"/>
+						<Control height="5" />
+						<HorizontalLayout>
+							<Label name="label_hangqingyuan" text="行情数据源" width="75"/>
+							<HorizontalLayout>
+								<Option name="radio_mortal" group="radio_data_src" text="普通行情" padding="20,0,0,0" textpadding="6,0,6,0" style="radio_style" width="91" />
+								<Option name="radio_L2orAllspeed" group="radio_data_src" text="L2行情" padding="15,0,0,0" textpadding="6,0,6,0" style="radio_style" width="90" />
+								<Option name="radio_rapidly" group="radio_data_src" text="极速行情" padding="5,0,0,0" textpadding="6,0,6,0" style="radio_style" width="80" />	
+								<Button  name="weituotip" width="13" padding="-5,1,0,0" height="13" normalimage="res='dui_skin/image/TwoWayFastTrade/tipnormal.png' xtiled='false' ytiled='false' hole='false'" hotimage="res='dui_skin/image/TwoWayFastTrade/tipover.png' xtiled='false' ytiled='false' hole='false'"/>
+							</HorizontalLayout>
+						</HorizontalLayout>
+
+						<HorizontalLayout padding="0,5,0,0">
+							<Label name="lable_weituofangshi" text="盘口委托方式" width="76"/>
+							<HorizontalLayout>
+								<Option name="radio_right_left" group="radio_opdata_src" text="左买右卖" padding="20,0,0,0" textpadding="6,0,6,0" style="radio_style" width="91" />
+								<Option name="radio_guadan_chidan" group="radio_opdata_src" text="挂单吃单" padding="13,0,0,0" textpadding="6,0,6,0" style="radio_style" width="90" />
+								<!--Button height="10" name="weituotip" width="10" bkcolor="#FFDC143C"/-->
+							</HorizontalLayout>
+						</HorizontalLayout>
+						
+						<HorizontalLayout padding="0,5,0,0">
+							<Label  name="lable_xiadanfangshi" text="盘口下单方式" width="75"/>
+							<HorizontalLayout>
+								<Option name="radio_singleclick" group="radio_xiadan_mode" text="单击" padding="21,0,0,0" textpadding="6,0,6,0" style="radio_style" width="90" />
+								<Option name="radio_dbclick" group="radio_xiadan_mode" text="双击" padding="14,0,0,0" textpadding="6,0,6,0" style="radio_style" width="90" />
+							</HorizontalLayout>
+						</HorizontalLayout>
+
+						<HorizontalLayout padding="0,5,0,0">
+							<Label  name="label_paidanfangshi" text="盘口调出排单按钮方式"	width="130"/>
+							<Edit name="kjkeybdbuysell" readonly="true" nativebkcolor="#00000000" bkcolor="#00000000" bordercolor="FFAAB8C5" bordersize="1,1,1,1" height="28" width="60"/>
+							<HorizontalLayout  childalign="left" childvalign="top" padding="5,0,0,0">
+								<Label name="label_text0" text="*可以设置" textalign="left" width="55"/>
+								<Label text="Ctrl、Alt或Shift" textcolor="#FFDC143C"  textalign="left" width="95"/>
+								<Control />
+							</HorizontalLayout>
+						</HorizontalLayout>
+						
+					</VerticalLayout>
+				</GroupBox>
+				<VerticalLayout height="1"/>
+				<GroupBox name="group_xiadankuaijiejian" text="下单快捷键" style="group_style" height="225">
+					<VerticalLayout>
+						<HorizontalLayout align="left" childvalign="top" padding="0,0,0,2">
+							<Label  name="label_mairu1" text="买入1" style="labeltext_style"/>
+							<Control width="5"/>
+							<Edit name="kjkeybuy1" Style="kjkeyedit_style"/>
+							<Combo name="kjbuy1" style="combo_style" height="20" width="80" dropboxsize="80,230" dropbox="bordercolor=&quot;#FFBDCEE2&quot; bordersize=&quot;1,1,1,1&quot; padding=&quot;2,0,0,0&quot; bkcolor=&quot;#00000000&quot;" padding="2,0,0,0">
+								<ListLabelElement text="买一价" height="20"/>
+								<ListLabelElement text="买二价" height="20"/>
+								<ListLabelElement text="买三价" height="20"/>
+								<ListLabelElement text="买四价" height="20"/>
+								<ListLabelElement text="买五价" height="20"/>
+								<ListLabelElement text="卖一价" height="20"/>
+								<ListLabelElement text="卖二价" height="20"/>
+								<ListLabelElement text="卖三价" height="20"/>
+								<ListLabelElement text="卖四价" height="20"/>
+								<ListLabelElement text="卖五价" height="20"/>
+								<ListLabelElement text="涨停价" height="20"/>
+							</Combo>
+							<VerticalLayout padding="-1,0,0,0">
+								<Button name="kjkeybuyAdd1" text="+" width="20" height="10" bordercolor="FFAAB8C5" cursor="hand" bordersize="1,1,1,1" />
+								<Button name="kjkeybuyDel1" text="-" width="20" height="11" bordercolor="FFAAB8C5" cursor="hand" bordersize="1,1,1,1" padding="0,-1,0,0"/>
+							</VerticalLayout>
+							<Label name="kjkeybuylabel1" width="100" height="20" textcolor="#FF000000"/>
+							<Control/>
+						</HorizontalLayout>						
+						<HorizontalLayout  align="left" childvalign="top" padding="0,0,0,2">
+							<Label name="label_mairu2" text="买入2" textcolor="#FF000000"/>
+							<Control width="5"/>
+							<Edit name="kjkeybuy2" Style="kjkeyedit_style"/>
+							<Combo name="kjbuy2" style="combo_style" height="20" width="80" dropboxsize="80,230" dropbox="bordercolor=&quot;#FFBDCEE2&quot; bordersize=&quot;1,1,1,1&quot; padding=&quot;2,0,0,0&quot; bkcolor=&quot;#00000000&quot;" padding="2,0,0,0">
+								<ListLabelElement text="买一价" height="20"/>
+								<ListLabelElement text="买二价" height="20"/>
+								<ListLabelElement text="买三价" height="20"/>
+								<ListLabelElement text="买四价" height="20"/>
+								<ListLabelElement text="买五价" height="20"/>
+								<ListLabelElement text="卖一价" height="20"/>
+								<ListLabelElement text="卖二价" height="20"/>
+								<ListLabelElement text="卖三价" height="20"/>
+								<ListLabelElement text="卖四价" height="20"/>
+								<ListLabelElement text="卖五价" height="20"/>
+								<ListLabelElement text="涨停价" height="20"/>
+							</Combo>
+							<VerticalLayout padding="-1,0,0,0">
+								<Button name="kjkeybuyAdd2" text="+" width="20" height="10"  bordercolor="FFAAB8C5" cursor="hand"  bordersize="1,1,1,1" />
+								<Button name="kjkeybuyDel2" text="-" width="20" height="11" bordercolor="FFAAB8C5" cursor="hand" bordersize="1,1,1,1" padding="0,-1,0,0"/>
+							</VerticalLayout>
+							<Label name="kjkeybuylabel2" width="100" height="20" textcolor="#FF000000"/>
+							<Control />
+						</HorizontalLayout>
+						<HorizontalLayout  childalign="left" childvalign="top" padding="0,0,0,2">
+							<Label name="label_mairu3" text="买入3" textcolor="#FF000000"/>
+							<Control width="5"/>
+							<Edit name="kjkeybuy3" Style="kjkeyedit_style"/>
+							<Combo name="kjbuy3" style="combo_style" height="20" width="80" dropboxsize="80,230" dropbox="bordercolor=&quot;#FFBDCEE2&quot; bordersize=&quot;1,1,1,1&quot; padding=&quot;2,0,0,0&quot; bkcolor=&quot;#00000000&quot;" padding="2,0,0,0">
+								<ListLabelElement text="买一价" height="20"/>
+								<ListLabelElement text="买二价" height="20"/>
+								<ListLabelElement text="买三价" height="20"/>
+								<ListLabelElement text="买四价" height="20"/>
+								<ListLabelElement text="买五价" height="20"/>
+								<ListLabelElement text="卖一价" height="20"/>
+								<ListLabelElement text="卖二价" height="20"/>
+								<ListLabelElement text="卖三价" height="20"/>
+								<ListLabelElement text="卖四价" height="20"/>
+								<ListLabelElement text="卖五价" height="20"/>
+								<ListLabelElement text="涨停价" height="20"/>
+							</Combo>
+							<VerticalLayout padding="-1,0,0,0">
+								<Button name="kjkeybuyAdd3" text="+" width="20" height="10"  bordercolor="FFAAB8C5" cursor="hand"  bordersize="1,1,1,1" />
+								<Button name="kjkeybuyDel3" text="-" width="20" height="11" bordercolor="FFAAB8C5" cursor="hand" bordersize="1,1,1,1" padding="0,-1,0,0"/>
+							</VerticalLayout>
+							<Label name="kjkeybuylabel3" width="100" height="20" textcolor="#FF000000"/>
+							<Control />
+						</HorizontalLayout>
+						<HorizontalLayout align="left" childvalign="top" padding="0,0,0,2">
+							<Label name="label_maichu1" text="卖出1" textcolor="#FF000000"/>
+							<Control width="5"/>
+							<Edit name="kjkeysell1" Style="kjkeyedit_style"/>
+							<Combo name="kjsell1" style="combo_style" height="20" width="80" dropboxsize="80,230" dropbox="bordercolor=&quot;#FFBDCEE2&quot; bordersize=&quot;1,1,1,1&quot; padding=&quot;2,0,0,0&quot; bkcolor=&quot;#00000000&quot;" padding="2,0,0,0">
+								<ListLabelElement text="买一价" height="20"/>
+								<ListLabelElement text="买二价" height="20"/>
+								<ListLabelElement text="买三价" height="20"/>
+								<ListLabelElement text="买四价" height="20"/>
+								<ListLabelElement text="买五价" height="20"/>
+								<ListLabelElement text="卖一价" height="20"/>
+								<ListLabelElement text="卖二价" height="20"/>
+								<ListLabelElement text="卖三价" height="20"/>
+								<ListLabelElement text="卖四价" height="20"/>
+								<ListLabelElement text="卖五价" height="20"/>
+								<ListLabelElement text="跌停价" height="20"/>
+							</Combo>
+							<VerticalLayout padding="-1,0,0,0">
+								<Button name="kjkeysellAdd1" text="+" width="20" height="10"  bordercolor="FFAAB8C5" cursor="hand" bordersize="1,1,1,1"/>
+								<Button name="kjkeysellDel1" text="-" width="20" height="11" bordercolor="FFAAB8C5" cursor="hand" bordersize="1,1,1,1" padding="0,-1,0,0"/>
+							</VerticalLayout>
+							<Label name="kjkeyselllabel1" width="100" height="20" textcolor="#FF000000"/>
+							<Control />
+						</HorizontalLayout>
+						<HorizontalLayout align="left" childvalign="top" padding="0,0,0,2">
+							<Label name="label_maichu2" text="卖出2" textcolor="#FF000000"/>
+							<Control width="5"/>
+							<Edit name="kjkeysell2" Style="kjkeyedit_style"/>
+							<Combo name="kjsell2" style="combo_style" height="20" width="80" dropboxsize="80,230" dropbox="bordercolor=&quot;#FFBDCEE2&quot; bordersize=&quot;1,1,1,1&quot; padding=&quot;2,0,0,0&quot; bkcolor=&quot;#00000000&quot;" padding="2,0,0,0">
+								<ListLabelElement text="买一价" height="20"/>
+								<ListLabelElement text="买二价" height="20"/>
+								<ListLabelElement text="买三价" height="20"/>
+								<ListLabelElement text="买四价" height="20"/>
+								<ListLabelElement text="买五价" height="20"/>
+								<ListLabelElement text="卖一价" height="20"/>
+								<ListLabelElement text="卖二价" height="20"/>
+								<ListLabelElement text="卖三价" height="20"/>
+								<ListLabelElement text="卖四价" height="20"/>
+								<ListLabelElement text="卖五价" height="20"/>
+								<ListLabelElement text="跌停价" height="20"/>
+							</Combo>
+							<VerticalLayout padding="-1,0,0,0">
+								<Button name="kjkeysellAdd2" text="+" width="20" height="10"  bordercolor="FFAAB8C5" cursor="hand" bordersize="1,1,1,1"/>
+								<Button name="kjkeysellDel2" text="-" width="20" height="11" bordercolor="FFAAB8C5" cursor="hand" bordersize="1,1,1,1" padding="0,-1,0,0"/>
+							</VerticalLayout>
+							<Label name="kjkeyselllabel2" width="100" height="20" textcolor="#FF000000"/>
+							<Control />
+						</HorizontalLayout>
+						<HorizontalLayout align="left" childvalign="top" padding="0,0,0,2">
+							<Label name="label_maichu3" text="卖出3" textcolor="#FF000000"/>
+							<Control width="5"/>
+							<Edit name="kjkeysell3" Style="kjkeyedit_style"/>
+							<Combo name="kjsell3" style="combo_style" height="20" width="80" dropboxsize="80,230" dropbox="bordercolor=&quot;#FFBDCEE2&quot; bordersize=&quot;1,1,1,1&quot; padding=&quot;2,0,0,0&quot; bkcolor=&quot;#00000000&quot;" padding="2,0,0,0">
+								<ListLabelElement text="买一价" height="20"/>
+								<ListLabelElement text="买二价" height="20"/>
+								<ListLabelElement text="买三价" height="20"/>
+								<ListLabelElement text="买四价" height="20"/>
+								<ListLabelElement text="买五价" height="20"/>
+								<ListLabelElement text="卖一价" height="20"/>
+								<ListLabelElement text="卖二价" height="20"/>
+								<ListLabelElement text="卖三价" height="20"/>
+								<ListLabelElement text="卖四价" height="20"/>
+								<ListLabelElement text="卖五价" height="20"/>
+								<ListLabelElement text="跌停价" height="20"/>
+							</Combo>
+							<VerticalLayout padding="-1,0,0,0">
+								<Button name="kjkeysellAdd3" text="+" width="20" height="10"  bordercolor="FFAAB8C5" cursor="hand" bordersize="1,1,1,1"/>
+								<Button name="kjkeysellDel3" text="-" width="20" height="11" bordercolor="FFAAB8C5" cursor="hand" bordersize="1,1,1,1" padding="0,-1,0,0"/>
+							</VerticalLayout>
+							<Label name="kjkeyselllabel3" width="100" height="20" textcolor="#FF000000"/>
+							<Control />
+						</HorizontalLayout>
+						<HorizontalLayout  childalign="left" childvalign="top">
+							<Label name="label_quanche" text="全撤 " textcolor="#FF000000"/>
+							<Control width="5"/>
+							<Edit name="kjkeycancelall" Style="kjkeyedit_style"/>
+							<Control width="248"/>
+						</HorizontalLayout>
+						<HorizontalLayout align="left" childvalign="top">
+							<Label name="label_text1" text="*快捷键可以使用" align="left" width="90"/>
+							<Label text="F1~F10、A~Z" textcolor="#FFDC143C" align="left" width="70"/>
+							<Label name="label_text2" text="或者组合键" align="left" width="60"/>
+							<Label text="(Ctrl)+(A~Z)" textcolor="#FFDC143C"  align="left"/>
+							<Control width="2"/>
+						</HorizontalLayout>
+					</VerticalLayout>
+				</GroupBox>
+				<GroupBox name="group_morenweituo" text="默认委托" style="group_style" height="110">
+					<HorizontalLayout  name="hlayout_morenweituo">
+						<Option name="radio_default_number" group="radio_default" text="默认委托数量" padding="0,0,0,0" textpadding="0,0,0,0" style="radio_style" width="108" />
+						<Edit name="ctrl_number" style="edit_style" width="60" numberonly="true" disabledbkcolor="#FFF5F5F5"/>
+						<Label text="股" name="number_gu_Label1" textcolor="#FF000000" glowsize="0" width="20"/>
+				
+						<Option name="radio_default_jine" group="radio_default" text="默认委托金额" padding="8,0,0,0" textpadding="0,0,0,0" style="radio_style" width="106" />
+						<Edit name="ctrl_jine" style="edit_style" width="60" disabledbkcolor="#FFF5F5F5"/>
+						<Label text="万元" textcolor="#FF000000" glowsize="0" width="200"/>
+					</HorizontalLayout>
+					<HorizontalLayout height="5"/>
+					<HorizontalLayout  name="hlayout_changyongshuliang">
+						<Label text="常用数量"/>
+						<Edit name="number_edit1" style="edit_style" numberonly="true"/><HorizontalLayout width="10"/>
+						<Edit name="number_edit2" style="edit_style" numberonly="true"/><HorizontalLayout width="10"/>
+						<Edit name="number_edit3" style="edit_style" numberonly="true"/><HorizontalLayout width="10"/>
+						<Edit name="number_edit4" style="edit_style" numberonly="true"/><HorizontalLayout width="10"/>
+						<Edit name="number_edit5" style="edit_style" numberonly="true"/><HorizontalLayout width="10"/>
+						<Edit name="number_edit6" style="edit_style" numberonly="true"/><HorizontalLayout width="10"/>
+					</HorizontalLayout>
+					<HorizontalLayout height="5"/>
+					<HorizontalLayout name="hlayout_changyongjine">
+						<Label text="常用金额"/>
+						<Edit name="jine_edit1" style="edit_style" numberonly="true"/><HorizontalLayout width="10"/>
+						<Edit name="jine_edit2" style="edit_style" numberonly="true"/><HorizontalLayout width="10"/>
+						<Edit name="jine_edit3" style="edit_style" numberonly="true"/><HorizontalLayout width="10"/>
+						<Edit name="jine_edit4" style="edit_style" numberonly="true"/><HorizontalLayout width="10"/>
+						<Edit name="jine_edit5" style="edit_style" numberonly="true"/><HorizontalLayout width="10"/>
+						<Edit name="jine_edit6" style="edit_style" numberonly="true"/><HorizontalLayout width="10"/>
+					</HorizontalLayout>
+
+				</GroupBox>
+				<VerticalLayout height="6"/>
+				
+				<GroupBox name="group_qita" text="其它设置" style="group_style" height="109"><!--其它设置-->
+					
+					<HorizontalLayout height="23" name="hlayout_weitiaoshuliangbuchang">
+						<Label text="委托数量微调步长       " textcolor="#FF000000" glowsize="0"/>
+						<Edit name="ctrl_numstep" style="edit_style" width="60" numberonly="true"/>
+						<Label text="股" name="number_gu_Label2" textcolor="#FF000000" width="20"/>
+						<Label name="error_label2" text="" textcolor="#FFFF0000" glowsize="0" width="150"/>
+						<Control width="50"/>
+					</HorizontalLayout>
+					<HorizontalLayout height="23" name="hlayout_weitiaojinebuchang">
+						<Label text="委托金额微调步长        " textcolor="#FF000000" glowsize="0"/>
+						<Edit name="ctrl_jinestep" style="edit_style" width="60"/>
+						<Label text="万元" textcolor="#FF000000" glowsize="0" width="170"/>
+						<Control width="50"/>
+					</HorizontalLayout>
+					
+					<HorizontalLayout height="23"  name="hlayout_leftrightbuchang">
+						<Label text="左右键微调价格步长" textcolor="#FF000000" />
+						<Option name="radio_step1" group="suspend_step" text="0.01" textpadding="6,0,6,0" style="radio_style" width="50" padding="0,2,0,0" />
+						<Option name="radio_step2" group="suspend_step" text="0.05" textpadding="6,0,6,0" style="radio_style" width="50"  padding="0,2,0,0" />
+						<Option name="radio_step3" group="suspend_step" text="0.1"  textpadding="6,0,6,0" style="radio_style" width="50"  padding="0,2,0,0" />
+						<Option name="radio_step4" group="suspend_step" text="0.3%" textpadding="6,0,6,0" style="radio_style" width="50"  padding="0,2,0,0" />
+						<Option name="radio_step5" group="suspend_step" text="0.5%" textpadding="6,0,6,0" style="radio_style" width="50"  padding="0,2,0,0" />
+						<Control width="25"/>
+					</HorizontalLayout>	
+								
+				</GroupBox>				
+				<VerticalLayout height="2"/>
+				<HorizontalLayout>
+					<HorizontalLayout/>
+					<Button name="savebtn" text="保存" textcolor="#FF000000" textpadding="6,6,6,0" style="btn_style"/>
+					<HorizontalLayout width="50"/>
+					<Button name="cancelbtn" text="取消" textcolor="#FF000000" textpadding="6,6,6,0" style="btn_style" width="100"/>
+					<HorizontalLayout/>
+				</HorizontalLayout>
+			</VerticalLayout>
+			
+			<HorizontalLayout width="6"/>
+		</HorizontalLayout>
+    </VerticalLayout>
+</Window>

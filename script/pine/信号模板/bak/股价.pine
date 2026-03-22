@@ -1,0 +1,12 @@
+strategy('信号条件默认模板')
+
+// 股价
+price_check = input.bool(true, title='股价', tooltip='股价与', inline='1')
+price_cmp = input.string('大于', options=['大于', '小于', '区间'], inline='1')
+price_input = input.spread('', options=['元'], inline='1')
+
+// 股价条件：和内置变量close比较
+if price_check
+    price_check := compare(close, price_input, price_cmp)
+
+alertcondition('界面勾选条件且满足条件判断后触发')

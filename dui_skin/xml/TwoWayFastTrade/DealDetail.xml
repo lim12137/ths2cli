@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<Font name="宋体" id="3"  shared="true" size="12" bold="true"/>
+
+	<Style name="option_style" value="bordersize=&quot;1,1,1,1&quot; textcolor=&quot;#FF313131&quot; height=&quot;24&quot; bordercolor=&quot;#FFAAB8C5&quot; group=&quot;datadetail&quot; selectedimage=&quot;res='dui_skin\image\TwoWayFastTrade\label_forbidden.bmp' xtiled='false' ytiled='false'&quot; selectedhotimage=&quot;res='dui_skin\image\TwoWayFastTrade\label_choosen.bmp' xtiled='false' ytiled='false'&quot; selectedforeimage=&quot;res='dui_skin\image\TwoWayFastTrade\label_choosen.PNG'  xtiled='false' ytiled='false'  &quot;"/>
+
+	<VerticalLayout>
+		<VerticalLayout name="dealmain"  mouse="false" bordercolor="#FFAAB8C5" bordersize="1,1,1,1">
+			<HorizontalLayout name="tab_header" height="24" padding="0,0,0,0">
+				<Option text="明细" name="detail_tab" Style="option_style" cursor="hand" padding="0,0,0,0"/>
+				<Option text="委托" name="weituo_tab" Style="option_style" cursor="hand"  padding="-1,0,0,0"/>
+				<Option text="预警" name="warning_tab" Style="option_style" cursor="hand"  padding="-1,0,0,0" tooltip="此功能正在开发中，敬请期待..." />
+			</HorizontalLayout>
+			<Button name="warningbtn" float="true" visible="true" pos="190,5,0,0" normalimage="file='image/TwoWayFastTrade/alert.png' xtiled='false' ytiled='false' hole='false''" hotimage="file='image/TwoWayFastTrade/alert_hover.png' xtiled='false' ytiled='false'" tooltip="此功能正在开发中，敬请期待..."  height="12" width="10"/>
+			<TabLayout name="switch_tab" >
+				<VerticalLayout name="detail_panel">
+					<Label name="detailemptylabel" float="true" visible="true" pos="80,105,0,0" text="暂无成交明细" textcolor="#FFBBBBBB" height="30" width="100"/>
+					<List name="detail_list" bkimage="res='dui_skin/image/TwoWayFastTrade/emptybox.bmp' dest='95,70,135,110' xtiled='false' ytiled='false'" autovscroll="true" vscrollbar="true"  hscrollbar="false"  itemvalign="vcenter" scrollstepsize="100">
+						<!--ListHeader height="24" menu="false">
+							<Control/>
+							<ListHeaderItem name="dealtime" width="45" />
+							<ListHeaderItem name="dealprice" width="80"/>
+							<ListHeaderItem name="dealprice" width="25"/>
+							<ListHeaderItem name="dealamount" width="15"/>
+							<Control/>
+						</ListHeader-->
+					</List>
+				</VerticalLayout>
+				<VerticalLayout name="weituo_panel">
+					<HorizontalLayout>
+						<Label name="weituoemptylabel" float="true" visible="true" pos="68,105,0,0" text="暂无可撤委托" textcolor="#FFBBBBBB" height="30" width="100"/>
+						<List name="weituo_list" bkimage="res='dui_skin/image/TwoWayFastTrade/emptybox.bmp' dest='77,70,117,110' xtiled='false' ytiled='false'" vscrollbar="true" dragable="true" hscrollbar="false" itemvalign="vcenter" itemalign="left" scrollstepsize="100" padding="5,0,2,1">
+							<!--ListHeader height="24" menu="false">
+								<ListHeaderItem text="股票" align="left"/>
+								<ListHeaderItem text="操作" align="left"/>
+								<ListHeaderItem text="委托价" align="right"/>
+								<ListHeaderItem text="未成数量"  align="right"/>
+							</ListHeader-->
+						</List>
+					</HorizontalLayout>		
+				</VerticalLayout>
+				<VerticalLayout name="warning_panel">
+					<Label name="warning_lable_tip" text="此功能正在开发中，敬请期待..." textpadding="5,0,0,0"/>
+				</VerticalLayout>				
+			</TabLayout>
+		</VerticalLayout>
+	</VerticalLayout>
+</Window>

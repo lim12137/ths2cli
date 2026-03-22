@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window size="500,380" caption="0,0,0,25" >
+	<Default name="CheckBox" value="height=&quot;13&quot; width=&quot;230&quot; align=&quot;left&quot; textpadding=&quot;20,0,0,0&quot; padding=&quot;5,6,5,6&quot; normalimage=&quot;file=&apos;customwnd/image/untick.bmp&apos; corner=&apos;13,0,0,0&apos;&quot; selectedimage=&quot;file=&apos;customwnd/image/tick.bmp&apos;  corner=&apos;13,0,0,0&apos;&quot; " />
+	<Default name="Combo" value="textpadding=&quot;5,0,19,0&quot; itemtextpadding=&quot;3,0,0,0&quot; itemvalign=&quot;vcenter&quot; bkcolor=&quot;#FFFFFFFF&quot; bordersize=&quot;1,1,1,1&quot; bordercolor=&quot;#FF359EE8&quot; itemhotbkcolor=&quot;#FF86CEF6&quot; itemselectedbkcolor=&quot;#FF33ABEE&quot; dropbox=&quot;bordersize=&quot;1,1,1,1&quot; bkcolor=&quot;#FFEBF3F6&quot; bordercolor=&quot;#FF339CE4&quot;&quot; normalimage=&quot;file='customwnd/image/cmb.png' source='63,0,83,20' corner='0,0,20,0'&quot; hotimage=&quot;file='customwnd/image/cmb.png' source='21,0,41,20' corner='0,0,20,0'&quot; pushedimage=&quot;file='customwnd/image/cmb.png' source='21,0,41,20' corner='0,0,20,0'&quot;" />
+	<Default name="VScrollBar" value="button1normalimage=&quot;file='customwnd/image/scrollbar.png' source='0,90,16,106' mask='#FFFF00FF'&quot; button1hotimage=&quot;file='customwnd/image/scrollbar.png' source='18,90,34,106' mask='#FFFF00FF'&quot; button1pushedimage=&quot;file='customwnd/image/scrollbar.png' source='36,90,52,106' mask='#FFFF00FF'&quot; button1disabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,90,70,106' mask='#FFFF00FF'&quot; button2normalimage=&quot;file='customwnd/image/scrollbar.png' source='0,108,16,124' mask='#FFFF00FF'&quot; button2hotimage=&quot;file='customwnd/image/scrollbar.png' source='18,108,34,124' mask='#FFFF00FF'&quot; button2pushedimage=&quot;file='customwnd/image/scrollbar.png' source='36,108,52,124' mask='#FFFF00FF'&quot; button2disabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,108,70,124' mask='#FFFF00FF'&quot; thumbnormalimage=&quot;file='customwnd/image/scrollbar.png' source='0,126,16,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbhotimage=&quot;file='customwnd/image/scrollbar.png' source='18,126,34,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbpushedimage=&quot;file='customwnd/image/scrollbar.png' source='18,126,34,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbdisabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,126,70,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; railnormalimage=&quot;file='customwnd/image/scrollbar.png' source='0,144,16,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; railhotimage=&quot;file='customwnd/image/scrollbar.png' source='18,144,34,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; railpushedimage=&quot;file='customwnd/image/scrollbar.png' source='18,144,34,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; raildisabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,144,70,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; bknormalimage=&quot;file='customwnd/image/scrollbar.png' source='0,162,16,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkhotimage=&quot;file='customwnd/image/scrollbar.png' source='18,162,34,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkpushedimage=&quot;file='customwnd/image/scrollbar.png' source='36,162,52,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkdisabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,162,70,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; " />
+	<Default name="HScrollBar" value="button1normalimage=&quot;file='customwnd/image/scrollbar.png' source='0,0,16,16' mask='#FFFF00FF'&quot; button1hotimage=&quot;file='customwnd/image/scrollbar.png' source='18,0,34,16' mask='#FFFF00FF'&quot; button1pushedimage=&quot;file='customwnd/image/scrollbar.png' source='36,0,52,16' mask='#FFFF00FF'&quot; button1disabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,0,70,16' mask='#FFFF00FF'&quot; button2normalimage=&quot;file='customwnd/image/scrollbar.png' source='0,18,16,34' mask='#FFFF00FF'&quot; button2hotimage=&quot;file='customwnd/image/scrollbar.png' source='18,18,34,34' mask='#FFFF00FF'&quot; button2pushedimage=&quot;file='customwnd/image/scrollbar.png' source='36,18,52,34' mask='#FFFF00FF'&quot; button2disabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,18,70,34' mask='#FFFF00FF'&quot; thumbnormalimage=&quot;file='customwnd/image/scrollbar.png' source='0,36,16,52' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbhotimage=&quot;file='customwnd/image/scrollbar.png' source='18,36,34,52' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbpushedimage=&quot;file='customwnd/image/scrollbar.png' source='18,36,34,52' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbdisabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,36,70,52' corner='2,2,2,2' mask='#FFFF00FF'&quot; railnormalimage=&quot;file='customwnd/image/scrollbar.png' source='0,54,16,70' corner='2,2,2,2' mask='#FFFF00FF'&quot; railhotimage=&quot;file='customwnd/image/scrollbar.png' source='18,54,34,70' corner='2,2,2,2' mask='#FFFF00FF'&quot; railpushedimage=&quot;file='customwnd/image/scrollbar.png' source='18,54,34,70' corner='2,2,2,2' mask='#FFFF00FF'&quot; raildisabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,54,70,70' corner='2,2,2,2' mask='#FFFF00FF'&quot; bknormalimage=&quot;file='customwnd/image/scrollbar.png' source='0,72,16,88' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkhotimage=&quot;file='customwnd/image/scrollbar.png' source='18,72,34,88' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkpushedimage=&quot;file='customwnd/image/scrollbar.png' source='36,72,52,88' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkdisabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,72,70,88' corner='2,2,2,2' mask='#FFFF00FF'&quot; " />
+	<VerticalLayout bkcolor="#FFAAB7C7" inset="2,2,2,2" bordersize="2,2,2,2" bordercolor="#FFC5D1E2">
+		<HorizontalLayout height="25" bkcolor="#FFCBDEF9" padding="0,0,0,1">
+			<Label text="设置" padding="5,0,0,0" textcolor="#FF359EE8" />
+			<Control />
+			<Button name="closebtn" tooltip="关闭" width="17" padding="2,4,4,4" bkimage="file=&apos;customwnd/image/close_nor.png&apos; " hotimage="file=&apos;customwnd/image/close_hot.png&apos;" pushedimage="file=&apos;customwnd/image/close_push.png&apos;" />
+		</HorizontalLayout>
+		<VerticalLayout bkcolor="#FFECF3F6" >
+			<GroupBox height="170" padding="20,10,20,0" text="界面设置" textcolor="#FF359EE8" bkcolor="#FFECF3F6" bordercolor="#FFABB7C8" bordersize="1" >
+				<HorizontalLayout >
+					<CheckBox name="fs_chk" text="显示分时代码标签(fsdm)" />
+					<CheckBox name="fstitle_chk" text="在标题栏显示" />
+				</HorizontalLayout>
+				<CheckBox name="code_chk" text="显示代码输入框($zqdm$)" />
+				<HorizontalLayout >
+					<CheckBox name="price_chk" text="显示价格选择列表($wtjg$)" />
+					<Label text="默认价格" width="55" padding="5,0,0,0" />
+					<Combo name="price_cmb" width="72" padding="0,2,0,2" >
+						<ListLabelElement text="固定价" value="gdjg" />
+						<ListLabelElement text="涨停价" value="ztjg" />
+						<ListLabelElement text="对手价5" value="dsj5" />
+						<ListLabelElement text="对手价3" value="dsj3" />
+						<ListLabelElement text="对手价1" value="dsj1" />
+						<ListLabelElement text="最新价" value="zxjg" selected="true" />
+						<ListLabelElement text="本方价1" value="bfj1" />
+						<ListLabelElement text="本方价3" value="bfj3" />
+						<ListLabelElement text="本方价5" value="bfj5" />
+						<ListLabelElement text="跌停价" value="dtjg" />
+					</Combo>
+				</HorizontalLayout>
+				<HorizontalLayout >
+					<CheckBox name="opt_chk" text="显示委托方式选择列表($wtfs$)" />
+					<Label text="默认方式" width="55" padding="5,0,0,0" />
+					<Combo name="opt_cmb" width="72" padding="0,2,0,2" >
+						<ListLabelElement text="数量" value=" " selected="true" />
+						<ListLabelElement text="金额" value="-m" />
+						<ListLabelElement text="可用仓位" value="-cw" />
+						<ListLabelElement text="目标总仓位" value="-zcw" />
+						<ListLabelElement text="总资产仓位" value="-zzc" />
+					</Combo>
+				</HorizontalLayout>
+				<CheckBox name="amt_chk" text="显示数量输入框($wtsl$)" />
+			</GroupBox>
+			<GroupBox height="120" padding="20,10,20,0" text="快捷交易" textcolor="#FF359EE8" bkcolor="#FFECF3F6" bordercolor="#FFABB7C8" bordersize="1" >
+				<CheckBox name="notip_wt_chk" text="买卖不需要确认" />
+				<CheckBox name="notip_cd_chk" text="撤单不需要确认" />
+                <CheckBox name="zdky_chk" text="超出可用按最大可用委托" />
+			</GroupBox>
+			<HorizontalLayout padding="120,5,120,10" >
+				<Button text="保存" name="savebtn" bordersize="1,1,1,1" bordercolor="#FFC4D1E1" borderround="2,2" textcolor="#FFFFFFFF" bkcolor="#FF349DE5" hotbkcolor="#FF34ACF0" pushedbkcolor="#FF1A69BB"/>
+				<Button text="取消" name="cancelbtn" padding="50,0,0,0" bordersize="1,1,1,1" bordercolor="#FFC4D1E1" borderround="2,2" textcolor="#FFFFFFFF" bkcolor="#FF349DE5" hotbkcolor="#FF34ACF0" pushedbkcolor="#FF1A69BB"/>
+			</HorizontalLayout>
+		</VerticalLayout>
+	</VerticalLayout>
+</Window>

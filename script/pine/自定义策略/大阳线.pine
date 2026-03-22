@@ -1,0 +1,7 @@
+//@version=6
+
+indicator("大阳线")
+fudu_int = input.float(5, title="实体长度")
+bodySize = math.abs(close - open) / open * 100
+bigRedK = (close > open) and (bodySize > fudu_int)
+alertcondition(bigRedK,title = '大阳线')

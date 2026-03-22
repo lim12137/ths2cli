@@ -1,0 +1,179 @@
+/*
+	1）标准编辑框
+	2）标准复选框
+	3）证券代码
+	4）标准时间空间
+	5）浮点型数量
+*/
+//------------------------------------begin----------------------------------------------------
+//--------------------------------------end----------------------------------------------------
+
+//------------------------------------标准编辑框begin----------------------------------------------------
+input[type="text"]
+{
+    background-image:url( images/edit-back.png );
+    background-repeat:expand;
+	font-family: "宋体";
+	font-size: 9pt;
+	border: 1dip solid rgb(170,183,199);
+	padding-top:1pt;
+	-ctrl-lua-script:"bp://autosel.lua"; 
+	padding:1dip;
+	height:14dip;
+	width:84dip;
+}
+
+input[type="text"][disabled="true"]
+{
+	background-image:url( images/edit-disable-bak.png );
+}
+
+input[type="text"]:disabled
+{
+	background-image:url( images/edit-disabled-back.png );
+}
+
+input[type="text"][readonly="readonly"]
+{
+	background-image:url( images/edit-disable-bak.png );
+}
+
+input[type="text"]
+{
+	assigned!: !(self.tipinfo == '') ? return,
+		self::opacity = 0.7,
+		self:value = self.tipinfo;
+		
+	focus-on!: self.OnGetFocus(),!(self.tipinfo == self:value) ? return,
+		self::opacity = 1,
+		self:value = "";
+}
+
+//------------------------------------标准编辑框end----------------------------------------------------
+
+//------------------------------------标准复选框begin----------------------------------------------------
+input[type="checkbox"]
+{
+	background-image: url(images/custombutton.bmp);
+	height:13px;
+	width:13px;
+	background-position:0px 0px
+}
+
+input[type="checkbox"]:hover 
+{
+	background-image: url(images/custombutton.bmp);
+	height:13px;
+	width:13px;
+	background-position:-13px 0px
+}
+
+input[type="checkbox"]:checked 
+{
+	background-image: url(images/custombutton.bmp);
+	height:13px;
+	width:13px;
+	background-position:-52px 0px
+}
+
+input[type="checkbox"]:disabled
+{
+	background-image: url(images/custombutton.bmp);
+	height:13px;
+	width:13px;
+	background-position:-39px 0px
+}
+
+input[type="checkbox"]
+{
+	 click!: 
+		checked=!checked,
+		self.OnClick();
+}
+
+//------------------------------------标准复选框end----------------------------------------------------
+
+//------------------------------------表示时间控件begin----------------------------------------------------
+input[type="date"]
+{
+    background-image:url( images/combo-back.png);
+    background-repeat:expand;
+	font-family: "宋体";
+	font-size: 9pt;
+	border: 1dip solid rgb(170,183,199);
+	height:12dip;
+	padding-top:-1dip;
+	-ctrl-lua-script:"bp://datectl.lua"; 
+}
+
+input[type="date"]>button
+{
+	background-image:url( images/combo_button.png);
+}
+//--------------------------------------表示时间控件end----------------------------------------------------
+
+//------------------------------------证券代码begin----------------------------------------------------
+.zqdm
+{
+	-code-len: 6;
+}
+
+.zqdm_hk
+{
+	-code-len: 5;
+}
+.zqdm_size
+{
+	width:98dip;
+	height:14dip;
+}
+
+.focusoff_trigger
+{
+	focus-off!:
+		self.start-timer(10);
+	timer!:
+		self.onKillFocus(),
+		return cancel;
+}
+//------------------------------------证券代码end----------------------------------------------------
+
+//------------------------------------标准单选框begin----------------------------------------------------
+input[type="radio"]
+{
+	background-image: url(images/custombutton1.png);
+	height:13px;
+	width:13px;
+	background-position:0px -13px;
+}
+
+input[type="radio"].label-right
+{
+	padding: 4px system-small-icon-width 4px 4px;
+	color:red;
+}
+
+input[type="radio"]:hover 
+{
+	background-image: url(images/custombutton1.png);
+	height:13px;
+	width:13px;
+	background-position:-13px -13px
+}
+
+input[type="radio"]:checked 
+{
+	background-image: url(images/custombutton3.png);
+	height:13px;
+	width:13px;
+	background-position:0px -13px
+}
+//------------------------------------标准单选框end----------------------------------------------------
+
+//------------------------------------密码框begin--------------------------
+.passwordedit
+{
+	border: 1dip solid #B1BECC;
+	-ctrl-lua-script:"bp://passwordedit.lua"; 
+}
+//------------------------------------密码框end---------------------------

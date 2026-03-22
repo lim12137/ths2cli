@@ -1,0 +1,24 @@
+//@version=6
+indicator("KDJ指标")
+
+// 设置KDJ的默认参数（9, 3, 3）
+length = 9
+smoothK = 3
+smoothD = 3
+
+// 计算KDJ指标
+[K, D, J] = ta.kdj(length, smoothK, smoothD)
+
+// 超买和超卖条件
+overbought = K > 80 and D > 80 and J > 80
+oversold = K < 20 and D < 20 and J < 20
+
+// 金叉和死叉条件
+goldenCross = ta.crossover(K, D) // K线从下向上穿越D线
+deathCross = ta.crossunder(K, D) // K线从上向下穿越D线
+
+// 设置预警条件
+alertcondition(overbought, title="超买")
+alertcondition(oversold, title="超卖")
+alertcondition(goldenCross, title="金叉")
+alertcondition(deathCross, title="死叉")

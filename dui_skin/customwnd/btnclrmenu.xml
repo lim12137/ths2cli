@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window >
+	<Default name="Menu" shared="true" value="bordersize=&quot;1,1,1,1&quot; bordercolor=&quot;#FF339CE4&quot; bkcolor=&quot;#FFEBF3F6&quot; itemselectedbkcolor=&quot;#00000000&quot;" />
+  <Menu >
+		<MenuElement height="53" width="101" inset="5,5,5,5" >
+			<TileLayout name="btnclrtl" columns="4" itemsize="19,19" childvpadding="5" >
+				<Button bkcolor="#FF349DE5" />
+				<Button bkcolor="#FFFF0000" />
+				<Button bkcolor="#FF6F74F8" />
+				<Button bkcolor="#FFB686EE" />
+				<Button bkcolor="#FF00BFFF" />
+				<Button bkcolor="#FFCD9B1D" />
+				<Button bkcolor="#FF006400" />
+				<Button bkcolor="#FF000000" />
+			</TileLayout>
+		</MenuElement>
+	</Menu>
+</Window>

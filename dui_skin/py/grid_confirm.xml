@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window size="280,120" caption="0,0,0,25" >
+	<Font id="0" name="微软雅黑" bold="true" />
+	<Font id="1" name="微软雅黑" size="16" bold="true" />
+    <Font id="2" name="微软雅黑" size="13"  />
+	
+	<Default name="Button" value="width=&quot;80&quot; borderround=&quot;6,6&quot; " />
+	<Style name="Label" value="font=&quot;0&quot; height=&quot;23&quot; width=&quot;65&quot; textcolor=&quot;#FF000000&quot; " />
+	<Style name="Info" value="height=&quot;23&quot; endellipsis=&quot;true&quot; textcolor=&quot;#FF000000&quot; " />
+
+	<VerticalLayout bkcolor="#FFECF3F6" inset="0,10,0,10" bordersize="3,3,2,2" bordercolor="#FFC5D1E2">
+		<HorizontalLayout height="25" >
+			<Control />
+			<Label name="tip" text="请确认网格委托信息" textcolor="#FF007EFF" font="1" autocalcwidth="true" />
+			<Control />
+		</HorizontalLayout>
+		<VerticalLayout name="infoVL" padding="30,20,30,0" bkcolor="#FFECF3F6" childpadding="10" />
+        <RichEdit name="disclaimer" autocalcwidth="true" readonly="true" font="2" padding="15,15,20,10" enabled="false" textcolor="#FF000000" bkcolor="#FFECF3F6" vscrollbar="true" multiline="true" visible="false" />
+		<HorizontalLayout height="32" >
+			<Control />
+			<Button text="返回" name="backbtn" textcolor="#FF9D9D9D" bkcolor="#FFDADADA" hotbkcolor="#FFB5BABE" pushedbkcolor="#FFB5BABE" />
+			<Control />
+			<Button text="确认提交" name="confirmbtn" textcolor="#FFFFFFFF" bkcolor="#FF349DE5" hotbkcolor="#FF34ACF0" pushedbkcolor="#FF1A69BB" />
+			<Control />
+		</HorizontalLayout>
+	</VerticalLayout>
+</Window>

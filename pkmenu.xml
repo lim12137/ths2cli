@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="GB2312"?>
+<XD_MENU_PK>
+	<menu name="PK_XIADAN">
+		<menuitem text="闪电买入\t21" commandid="31277" />
+		<menuitem text="闪电卖出\t23" commandid="31278" />
+		<menuitem text="扫涨停 \t227" key="stockboard_sb" />
+		<menuitem text="排涨停 \t228" key="stockboard_pb" />
+		<menuitem text="智能涨停撤单 \t220" key="stockboard_cb" />
+		<menuitem text="智能涨停卖出" key="stockboard_sellb" />
+		<menuitem text="创建信号单" key="pinesignal" />
+		<separator />
+		<menuitem text="市价买入" commandid="31287" />
+		<menuitem text="市价卖出" commandid="31288" />
+		<separator />
+		<menuitem text="批量买入" commandid="31289" />
+		<menuitem text="批量卖出" commandid="31290" />
+		<separator />
+		<menuitem text="双向下单" commandid="63554" />
+		<separator />
+		<menuitem text="撤单\t/" commandid="63555" />
+		<menuitem text="撤相同" commandid="63556" />
+		<separator />
+		<menuitem text="闪电下单打开方式">
+			<menuitem text="上买下卖" commandid="63557" />
+			<menuitem text="左买右卖" commandid="63558" />
+			<menuitem text="挂单吃单" commandid="63559" />
+		</menuitem>
+		<separator />
+		<menuitem text="买卖量及现手显示金额" commandid="32474" />
+	</menu>
+	<menu name="PK_RZRQ_XIADAN">
+		<menuitem text="担保品买入\t21" commandid="31503" />
+		<menuitem text="担保品卖出\t23" commandid="31504" />
+		<menuitem text="扫涨停 \t227" key="stockboard_sb" />
+		<menuitem text="排涨停 \t228" key="stockboard_pb" />
+		<menuitem text="智能涨停撤单 \t220" key="stockboard_cb" />
+		<menuitem text="智能涨停卖出" key="stockboard_sellb" />
+		<separator />
+		<menuitem text="融资买入\t211" commandid="31505" />
+		<menuitem text="融券卖出\t233" commandid="31506" />
+		<separator />
+		<menuitem text="买券还券" commandid="31507" />
+		<menuitem text="卖券还款" commandid="31508" />
+		<separator />
+		<menuitem text="双向下单" commandid="63554" />
+		<separator />
+		<menuitem text="撤单\t/" commandid="63555" />
+		<menuitem text="撤相同" commandid="63556" />
+		<separator />
+		<menuitem text="闪电下单打开方式">
+			<menuitem text="上买下卖" commandid="63557" />
+			<menuitem text="左买右卖" commandid="63558" />
+			<menuitem text="挂单吃单" commandid="63559" />
+		</menuitem>
+		<separator />
+		<menuitem text="买卖量及现手显示金额" commandid="32474" />
+	</menu>
+</XD_MENU_PK>

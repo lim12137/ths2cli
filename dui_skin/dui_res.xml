@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Res>
+	<!-- 一些通用的脚本 -->
+	<!-- msgbox对话框 -->
+	<Xml id="xml_msg" path="msg.xml"/>
+	
+	<!-- 策略 -->
+	<Xml id="xml_py_main" path="py/main.xml"/>
+	<Xml id="xml_py_addfile" path="py/addfile.xml"/>
+	<Xml id="xml_monitor" path="py/monitor.xml"/>
+	<Xml id="xml_menu" path="py/menu.xml"/>
+	<Xml id="xml_param" path="py/normal_param.xml"/>
+	<Xml id="xml_sgn_param" path="py/sgn_param.xml"/>
+	
+	<!-- 组件化 -->
+	<Xml id="xml_customwnd" path="customwnd/customwnd.xml" />
+	<Xml id="xml_comlist" path="customwnd/comlist.xml" />
+	<Xml id="xml_comcfg" path="customwnd/comcfg.xml" />
+	<Xml id="xml_btnclrmenu" path="customwnd/btnclrmenu.xml" />
+	
+	<Xml id="xml_btnmenu" path="customwnd/btnmenu.xml" />
+	<Xml id="xml_btnmgr" path="customwnd/btnmgr.xml" />
+	
+	<Xml id="xml_pycom" path="customwnd/pycom.xml"/>
+	<Xml id="xml_newpycom" path="customwnd/newpycom.xml"/>
+	
+	<Xml id="xml_cntner_com" path="customwnd/cntnercom.xml" />
+	<Xml id="xml_cstm_ctx" path="customwnd/ctxmenu.xml" />
+	
+	<!-- 行情融合 -->
+	<Xml id="xml_bstinfo" path="fusion/bstinfo.xml" />
+	
+	<Xml id="xml_TwoWayFastTradeUI" path="xml/TwoWayFastTrade/TwoWayFastTradeUI.xml"/>
+
+	<Xml id="xml_TwoWaySetDlg" path="xml/TwoWayFastTrade/TwoWaySetDlg.xml"/>
+	<Xml id="xml_TwoWayFastSysSetMenu" path="xml/TwoWayFastTrade/twoWayFastSysSetMenu.xml"/>
+	
+	<!-- 置顶 -->
+	<Xml id="xml_SetTopWndTips" path="xml/TopWnd/SetTopWndTips.xml" />
+	<!-- 红点 -->
+	<Xml id="xml_RedDotShow" path="xml/GuidanceIcon/RedDotShow.xml" />
+	<Xml id="xml_RedNewShow" path="xml/GuidanceIcon/RedNewShow.xml" />
+	
+	<!-- 账户分析 -->
+	<Xml id="xml_AccountAnalysisTipDlg" path="xml/accountanalysis/accountanalysistip.xml" />
+</Res>

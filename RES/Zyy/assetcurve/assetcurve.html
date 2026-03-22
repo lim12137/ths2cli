@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>资金曲线</title>
+	<!-[if gte IE8]>
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<![endif]->
+	<link href="css/bootstrap.min.css" rel="stylesheet" >
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+	<script type="text/javascript" src="js/hxcomm.js"></script>
+
+	<style type="text/css">
+		body{font:12px  "Microsoft YaHei","WenQuanYi Micro Hei","sans-serif" }
+		html{overflow: hidden;}
+		html, body, div, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {margin: 0;padding: 0;}
+		/*.rise{color: #f64313;}*/
+		.rise{color: #ff0000;}
+		.fall{color: #0079da;}
+		.fall_suspension{color: #217bc1;}
+		.tip{width: 12px;height: 8px;position: absolute;left:9px;top:45px;background-color: #0079da;}
+		.profitTab{width:90%;height:160px;margin-left:30px;padding-top:20px;}
+		.monthProfit{height:30px;font-size: 20px;font-weight:800;line-height: 30px}
+		.pwdBtn{width: 20px; height: 15px}
+		#MonthProfitData{width:100px;height:20px;line-height: 20px;display: inline-block;}
+		.profitRateTab{height:30px;margin-top: 15px;font-weight:500;font-size:13px;}
+		.profitRateTab ul{list-style-type:none;width:100%;}
+		.profitRateTab ul li{float:left;height:20px;line-height: 20px;list-style: none;margin-right: 40px}
+		.profitRateTab ul li span{width:100px;}
+		.profitContentDataTab{height:23px;border-bottom:1px solid black;}
+		.profitContentDataTab li{width:60px;height:23px;float:left;text-align:center;line-height:25px;cursor: pointer; list-style: none;}
+		.profitContentDataTab .select{background:url("./images/profitTab_select.png") no-repeat;color:white;}
+		.profitContentIndexTab{width:400px;height:23px;margin:5px 2px;}
+		.profitContentIndexTab li{height:23px;float:left;text-align:left;line-height:25px;cursor: pointer;font-size: 12px;margin-right: 10px; list-style: none;color:#a9aba3;}
+		.profitContentIndexTab .select{color:#0079da;}
+		.xcsTipsContent{width:370px;height:160px; background-color: white;text-align: center;font-size: 18px;z-index: 20; position: absolute;left:167.5px;top:150px;overflow:hidden;}
+		.selectDateDeterminOn{background: url('images/confirm_btn_on.png') no-repeat;}
+		.selectDateDeterminOff{background: url('images/confirm_btn_off.png') no-repeat;}
+		/*图表内table样式*/
+		.tooltip_table td{width:65px;text-align: center}
+		.tooltip_table th{text-align: center}
+
+		/*时间控件元素设置*/
+		.dateSelect input{width:100px;display: inline-block;}
+		.dateSelect {width:100%;height:20px;line-height: 22px; margin-top: 5px;display: none;}
+		.dateSelect .input-group{position: relative}
+		.dateSelect .input-group-addon{border: 0px;background: none;padding:0px;position: absolute;left: 114px;top:1px; width:20px;height:20px;background: url('images/down.png') no-repeat;}
+		.dateSelect>div{float: left}
+		.dateSelect .old{color: #999999;}
+		.dateSelect .new{color: #999999;}
+		.table-condensed>thead>tr>th{padding-left: 12px;}
+		.table-condensed>tbody>tr>td{padding-left: 12px}
+		.datetimepicker-months table>tbody>tr>td{width:200px;}
+		.datetimepicker-years table>tbody>tr>td{width:200px;}
+		.glyphicon-arrow-left{background: url('images/left_arrow.png') no-repeat;width: 11px;height: 17px;}
+		.glyphicon-arrow-right{background: url('images/right_arrow.png') no-repeat;width: 11px;height: 17px;}
+		#NotOpenTipsPage{width:705px;height:490px;position: absolute;left:0;top: 0;z-index: 100;display: none;}
+		#NotOpenTipsPage .btn{width:55px;background-color: #0079da;text-align: center;color: white;font-size: 12px}
+		
+		#NewTips{width:705px;height:490px;position: absolute;left:0;top: 0;z-index: 180;}
+		.backgroundImg{background: url('images/ths.png') no-repeat;background-position-x: center; background-position-y: 19%;}
+	</style>
+</head>
+<body style="background-color: #f2f2f2;padding:12px;" onselectstart='return false;'>
+
+	<div id="capitalCurveContent" style="width:676px;height:508px;background:url('images/white_background.png') no-repeat;margin-left: 1px;">
+		<div class="tip"></div>
+		<div class="profitTab">
+			<div class="monthProfit">
+				<span id="MonthProfitName">本月盈亏:</span>
+				<span id="MonthProfitData" data='' class="rate"></span>
+				<span id="pwdBtn" onclick="hideBtnEvent()">
+					&nbsp;&nbsp;<img src="images/pwdshowBtn.png">
+				</span>
+				<span style="position: absolute;right: 50px;top: 30px;">
+					<img src="images/help.png" title="目前版本支持计算100以内的持仓股票数量，数据仅供参考，以证券公司数据为准！">	
+				</span>
+				
+			</div>
+			<div class="profitRateTab">
+				<ul>
+					<li class="profitRate" >收益率: <span id="profitRate" class="rate">--</span></li>
+					<li>上证: <span id="sh_index" class="rate">--</span></li>
+					<li>深证: <span id="sz_index" class="rate">--</span></li>
+					<li>创业板: <span id="gem_index" class="rate">--</span></li>
+				</ul>
+			</div>
+			<ul class="profitContentDataTab">
+				<li id="today" >当日</li>
+				<li id="this_month" >本月</li>
+				<li id="three_month">近三月</li>
+				<li id="this_year">今年</li>
+				<li id="all_day">全部</li>
+				<li id="customize">自定义</li>
+			</ul>
+			<div class="dateSelect">
+				<div style="width:138px;" class="input-group date" id="form_datetime1">
+					<input style="width:110px;height:12px;line-height: 14px;padding-top:4px" id="time1" type="text" value="" readonly>
+					<span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+				</div>
+				<div>至&nbsp;</div>
+				<div style="width:125px;" class="input-group date from_date" id="form_datetime2">
+					<input style="width:110px;height:12px;line-height: 14px;padding-top:4px" id="time2" type="text" value="" readonly>
+					<span  class="input-group-addon"><span class="fa-calendar"></span></span>
+				</div>
+				<div id="selectDateDetermin" style="margin-left:20px;width: 52px; height:20px;cursor:pointer; margin-top: 1px;" onclick="OnCustomizeQueryZjqx()" class="selectDateDeterminOn"></div>
+				<span id="dateSelectTips" style="color:black;margin-left: 5px;">暂不支持两年以上的查询</span>
+			</div>
+			<ul class="profitContentIndexTab">
+				<li id="szzs" style="margin-left:5px">&bull; 上证</li>
+				<li id="szzs2">&bull; 深证</li>
+				<li id="cybzs">&bull; 创业板</li>
+			</ul>
+		</div>
+		<div id="updataLoadingTip" style="position:absolute; left: 530px;top: 490px;z-index: 200;display:none;"> 数据更新中，请稍等...</div>
+		<div id="updataLoadingTimeoutTip" style="position:absolute; left: 490px;top: 490px;z-index: 200;display:none"> 数据更新失败</div>
+		<div id="reportTips" style="position:absolute; left: 570px;top: 490px;z-index: 200;text-decoration:underline;cursor:pointer;color:#0079da;display:none;"onclick="OnReloadXcs();">
+			请点击重试
+		</div>
+		<div class="backgroundImg">
+			<div id="Chart" style="height:320px;width:650px;margin-left: 15px;"></div>
+		</div>
+	</div>
+	<div id="NotOpenTipsPage">
+		<div id="NotOpenTipsPageBg" style="width:705px;height:535px;background-color:black;filter:Alpha(opacity=50);z-index: 110;"></div>
+		<div id="needOpenXcs" class="xcstips xcsTipsContent" style="z-index: 120;" >
+			<p style="margin-top:15px;">查询该数据需要开通账户分析功能,</p>
+			<p style="margin-top:15px;">目前暂未开通,是否立即申请?</p>
+			<br/>
+			<span class="btn" onclick="hideXcsStatusPage()" style="background-color: #d3cfcf">暂不需要</span>
+			<span class="btn" style="margin-left: 30px" onclick="OnOpenXcs()">立即开通</span>	
+		</div>
+		<div id="NotSupportXcs" class="xcstips xcsTipsContent" style="z-index: 130;" >
+			<p style="margin-top:50px;">当前券商不支持该功能</p>
+			<span class="btn" onclick="hideXcsStatusPage()" style="margin-top: 25px;">关闭</span>	
+		</div>
+		<div id="NotSupportAssetCurve" class="xcstips xcsTipsContent" style="background-color: gray;width: 675px;height: 400px;position:absolute;left: 15px;top: 135px;z-index: 140;">
+			<p style="margin-top:100px;text-align: center;">当前券商不支持收益曲线</p>
+		</div>
+		<div id="Large100" class="xcstips xcsTipsContent" style="background-color: gray;width: 675px;height: 400px;position:absolute;left: 15px;top: 135px;z-index: 150;">
+			<p style="margin-top: 100px;">对不起，由于您持仓数量超过100只，暂不支持本功能</p>
+		</div>
+		<div id="openXcsFail" class="xcstips xcsTipsContent" style="z-index: 160;">
+			<p style="margin-top: 40px;font-size: 20px;">更新失败</p>
+			<span class="btn" onclick="hideXcsStatusPage()" style="margin-top: 25px;margin-left: 5px">关闭</span>
+			<span class="btn" onclick="OnReloadXcs()" style="margin-top: 25px;margin-left: 15px">重试</span>	
+		</div>
+		<div id="loadingxcs" class="xcstips" style="position:absolute;left:310px;top:230px;z-index:190;">
+			<img style="margin-left: 20px;" src="images/loading.gif">
+			<p style="font-size: 18px;color:gray;margin-top: 10px">加载信息中</p>	
+		</div>	
+	</div>
+	<div id="NewTips" style="display:none">
+			<div id="querrXcsErrorTip"style="text-align: center;font-size: 18px;background-color: white;width: 675px;height: 400px;position:absolute;left: 15px;top: 135px;z-index: 150;display:none;">
+				<p style="margin-top: 100px;">很抱歉,数据获取失败</p>
+				<p style= "cursor:pointer;color:#0079da;" onclick="OnReloadXcs()">请点击重试</p>
+			</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="js/request.js"></script>
+	<script type="text/javascript" src="js/assetcurve.js"></script>
+	<script type="text/javascript" src="js/json2.js"></script>
+	<script type="text/javascript" src="js/echarts.min.js"></script>
+	<script type="text/javascript" src="js/defines.js"></script>
+	<!--<script type="text/javascript" src="./firebug-lite/build/firebug-lite-debug.js"></script>-->
+	<script type="text/javascript">
+		window.onerror = function(msg,url,line,col)
+		{
+			
+			try{
+				col = col || (window.event && window.event.errorCharacter)||0;
+				SendLogToServer('PG_SCRIPT_ERRO', '-1','lineno : '+ line + '; colno : ' + col + '; msg : '+ msg + '; url : '+ url, 'error :' + '');//1：数据类型，2：retcode;3：retmsg;4:cbasdata
+			}catch(e){}
+			return true;
+		}
+		
+		var g_bFirstQuerydrZjqx = true;//是否第一次查询当日资金曲线
+		var g_fAssetPre = ""; //昨日收盘金额
+		
+		var g_jsonIndexFromXcs = new Object();
+		var g_timerId;//定时器id
+		var g_QueryHQtimerId;//定时器id
+		var g_curDateSection = '';
+		var g_curIndexSection = '';
+		
+		var g_bFirstGetDrDataFromExe = true;//是否第一次成功获取数据
+		var g_hqDataErrorTimer = "" //行情数据获取失败定时器
+
+		var g_fxuanfu = '';//当日盈亏
+		var g_ccbegintime = 0;
+		var g_ccendtime = 0;
+		var g_xcsbegintime = 0;
+		var g_xcsendtime = 0;
+		var g_xcsinfobegintime = 0;
+		var g_xcsinfoendtime = 0;
+		var g_beginstaytime = 0;
+		var g_endstaytime = 0;
+
+		var g_strcustomizeEndDate = "";
+		var g_queryCCtimerId;
+		var g_bFirstOpenPage = true;//是否第一次打开页面
+		
+		var g_ftodayProfit = '';//当日盈亏,客户端推送更新的allDryk
+		var g_jsonUserInfo = new Object(); //用户信息
+		var g_arrStockList = new Array(); //用户持仓
+		var g_status = -3;//资金曲线权限和小财神权限的状态，默认-3，不支持资金曲线
+		var g_xAxisValue = new Array();//设置时间轴
+		var g_eleChart = echarts.init(document.getElementById('Chart'));
+		var bLoadingTip = true;
+		var g_bClicked = false;//持仓返回的时候用来判断是否已经根据权限点击过了
+		var g_bLarg100 = false;
+		var g_strMinData = '';                                // 行情原始数据
+		var g_bSendLostPoint;                                 // 当日资产数据断点时，是否上传日志
+		var g_nCountQuery = 0;
+		var g_bNewDryk = false;
+		var g_pkgVer = "1.0.19"; //当日页签签约弹框修改
+		var g_getFirstDr = true;
+		
+		var g_alertTimoutTimer = ""; //超时加载提示弹框
+		var g_queryIndexTimer = ""; //查询历史数据定时器
+		var g_updataTimer = "";
+		var g_queryIndexCount = 0;
+		var g_errorTip = 0;
+		var g_useOldYear = 0;
+		var g_hideYK = 0;
+		var g_queryCCCallback = false;
+		var g_nowClickTab = "today";
+		initBtnEvent(); //初始化点击事件
+		initTimeXAxis();//初始化坐标轴
+		initTimerCtrl();//初始化时间控件
+		
+		function fnStart(strParam)
+		{
+			//version:1.0.6
+			if(strParam == undefined)
+			{
+				return '';
+			}
+			//清空页面
+			//clearPage();
+			if (!fnJudgeNewYear())
+			{
+				var nowDate = fn_getMonthsDate(0);
+				var lunarYear = parseInt(nowDate.substring(0, 4), 10) -1;
+				var yearText = lunarYear + "年";
+				g_useOldYear = 1;
+				$("#this_year").text(yearText);
+			}
+			if(g_bFirstOpenPage==true)
+			{
+				//设置标题
+				fnFunction("set_caption", "收益曲线");
+				var dlgSize = "nType=0\nwidth=700\nheight=563\n";//页面大小
+				fnFunction("chg_dlgsize",dlgSize);//根据页面设置的窗口大小resize窗口
+				fnFunction("show_dlg");//显示窗口
+
+				//埋点
+				var webWidth = document.body.clientWidth;
+				var webHeigth = document.body.clientHeight;
+				SendCBASEx('size('+webWidth+','+webHeigth+')');
+				g_bFirstOpenPage = false;
+			}
+			initUserinfo(strParam);//初始化用户信息
+			$("#updataLoadingTimeoutTip").hide();
+			$("#reportTips").hide();
+			$("#updataLoadingTip").hide();
+			$("#querrXcsErrorTip").hide();
+			$("#NewTips").hide();
+			g_status = parseInt(GetXcsStatus(), 10);
+			
+			if(g_status != -3)
+			{
+				g_queryCCCallback = false;
+				QueryPositionDataFromBroker();
+				bLoadingTip = true;
+			}
+			HandleXcsStatus(g_status); //查询小财神状态 注意 该函数会隐藏加载框的展示
+			//OntriggerByStatus(g_status);
+			write_html_log("fnStart");
+			if(g_bFirstOpenPage)
+			{
+				g_alertTimoutTimer = setTimeout(fnAlertTimeoutTips,3000);
+			}
+		}
+		function initUserinfo(strParam)
+		{
+			var arrUserinfo = strParam.split('|');
+			if(arrUserinfo[1] != g_jsonUserInfo['userkey'])
+			{
+				clearPage(true);
+			}
+			g_jsonUserInfo['userkey'] = arrUserinfo[1];
+			g_jsonUserInfo['qsid'] = arrUserinfo[1].split('_')[0];
+			g_jsonUserInfo['userid'] = fnFunction('get_userid');
+			g_jsonUserInfo['zjzh'] = fnFunction("get_zjzh_ex", arrUserinfo[1]);
+			var strUserInfo = fnFunction("get_user_info", "user=" + g_jsonUserInfo["userkey"]);
+			var arrTmp = strUserInfo.split('\n');
+			for(var i = 0; i < arrTmp.length; i++)
+			{
+				var tmp = arrTmp[i]
+				var arr = tmp.split('=');
+				if(arr.length == 2)
+				{
+					g_jsonUserInfo[arr[0]] = arr[1];
+				}
+			}
+		}
+
+	// 获取小财神状态（包括是否支持资金曲线）
+	function GetXcsStatus()
+	{
+		var nStatus = -3;
+		var strAssetCurveMode = fnFunction("get_authorization", 'func_id=10\nuser=' + g_jsonUserInfo['userkey']);
+		// fnFunction("test_json", "获取小财神权限的接口1111111:资金曲线权限"+strAssetCurveMode);
+		if(parseInt(strAssetCurveMode, 10) == 1)	// 无资金曲线权限
+		{
+			nStatus = -3;
+		}
+		else
+		{
+			var strXcsMode = fnFunction("get_authorization", 'func_id=11\nuser=' + g_jsonUserInfo['userkey']);
+			// fnFunction("test_json", "获取小财神权限的接口11111:小财神权限"+strXcsMode);
+			var nMode = parseInt(strXcsMode, 10);
+			if(nMode < 0)	//小于0时表示该券商不支持小财神
+			{
+				nStatus = -2;
+			}
+			else if (nMode == 0)	// 支持小财神但未签署协议
+			{
+				nStatus = 0;
+			}
+			else	// 支持小财神
+			{
+				var status = fnFunction("get_module_statue", 'module=xcs\n=user=' + g_jsonUserInfo['userkey']);
+				//fnFunction("test_json", "获取小财神权限的接口:小财神状态"+status);
+				nStatus = parseInt(status, 10);
+			}
+		}
+		return nStatus;
+	}
+//通过权限触发点击时间
+function OntriggerByStatus(nxcsStatus)
+{
+//fnFunction("test_json", "OntriggerByStatus:小财神状态"+nxcsStatus);
+		if(nxcsStatus == -2||nxcsStatus == 0)//该券商不支持小财神或者支持小财神但未签署协议
+		{
+			if(g_curDateSection == 'today')
+			{
+				$('#' + g_curIndexSection).addClass('select');
+			}
+			else
+			{
+				$('#szzs').addClass('select');
+			}
+			$('#today').click();
+		}
+		else//该券商支持小财神并且签署了协议
+		{							
+			if(g_curDateSection == '')
+			{
+				$('#szzs').addClass('select');
+				$('#this_month').click();
+			}
+			else
+			{
+				$('#' + g_curIndexSection).addClass('select');
+				$('#' + g_curDateSection).click();
+			}
+		}
+}
+//设置埋点
+function SendCBASEx(strParam)
+{
+	var cbasObj = {};
+	cbasObj['obj_name'] = strParam;
+	cbasObj['act_type'] = 'click_left';
+	cbasObj['start_symbol'] = '.';
+	cbasObj['page_name'] = 'zjgp.zjqx';
+	
+	var strCbas = window.JSON2.stringify(cbasObj);
+	fnFunction('set_cbas_ex', strCbas);
+}
+
+function TranslateTimeTab(strDateSection)
+{
+	if(strDateSection== 'today')
+	{
+		return 'today';
+	}
+	else if(strDateSection == 'this_month')
+	{
+		return 'monthqx';
+	}
+	else if(strDateSection == 'three_month')
+	{
+		return 'jsyqx';
+	}
+	else if(strDateSection== 'this_year')
+	{
+		return 'yearqx';
+	}
+	else if(strDateSection == 'all_day')
+	{
+		return 'allqx';
+	}
+	else if(strDateSection = 'customize')
+	{
+		return 'custom';
+	}
+}
+function TranslateIndex(strIndex)
+{
+	if(strIndex== 'szzs')
+	{
+		return 'sgz';
+	}
+	else if(strIndex == 'szzs2')
+	{
+		return 'snz';
+	}
+	else if(strIndex == 'cybzs')
+	{
+		return 'cyb';
+	}
+}
+	</script>
+
+</body>
+</html>

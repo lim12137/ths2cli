@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+	<Default name="Menu" shared="true" value="bordersize=&quot;1,1,1,1&quot; bordercolor=&quot;#FF339CE4&quot; bkcolor=&quot;#FFEBF3F6&quot; itemtextpadding=&quot;10,0,0,0&quot; itemselectedbkcolor=&quot;#FF86CEF6&quot; " />
+  <Menu >
+		<MenuElement name="showcom" text="打开组件/下单" />
+		<MenuElement name="newpycom" text="新建自定义组件" />
+		<MenuElement linetype="true" linecolor="#FF9BCFF3" linepadding="8,0,8,0" />
+		<!-- 此处添加可选组件 -->
+		<MenuElement linetype="true" linecolor="#FF9BCFF3" linepadding="8,0,8,0" />
+		<MenuElement name="help" text="帮助" />
+	</Menu>
+</Window>

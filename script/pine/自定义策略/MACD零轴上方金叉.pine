@@ -1,0 +1,16 @@
+//@version=6
+indicator("MACD零轴上方金叉")
+
+// MACD 参数
+fastLength = input(12, "快线长度")
+slowLength = input(26, "慢线长度")
+signalLength = input(9, "信号线长度")
+
+// 计算 MACD
+[macdLine, signalLine, _] = ta.macd(close, fastLength, slowLength, signalLength)
+
+// 条件：MACD 线在零轴上方，并且上穿信号线
+goldenCrossAboveZero =   (macdLine > 0) and (ta.crossover(macdLine, signalLine))
+
+// 使用 alertcondition 设置预警
+alertcondition(condition=goldenCrossAboveZero, title="MACD 零轴上方金叉")

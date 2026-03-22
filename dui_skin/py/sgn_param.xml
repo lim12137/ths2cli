@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window size="650,230" caption="0,0,0,25" sizebox="4,4,4,4" >
+	<Font id="0" name="微软雅黑" size="30" bold="true" />
+	
+	<Default name="CheckBox" value="height=&quot;13&quot; align=&quot;left&quot; textpadding=&quot;20,0,0,0&quot; normalimage=&quot;file=&apos;customwnd/image/untick.bmp&apos; corner=&apos;13,0,0,0&apos;&quot; selectedimage=&quot;file=&apos;customwnd/image/tick.bmp&apos;  corner=&apos;13,0,0,0&apos;&quot; " />
+	<Default name="Combo" value="scrollselect=&quot;false&quot; textpadding=&quot;5,0,19,0&quot; itemtextpadding=&quot;3,0,0,0&quot; itemvalign=&quot;vcenter&quot; bkcolor=&quot;#FFFFFFFF&quot; bordersize=&quot;1,1,1,1&quot; bordercolor=&quot;#FF359EE8&quot; itemhotbkcolor=&quot;#FF86CEF6&quot; itemselectedbkcolor=&quot;#FF33ABEE&quot; dropbox=&quot;bordersize=&quot;1,1,1,1&quot; bkcolor=&quot;#FFEBF3F6&quot; bordercolor=&quot;#FF339CE4&quot;&quot; normalimage=&quot;file='customwnd/image/cmb.png' source='63,0,83,20' corner='0,0,20,0'&quot; hotimage=&quot;file='customwnd/image/cmb.png' source='21,0,41,20' corner='0,0,20,0'&quot; pushedimage=&quot;file='customwnd/image/cmb.png' source='21,0,41,20' corner='0,0,20,0'&quot;" />
+	<Default name="VScrollBar" value="button1normalimage=&quot;file='customwnd/image/scrollbar.png' source='0,90,16,106' mask='#FFFF00FF'&quot; button1hotimage=&quot;file='customwnd/image/scrollbar.png' source='18,90,34,106' mask='#FFFF00FF'&quot; button1pushedimage=&quot;file='customwnd/image/scrollbar.png' source='36,90,52,106' mask='#FFFF00FF'&quot; button1disabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,90,70,106' mask='#FFFF00FF'&quot; button2normalimage=&quot;file='customwnd/image/scrollbar.png' source='0,108,16,124' mask='#FFFF00FF'&quot; button2hotimage=&quot;file='customwnd/image/scrollbar.png' source='18,108,34,124' mask='#FFFF00FF'&quot; button2pushedimage=&quot;file='customwnd/image/scrollbar.png' source='36,108,52,124' mask='#FFFF00FF'&quot; button2disabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,108,70,124' mask='#FFFF00FF'&quot; thumbnormalimage=&quot;file='customwnd/image/scrollbar.png' source='0,126,16,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbhotimage=&quot;file='customwnd/image/scrollbar.png' source='18,126,34,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbpushedimage=&quot;file='customwnd/image/scrollbar.png' source='18,126,34,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbdisabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,126,70,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; railnormalimage=&quot;file='customwnd/image/scrollbar.png' source='0,144,16,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; railhotimage=&quot;file='customwnd/image/scrollbar.png' source='18,144,34,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; railpushedimage=&quot;file='customwnd/image/scrollbar.png' source='18,144,34,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; raildisabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,144,70,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; bknormalimage=&quot;file='customwnd/image/scrollbar.png' source='0,162,16,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkhotimage=&quot;file='customwnd/image/scrollbar.png' source='18,162,34,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkpushedimage=&quot;file='customwnd/image/scrollbar.png' source='36,162,52,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkdisabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,162,70,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; " />
+	<Default name="HScrollBar" value="button1normalimage=&quot;file='customwnd/image/scrollbar.png' source='0,0,16,16' mask='#FFFF00FF'&quot; button1hotimage=&quot;file='customwnd/image/scrollbar.png' source='18,0,34,16' mask='#FFFF00FF'&quot; button1pushedimage=&quot;file='customwnd/image/scrollbar.png' source='36,0,52,16' mask='#FFFF00FF'&quot; button1disabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,0,70,16' mask='#FFFF00FF'&quot; button2normalimage=&quot;file='customwnd/image/scrollbar.png' source='0,18,16,34' mask='#FFFF00FF'&quot; button2hotimage=&quot;file='customwnd/image/scrollbar.png' source='18,18,34,34' mask='#FFFF00FF'&quot; button2pushedimage=&quot;file='customwnd/image/scrollbar.png' source='36,18,52,34' mask='#FFFF00FF'&quot; button2disabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,18,70,34' mask='#FFFF00FF'&quot; thumbnormalimage=&quot;file='customwnd/image/scrollbar.png' source='0,36,16,52' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbhotimage=&quot;file='customwnd/image/scrollbar.png' source='18,36,34,52' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbpushedimage=&quot;file='customwnd/image/scrollbar.png' source='18,36,34,52' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbdisabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,36,70,52' corner='2,2,2,2' mask='#FFFF00FF'&quot; railnormalimage=&quot;file='customwnd/image/scrollbar.png' source='0,54,16,70' corner='2,2,2,2' mask='#FFFF00FF'&quot; railhotimage=&quot;file='customwnd/image/scrollbar.png' source='18,54,34,70' corner='2,2,2,2' mask='#FFFF00FF'&quot; railpushedimage=&quot;file='customwnd/image/scrollbar.png' source='18,54,34,70' corner='2,2,2,2' mask='#FFFF00FF'&quot; raildisabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,54,70,70' corner='2,2,2,2' mask='#FFFF00FF'&quot; bknormalimage=&quot;file='customwnd/image/scrollbar.png' source='0,72,16,88' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkhotimage=&quot;file='customwnd/image/scrollbar.png' source='18,72,34,88' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkpushedimage=&quot;file='customwnd/image/scrollbar.png' source='36,72,52,88' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkdisabledimage=&quot;file='customwnd/image/scrollbar.png' source='54,72,70,88' corner='2,2,2,2' mask='#FFFF00FF'&quot; " />
+	<Default name="Option" value="textcolor=&quot;#FFFFFFFF&quot; bkcolor=&quot;#FF86CEF6&quot; selectedbkcolor=&quot;#FF349DE5&quot; " />
+	
+	<Style name="EdtStyle" value="bordersize=&quot;1,1,1,1&quot; bordercolor=&quot;#FF359EE8&quot;" />
+	<Style name="BtnStyle" value="bordersize=&quot;1,1,1,1&quot; bordercolor=&quot;#FFC4D1E1&quot; borderround=&quot;2,2&quot; textcolor=&quot;#FFFFFFFF&quot; bkcolor=&quot;#FF349DE5&quot; hotbkcolor=&quot;#FF34ACF0&quot; pushedbkcolor=&quot;#FF1A69BB&quot;" />
+	
+	<Style name="EdtStyle_Cond" value="autocalcwidth=&quot;true&quot; width=&quot;120&quot; forcetipvalue=&quot;true&quot; tipvaluecolor=&quot;#FF000000&quot; textpadding=&quot;4,0,27,0&quot; bordersize=&quot;1,1,1,1&quot; bordercolor=&quot;#FF359EE8&quot; bkcolor=&quot;#FFECF3F6&quot; " />
+	<Style name="BtnStyle_DelCond" value="name=&quot;delbtn&quot; width=&quot;15&quot; padding=&quot;-22,4,2,4&quot; tooltip=&quot;删除条件&quot; bkimage=&quot;file=&apos;customwnd/image/close_nor.png&apos; &quot; hotimage=&quot;file=&apos;customwnd/image/close_hot.png&apos;&quot; pushedimage=&quot;file=&apos;customwnd/image/close_push.png&apos;&quot;" />
+	<Style name="BtnStyle_AddCond" value="name=&quot;andbtn&quot; text=&quot;+&quot; font=&quot;0&quot; width=&quot;25&quot; textpadding=&quot;0,-5,0,0&quot; textcolor=&quot;#FF349DE5&quot; hottextcolor=&quot;#FF34ACF0&quot; pushedtextcolor=&quot;#FF1A69BB&quot;" />
+	
+	<Style name="HLStyle_OrCond" value="height=&quot;35&quot; childpadding=&quot;5&quot; inset=&quot;0,5,5,5&quot; " />
+	
+	<VerticalLayout bkcolor="#FFAAB7C7" inset="2,2,2,2" bordersize="2,2,2,2" bordercolor="#FFC5D1E2">
+		<HorizontalLayout height="25" bkcolor="#FFCBDEF9" padding="0,0,0,1">
+			<Label text="条件单" padding="5,0,0,0" textcolor="#FF359EE8" />
+			<Control />
+			<Button name="closebtn" tooltip="关闭" width="17" padding="2,4,4,4" bkimage="file=&apos;customwnd/image/close_nor.png&apos; " hotimage="file=&apos;customwnd/image/close_hot.png&apos;" pushedimage="file=&apos;customwnd/image/close_push.png&apos;" />
+		</HorizontalLayout>
+		<VerticalLayout bkcolor="#FFECF3F6" inset="20,15,20,10" childpadding="5" >
+			<!-- 条件组合区域 -->
+			<HorizontalLayout name="switchHL" height="23" childpadding="2" visible="false" >
+				<Option text="监控条件" name="quoteopt" group="switch" width="80" selected="true" />
+				<Option text="前置条件" name="quote2opt" group="switch" width="80" />
+			</HorizontalLayout>
+			<HorizontalLayout name="quoteHL" height="23" childpadding="5" >
+				<Label text="监控股票" width="65" />
+				<Combo name="codecmb" width="85" >
+					<ListLabelElement text="输入" selected="true" />
+					<ListLabelElement text="持仓表" value="position" />
+					<ListLabelElement text="可撤委托表" value="order" />
+					<ListLabelElement text="全量委托表" value="fullorder" />
+					<ListLabelElement text="自选股" value="自选股" />
+					<ListLabelElement text="我的板块" />
+					<ListLabelElement text="问财选股" />
+				</Combo>
+				<Edit name="codeedt" style="EdtStyle" tipvalue="多个代码用','分隔" />
+			</HorizontalLayout>
+			<HorizontalLayout name="quote2HL" height="23" childpadding="5" visible="false" >
+				<Label text="前置股票" width="65" />
+				<Edit name="quote2edt" tipvalue="1A0001" style="EdtStyle" />
+			</HorizontalLayout>
+			<HorizontalLayout height="23" childpadding="5" >
+				<Label text="监控条件" width="65" />
+				<Combo name="condtypecmb" width="85" />
+				<Combo name="condcmb" width="120" />
+				<Label name="helptip" rowheight="23" textcolor="#FF999999" />
+				<Button text="保存" name="save1btn" width="60" style="BtnStyle" visible="false" />
+			</HorizontalLayout>
+			<HorizontalLayout name="paramHL" height="23" padding="70,0,0,0" childpadding="5" visible="false" />
+			<HorizontalLayout name="cmpHL" height="23" childpadding="5" >
+				<Label text="触发条件" width="65" />
+				<!-- 由于存在xml特殊字符，与运算符的映射转换在C++层 -->
+				<Combo name="cmpcmb" width="72" >
+					<ListLabelElement text="大于" selected="true" />
+					<ListLabelElement text="大于等于"/>
+					<ListLabelElement text="小于"/>
+					<ListLabelElement text="小于等于"/>
+					<ListLabelElement text="等于"/>
+					<ListLabelElement text="不等于"/>
+					<ListLabelElement text="触发" visible="false" />
+				</Combo>
+				<Edit name="cmpedt" style="EdtStyle" />
+				<Button text="保存" name="save2btn" width="60" style="BtnStyle" />
+			</HorizontalLayout>
+			<!-- 条件展示区域 -->
+			<VerticalLayout name="resVL" visible="false" padding="0,10,0,10" bordersize="0,1,0,1" inset="0,1,0,1" bordercolor="#FF359EE8" hscrollbar="true" vscrollbar="true" >
+				<Control name="split" bkcolor="#FFCCCCCC" height="1" />
+				<Button name="orbtn" text="增加OR条件" textcolor="#FF359EE8" bkcolor="#FFECF3F6" hotbkcolor="#FF86CEF6" hottextcolor="#FFFFFFFF" pushedbkcolor="#FF349DE5" pushedtextcolor="#FFFFFFFF" />
+			</VerticalLayout>
+			<!-- 其他 -->
+			<HorizontalLayout height="23" childpadding="5" >
+				<Label text="触发后执行" width="65" />
+				<Combo name="actcmb" width="72" >
+					<ListLabelElement text="买入" value="buy" selected="true" />
+					<ListLabelElement text="卖出" value="sell" />
+					<ListLabelElement text="撤单" value="cancel" />
+				</Combo>
+				<Combo name="pricecmb" width="72" >
+					<ListLabelElement text="涨停价" value="ztjg" />
+					<ListLabelElement text="对手价5" value="dsj5" />
+					<ListLabelElement text="对手价3" value="dsj3" />
+					<ListLabelElement text="对手价1" value="dsj1" />
+					<ListLabelElement text="最新价" value="zxjg" selected="true" />
+					<ListLabelElement text="本方价1" value="bfj1" />
+					<ListLabelElement text="本方价3" value="bfj3" />
+					<ListLabelElement text="本方价5" value="bfj5" />
+					<ListLabelElement text="跌停价" value="dtjg" />
+				</Combo>
+				<Combo name="optcmb" width="85" >
+					<ListLabelElement text="数量" selected="true" />
+					<ListLabelElement text="金额" value="-m" />
+					<ListLabelElement text="可用仓位" value="-cw" />
+					<ListLabelElement text="目标总仓位" value="-zcw" />
+					<ListLabelElement text="总资产仓位" value="-zzc" />
+				</Combo>
+				<Edit name="amtedt" style="EdtStyle" width="85" />
+				<Combo name="autocmb" width="85" >
+					<ListLabelElement text="自动执行" value="-notip" selected="true" />
+					<ListLabelElement text="手动确认" />
+				</Combo>
+			</HorizontalLayout>
+			<!-- 有效期 -->
+			<HorizontalLayout height="23" childpadding="5" >
+				<Label text="条件有效期" width="65" />
+				<DateTime name="validdate" textpadding="4,0,0,0" bordersize="1,1,1,1" bordercolor="#FF359EE8" width="100" bkcolor="#FFFFFFFF" />
+			</HorizontalLayout>
+			<HorizontalLayout height="30" childpadding="100" >
+				<Control/>
+				<Button text="》 组合条件" name="switchbtn" mode="single" width="120" style="BtnStyle" />
+				<Button text="添加条件单" name="yesbtn" width="120" style="BtnStyle" />
+				<Control/>
+			</HorizontalLayout>
+		</VerticalLayout>
+	</VerticalLayout>
+</Window>

@@ -1,0 +1,158 @@
+@set my-v-scrollbar
+{
+	:root 
+	{
+	}
+
+	.prev 
+	{ 
+		foreground-image:url(images/scrollbar.bmp); 
+		foreground-position:0px 0px;
+	}
+	
+	.prev:hover
+	{ 
+		foreground-image:url(images/scrollbar.bmp); 
+		foreground-position:0px -13px;
+	}
+	
+	.prev:active
+	{ 
+		foreground-image:url(images/scrollbar.bmp); 
+		foreground-position:0px -26px;
+	}
+  
+	.next 
+	{ 
+		foreground-image:url(images/scrollbar.bmp); 
+		foreground-position:-13px 0px;
+		height:13px;
+	}
+	
+	.next:hover
+	{ 
+		foreground-image:url(images/scrollbar.bmp); 
+		foreground-position:-13px -13px;
+	}
+	
+	.next:active
+	{ 
+		foreground-image:url(images/scrollbar.bmp); 
+		foreground-position:-13px -26px;
+	}
+	
+	.next-page, 
+	.prev-page 
+	{ 
+		foreground-image:url(images/scrollbar.bmp); 
+		foreground-position:-39px 0px;
+	}
+	
+	.slider 
+	{ 
+		foreground-image:url(images/scrollbar.bmp); 
+		foreground-position:-26px 35px;
+		background-repeat:repeat; 
+	}
+	.next:disabled, .slider:disabled, 
+	.prev:disabled  
+	{ 
+		height:0; 
+		border:none; 
+		foreground-image:none; 
+	}
+ 
+	.base 
+	{ 
+		width: 13px; 
+	} /* explicit declaration of its width */
+}
+
+/* style block defining horizontal scrollbar */
+@set my-h-scrollbar
+{
+	:root 
+	{
+	   
+	}
+
+	.prev 
+	{ 
+		foreground-image:url(images/scrollbar.bmp); 
+		foreground-position:-52px 0px;
+	}
+	
+	.prev:hover
+	{ 
+		foreground-image:url(images/scrollbar.bmp); 
+		foreground-position:-52px -13px;
+	}
+	
+	.prev:active
+	{ 
+		foreground-image:url(images/scrollbar.bmp); 
+		foreground-position:-52px -26px;
+	}
+	
+	.next 
+	{ 
+		foreground-image:url(images/scrollbar.bmp); 
+		foreground-position:-65px 0px;
+	}
+	
+	.next:hover
+	{ 
+		foreground-image:url(images/scrollbar.bmp); 
+		foreground-position:-65px -13px;
+	}
+	
+	.next:active
+	{ 
+		foreground-image:url(images/scrollbar.bmp); 
+		foreground-position:-65px -26px;
+	}
+	
+	.next-page, 
+	.prev-page 
+	{ 
+		foreground-image:url(images/scrollbar-x.png); 
+		foreground-position:0px -36px;
+	}
+	
+	.slider 
+	{ 
+		foreground-image:url(images/scrollbar-x.png); 
+		foreground-position:0px 0px;
+		background-repeat:repeat; 
+	}
+	
+	
+	.base 
+	{ 
+		height: 13px; 
+	}
+}
+
+* 
+{ 
+	vertical-scrollbar: my-v-scrollbar;
+	horizontal-scrollbar: my-h-scrollbar;
+}
+
+#window-scroll-always
+{ 
+	overflow: scroll;
+}
+
+#window-scroll-auto
+{ 
+	overflow: auto; 
+}
+#window-scroll-hidden
+{ 
+	overflow: hidden; 
+}
+#window-scroll-visible
+{
+	overflow: visible; 
+}

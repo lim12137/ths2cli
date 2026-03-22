@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="GB2312"?>
+<XD_Function>
+	<class name="股 票" id="129">
+		<item name="风险评估" id="804" icon="218" pkg="riskEvaluation.pkg;" html="test.html" icon_name="ico_qtgn" />
+		<item name="查询风险评估等级测评结果" icon="218" pkg="riskEvaluation.pkg;" html="info.html" icon_name="ico_chaxun1" />
+		<item icon2="432" icon="432" id="0" name="新股申购" icon_name="ico_xgsg1">
+			<item icon2="161" icon="161" id="554" name="新股申购" icon_name="ico_xgsg2" />
+			<item icon2="161" icon="161" id="5086" name="批量新股申购" icon_name="ico_xgsg2" />
+			<item icon2="161" icon="161" id="5478" icon_name="ico_xgsg2" name="新债申购"/>
+			<item icon2="161" icon="161" id="5501" icon_name="ico_plxgsg" name="批量新债申购" auto_refresh="1"/>
+			<item icon2="167" icon="167" id="180" name="配号查询" delete="1" icon_name="ico_chaxun2" />
+			<item icon2="167" icon="167" id="180" name="配号查询" icon_name="ico_chaxun2" />
+			<item icon2="167" icon="167" id="374" name="中签查询" icon_name="ico_chaxun2" />
+			<item icon2="167" icon="167" name="中签明细查询" type="cx_template" reqtype="2304" extra_cmd="Query_IPO" auto_refresh="1" icon_name="ico_chaxun2" show_tip='40'/>
+			<item icon2="167" icon="167" name="新股配售额度查询" type="cx_template" reqtype="2304" extra_cmd="query_psqy" icon_name="ico_chaxun2" />
+		</item>
+		<item icon2="432" icon="432" id="0" name="场内基金" icon_name="ico_cnjj">
+			<item icon2="218" icon="218" id="433" name="基金申购" icon_name="ico_shengou" />
+			<item icon2="218" icon="218" id="435" name="基金认购" icon_name="ico_rengou" />
+			<item icon2="218" icon="218" id="434" name="基金赎回" icon_name="ico_shuhui" />
+		</item>
+		<item icon="218" name="服务密码管理" id="5491" icon_name="ico_qtgn" />
+		<item icon="432" id="0" name="网络投票" icon_name="ico_wltp1" delete="1">
+			<item icon="218" name="股东大会" type="hxui" pkg="wltp.pkg;" html="wltp/wltp_gddhnew.htm" icon_name="ico_qtgn" />
+			<item icon="218" name="上海投票查询" type="cx_template" reqtype="2304" extra_cmd="cx_ytpdhxx" auto_refresh="1" icon_name="ico_chaxun2" />
+			<item icon="218" name="深圳投票查询" type="cx_template" reqtype="2304" extra_cmd="wltp_cx_szwt" auto_refresh="1" icon_name="ico_chaxun2" />
+		</item>
+		<item icon2="656" icon="656" icon_name="ico_qtgn" id="0" name="盘后定价委托">
+			<item icon2="657" icon="657" icon_name="ico_mairu" id="5591" name="盘后定价买入" />
+			<item icon2="658" icon="658" icon_name="ico_maichu" id="5592" name="盘后定价卖出" />
+			<item icon2="163" icon="163" icon_name="ico_chedan" id="5594" name="盘后撤单" />
+			<item icon2="167" icon="167" icon_name="ico_drwt" name="盘后当日委托" type="cx_template" reqtype="2304" extra_cmd="phgjwt_cx" auto_refresh="1" />
+			<item icon2="167" icon="167" icon_name="ico_lswt" name="盘后历史委托" type="cx_template" reqtype="2304" extra_cmd="phgjwt_lscx" show_date="1" qsrq="-8" zzrq="-1" auto_refresh="1" />
+			<item icon2="167" icon="167" icon_name="ico_drcj" name="盘后当日成交" type="cx_template" reqtype="2304" extra_cmd="phgjcj_cx" auto_refresh="1" />
+		</item>
+		<item icon2="172" icon="172" icon_name="ico_qtgn"  id_pos="163" type="ajax" id="8007" name="条件单" pkg="condition.pkg;" html="condition/html/condition.html" zyy="0" gtlx="ksgt"/>
+		<item icon2="419" icon="419" icon_name="ico_cnjj" name="国债逆回购" id="5289" type="hxui" pkg="gznhg.pkg;" html="gznhg/html/gznhg.html"/>
+	</class>
+	<class id="5092" name="港股通">
+		<item icon2="848" icon="848" id="0" id_pos="163" name="沪港通" icon_name="ico_hgt">
+			<item icon="151" name="买入" type="hxui" html="ggt/ggt_mairu.htm" pkg="ggt.pkg;" jump_htm="ggt/ggt_maichu.htm" icon_name="ico_mairu" />
+			<item icon="152" name="卖出" type="hxui" html="ggt/ggt_maichu.htm" pkg="ggt.pkg;" icon_name="ico_maichu" />
+			<item icon="157" name="零股卖出" type="hxui" html="ggt/ggt_linggumaichu.htm" pkg="ggt.pkg;" icon_name="ico_lgmc" />
+			<item icon="154" name="撤单" type="hxui" html="ggt/ggt_chedan.htm" pkg="ggt.pkg;" icon_name="ico_chedan" />
+			<item icon="158" name="沪港通权限管理" type="hxui" html="ggt/ggt_gfqxkt.htm" pkg="ggt.pkg;" delete="1" icon_name="ico_qtgn" />
+			<item icon="159" name="知识测评" html="html/risk_evaluating.html" id="850" pkg="func.pkg;comm.pkg;res.pkg;css.pkg;" auto_refresh="1" delete="1" icon_name="ico_qtgn" />
+			<item icon="218" name="投票申报" type="hxui" html="ggt/ggt_tpsb_V1.htm" pkg="ggt.pkg;" icon_name="ico_qtgn" />
+			<item icon="218" name="行为申报" type="hxui" html="ggt/ggt_gsxwsb.htm" pkg="ggt.pkg;" icon_name="ico_qtgn" />
+			<item icon2="184" icon="184" id="0" name="查询" icon_name="ico_chaxun2">
+				<item icon="153" name="查询港股通标的代码信息" type="cx_template" reqtype="2317" extra_cmd="ggt_query_stkcode" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="查询港股通通知信息" type="cx_template" reqtype="2317" extra_cmd="ggt_query_qy" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="查询资金股票" type="hxui" html="ggt/ggt_query_zc.htm" pkg="ggt.pkg;" icon_name="ico_qtgn" />
+				<item icon="153" name="查询额度" type="cx_template" reqtype="2317" extra_cmd="ggt_query_ed" auto_refresh="1" icon_name="ico_qtgn" delete="1"/>
+				<item icon="153" name="查询港股通汇率" type="cx_template" reqtype="2317" extra_cmd="ggt_query_huilv" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="查询港股通价位" type="cx_template" reqtype="2317" extra_cmd="ggt_query_jw" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="查询当日委托" type="cx_template" reqtype="2317" extra_cmd="ggt_query_drwt" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="查询当日成交" type="cx_template" reqtype="2317" extra_cmd="ggt_query_drcj" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="查询历史委托" type="cx_template" reqtype="2317" extra_cmd="ggt_query_lswt" show_date="1" qsrq="-8" zzrq="-1" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="查询历史成交" type="cx_template" reqtype="2317" extra_cmd="ggt_query_lscj" show_date="1" qsrq="-8" zzrq="-1" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="查询交割单" type="cx_template" reqtype="2317" extra_cmd="ggt_query_jgd" show_date="1" qsrq="-8" zzrq="-1" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="查询对账单" type="cx_template" reqtype="2317" extra_cmd="ggt_query_dzd" show_date="1" qsrq="-8" zzrq="-1" auto_refresh="1" icon_name="ico_qtgn" />
+			</item>
+		</item>
+		<item icon2="849" icon="849" id="0" name_pos="沪港通" name="深港通" icon_name="ico_sgt">
+			<item icon="151" name="买入" type="hxui" pkg="sgt.pkg;" html="sgt/sgt_mairu.htm" jump_htm="sgt/sgt_maichu.htm" icon_name="ico_mairu" />
+			<item icon="152" name="卖出" type="hxui" pkg="sgt.pkg;" html="sgt/sgt_maichu.htm" icon_name="ico_maichu" />
+			<item icon="157" name="零股卖出" type="hxui" pkg="sgt.pkg;" html="sgt/sgt_linggumaichu.htm" icon_name="ico_lgmc" />
+			<item icon="154" name="撤单" type="hxui" pkg="sgt.pkg;" html="sgt/sgt_chedan.htm" icon_name="ico_chedan" />
+			<item icon="158" name="深港通权限管理" type="hxui" pkg="sgt.pkg;" html="sgt/sgt_gfqxkt.htm" delete="1" icon_name="ico_qtgn" />
+			<item icon="159" name="知识测评" type="ajax" id="833" html="html/risk_evaluating.html" pkg="comm.pkg;res.pkg;func.pkg;css.pkg;" auto_refresh="1" delete="1" icon_name="ico_qtgn" />
+			<item icon="218" name="投票申报" type="hxui" pkg="sgt.pkg;" html="sgt/sgt_tpsb.htm" icon_name="ico_qtgn" />
+			<item icon="156" name="当日投票申报撤单" type="hxui" pkg="sgt.pkg;" html="sgt/sgt_chedan_drtpsb.htm" icon_name="ico_chedan" />
+			<item icon="218" name="行为申报" type="hxui" pkg="sgt.pkg;" html="sgt/sgt_gsxwsb.htm" icon_name="ico_qtgn" />
+			<item icon="155" name="当日行为申报撤单" type="hxui" pkg="sgt.pkg;" html="sgt/sgt_chedan_drgsxwsb.htm" icon_name="ico_chedan" />
+			<item icon2="184" icon="184" id="0" name="查询    " icon_name="ico_chaxun2">
+				<item icon="153" name="查询港股通通知信息" type="cx_template" reqtype="2317" extra_cmd="ggt_query_qy" auto_refresh="1" ggt_type="sgt" icon_name="ico_qtgn" />
+				<item icon="153" name="查询港股通标的代码信息" type="cx_template" reqtype="2317" extra_cmd="ggt_query_stkcode" ggt_type="sgt" icon_name="ico_qtgn" />
+				<item icon="153" name="查询资金股票" type="hxui" pkg="sgt.pkg;" html="sgt/sgt_query_zc.htm" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="查询额度" type="cx_template" reqtype="2317" extra_cmd="ggt_query_ed" ggt_type="sgt" auto_refresh="1" icon_name="ico_qtgn" delete="1"/>
+				<item icon="153" name="查询港股通汇率" type="cx_template" reqtype="2317" extra_cmd="ggt_query_huilv" ggt_type="sgt" icon_name="ico_qtgn" />
+				<item icon="153" name="查询港股通价位" type="cx_template" reqtype="2317" extra_cmd="ggt_query_jw" ggt_type="sgt" icon_name="ico_qtgn" />
+				<item icon="153" name="查询当日委托" type="cx_template" reqtype="2317" extra_cmd="ggt_query_drwt" ggt_type="sgt" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="查询当日成交" type="cx_template" reqtype="2317" extra_cmd="ggt_query_drcj" ggt_type="sgt" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="查询历史委托" type="cx_template" reqtype="2317" extra_cmd="ggt_query_lswt" ggt_type="sgt" show_date="1" qsrq="-8" zzrq="-1" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="查询历史成交" type="cx_template" reqtype="2317" extra_cmd="ggt_query_lscj" ggt_type="sgt" show_date="1" qsrq="-8" zzrq="-1" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="查询交割单" type="cx_template" reqtype="2317" extra_cmd="ggt_query_jgd" ggt_type="sgt" show_date="1" qsrq="-8" zzrq="-1" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="查询对账单" type="cx_template" reqtype="2317" extra_cmd="ggt_query_dzd" ggt_type="sgt" show_date="1" qsrq="-8" zzrq="-1" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="历史投票委托查询" type="cx_template" reqtype="2317" extra_cmd="ggt_query_tpwt_ls" ggt_type="sgt" show_date="1" qsrq="-8" zzrq="-1" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="历史投票成交查询" type="cx_template" reqtype="2317" extra_cmd="ggt_query_tpcj_ls" ggt_type="sgt" show_date="1" qsrq="-8" zzrq="-1" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="历史投票截止日投票结果查询" type="cx_template" reqtype="2317" extra_cmd="ggt_query_jzrtp_ls" ggt_type="sgt" show_date="1" qsrq="-8" zzrq="-1" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="历史投票委托结果查询" type="cx_template" reqtype="2317" extra_cmd="ggt_query_tpjg_ls" ggt_type="sgt" show_date="1" qsrq="-8" zzrq="-1" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="历史公司行为申报委托查询" type="cx_template" reqtype="2317" extra_cmd="ggt_query_gswt_ls" ggt_type="sgt" show_date="1" qsrq="-8" zzrq="-1" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="历史公司行为申报成交查询" type="cx_template" reqtype="2317" extra_cmd="ggt_query_gsxwcj_ls" ggt_type="sgt" show_date="1" qsrq="-8" zzrq="-1" auto_refresh="1" icon_name="ico_qtgn" />
+				<item icon="153" name="历史综合委托查询" type="cx_template" reqtype="2317" extra_cmd="ggt_query_zhwt_ls" ggt_type="sgt" show_date="1" qsrq="-8" zzrq="-1" auto_refresh="1" icon_name="ico_qtgn" />
+			</item>
+		</item>
+	</class>
+	<class id="240" name="开放基金">
+		<item icon2="161" icon="161" id="227" name="申　　购" icon_name="ico_shengou" />
+		<item icon2="161" icon="161" id="253" name="认　　购" icon_name="ico_rengou" />
+		<item icon2="162" icon="162" id="228" name="赎　　回" icon_name="ico_qtgn" />
+		<item icon2="163" icon="163" id="230" name="撤　　单" icon_name="ico_chedan" />
+		<item icon2="184" icon="184" id="0" name="查　　询" icon_name="ico_chaxun1">
+			<item icon2="167" icon="167" id="313" name="基金资产" icon_name="ico_qtgn" />
+			<item icon2="167" icon="167" id="312" name="成　　交" icon_name="ico_qtgn" />
+			<item icon2="167" icon="167" id="314" name="委　　托" icon_name="ico_qtgn" />
+			<item icon2="167" icon="167" id="485" name="基金帐户" icon_name="ico_qtgn" />
+		</item>
+		<item icon2="369" icon="369" id="255" name="基金转换" icon_name="ico_zhuanhuan" />
+		<item icon2="473" icon="473" id="254" name="分红方式设置" icon_name="ico_fhsz" />
+		<item icon2="218" icon="218" id="395" name="基金开户" icon_name="ico_kaihu" />
+		<item name="风险评估" id="804" icon="218" pkg="riskEvaluation.pkg;" html="test.html" icon_name="ico_qtgn" />
+		<item name="查询风险评估等级测评结果" icon="218" pkg="riskEvaluation.pkg;" html="info.html" icon_name="ico_chaxun1" />
+	</class>
+</XD_Function>

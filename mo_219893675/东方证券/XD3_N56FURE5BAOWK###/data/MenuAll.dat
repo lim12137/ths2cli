@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="GB2312"?>
+<XD_Function>
+	<class id="129" name="股票交易">
+		<item icon2="161" icon="161" icon_name="ico_mairu" id="161" name="买入[F1]"/>
+		<item icon2="162" icon="162" icon_name="ico_maichu" id="162" name="卖出[F2]"/>
+		<item icon2="163" icon="163" icon_name="ico_chedan" id="163" name="撤单[F3]"/>
+		<item icon2="172" icon="172" icon_name="ico_ymd" id="172" name="预埋单" />
+		<item icon2="769" icon="769" icon_name="ico_sxwt" id="512" name="双向委托[F6]"/>
+		<item icon2="213" icon="213" icon_name="ico_plxd" id="0" name="批量下单">
+			<item icon2="" icon="" icon_name="ico_mairu" id="216" name="买入[F9]"/>
+			<item icon2="" icon="" icon_name="ico_maichu" id="215" name="卖出[F10]"/>
+		</item>
+		<item icon2="408" icon="408" icon_name="ico_zqhg" id="0" name="债券回购">
+		    <item icon2="218" icon="218" icon_name="ico_mairu" id="716" name="融资回购" />
+		    <item icon2="218" icon="218" icon_name="ico_maichu" id="717" name="融券回购" />
+            <item icon2="218" icon="218" icon_name="ico_chedan" id="718" name="质押券入库" />
+		    <item icon2="218" icon="218" icon_name="ico_chaxun2" id="719" name="质押券出库" />
+			<item icon2="167" icon="167" icon_name="ico_chaxun2" id="720" name="未到期回购查询" />
+			<item icon2="167" icon="167" icon_name="ico_chaxun2" id="722" name="标准券查询" />
+			<item icon2="167" icon="167" icon_name="ico_chaxun2" id="721" name="质押在库明细查询" />
+		</item>
+		<item icon2="184" icon="184" icon_name="ico_chaxun1" id="0" expand="1" name="查询[F4]">
+			<item icon2="165" icon="165" icon_name="ico_zjye" id="165" name="资金股票"/>
+			<item icon2="167" icon="167" icon_name="ico_drcj" id="167" name="当日成交"/>
+			<item icon2="167" icon="167" icon_name="ico_drwt" id="168" name="当日委托"/>
+			<item icon2="167" icon="167" icon_name="ico_lscj" id="510" name="历史成交"/>
+			<item icon2="167" icon="167" icon_name="ico_lswt" id="511" name="历史委托"/>
+			<item icon2="167" icon="167" icon_name="ico_dzd" id="175" name="对  帐  单"/>
+			<item icon2="167" icon="167" icon_name="ico_jgd" id="176" name="交  割  单"/>
+			<item icon2="167" icon="167" icon_name="ico_chaxun2" id="180" name="配　　号"/>
+			<item icon2="167" icon="167" icon_name="ico_chaxun2" id="692" name="历史成交汇总"/>
+		</item>
+		<item icon2="171" icon="171" icon_name="ico_xgmm" id="171" name="修改密码"/>
+		<item icon2="173" icon="173" icon_name="ico_yzzz" id="0" name="资金转账">
+			<item icon2="218" icon="218" icon_name="ico_yzzz" id="520" name="银证转账"/>
+			<item icon2="167" icon="167" icon_name="ico_yhls" id="522" name="银证转账流水"/>
+			<item icon2="218" icon="218" icon_name="ico_yzzz" id="600" name="主辅划转"/>
+			<item icon2="167" icon="167" icon_name="ico_yhls" id="535" name="主辅划转流水"/>
+		</item>
+		<item icon2="218" icon="218" icon_name="ico_xingquan" id="438" name="行　　权"/>
+		<item icon2="218" icon="218" icon_name="ico_qtgn" id="218" name="转股回售"/>
+		<item icon2="473" icon="473" icon_name="ico_sjwt" id="0" name="市价委托">
+			<item icon2="161" icon="161" icon_name="ico_mairu" id="471" name="买入"/>
+			<item icon2="162" icon="162" icon_name="ico_maichu" id="472" name="卖出"/>
+		</item>
+		<item icon2="432" icon="432"  icon_name="ico_cnjj"id="0" name="场内基金">
+			<item icon2="218" icon="218" icon_name="ico_shengou" id="433" name="基金申购"/>
+			<item icon2="218" icon="218" icon_name="ico_shuhui" id="434" name="基金赎回"/>
+		</item>
+		<item icon2="432" icon="432"  icon_name="ico_jjhbfc"id="0" name="基金合并分拆" delete="1">
+			<item icon2="218" icon="218" icon_name="ico_jjhb" id="562" name="基金合并" delete="1"/>
+			<item icon2="218" icon="218" icon_name="ico_jjfc" id="561" name="基金分拆" delete="1"/>
+		</item>
+		<item icon2="419" icon="419" icon_name="ico_cnjj" name="ETF网下认购">
+			<item icon2="218" icon="218" icon_name="ico_rengou" id="594" name="网下股票认购"/>
+			<item icon2="218" icon="218" icon_name="ico_chaxun2" id="679" name="网下股票认购查询"/>
+			<item icon2="218" icon="218" icon_name="ico_chedan" id="627" name="网下股票认购撤单"/>
+			<item icon2="218" icon="218" icon_name="ico_rengou" id="420" name="网下现金认购"/>
+			<item icon2="218" icon="218" icon_name="ico_chaxun2" id="678" name="网下现金认购查询"/>
+			<item icon2="218" icon="218" icon_name="ico_chedan" id="626" name="网下现金认购撤单"/>
+		</item>
+		<item icon2="419" icon="419" icon_name="ico_cnjj" name="ETF申  赎">
+			<item icon2="218" icon="218" icon_name="ico_shengou" id="426" name="申       购"/>
+			<item icon2="218" icon="218" icon_name="ico_shuhui" id="427" name="赎       回"/>
+			<item icon2="218" icon="218" icon_name="ico_mairu" id="796" name="ETF篮子买入"/>
+			<item icon2="218" icon="218" icon_name="ico_maichu" id="797" name="ETF篮子卖出"/>
+			<item icon2="218" icon="218" icon_name="ico_chedan" id="798" name="ETF篮子撤单"/>
+		</item>
+	</class>
+	<class id="240" name="开放基金">
+		<item icon2="161" icon="161" icon_name="ico_rengou" id="227" name="认购/申购"/>
+		<item icon2="162" icon="162" icon_name="ico_shuhui" id="228" name="赎  回"/>
+		<item icon2="369" icon="369" icon_name="ico_zhuanhuan" id="255" name="基金转换"/>
+		<item icon2="163" icon="163" icon_name="ico_chedan" id="230" name="撤  单"/>
+		<item icon2="184" icon="184" id="0" icon_name="ico_chaxun1" name="查  询">
+			<item icon2="167" icon="167" id="313" icon_name="ico_chaxun2" name="基金资产"/>
+			<item icon2="167" icon="167" id="312" icon_name="ico_chaxun2" name="成　　交" show_date="1" qsrq="-8" zzrq="-1"/>
+			<item icon2="167" icon="167" id="314" icon_name="ico_chaxun2" name="委　　托"/>
+			<item icon2="167" icon="167" id="1050" icon_name="ico_chaxun2" name="在途资产" type="cx_template" reqtype="2304" extra_cmd="query_ztzc" auto_refresh="1"/>
+			<item icon="218" icon_name="ico_jgd" name="对 账 单" type="cx_template" reqtype="2304" extra_cmd="kfs_cx_jgd" show_date="1" qsrq="-8" zzrq="-1" auto_refresh="1"/>
+			<item icon2="167" icon="167" id="515" icon_name="ico_chaxun2" name="基金信息"/>
+			<item icon2="167" icon="167" id="485" icon_name="ico_chaxun2" name="基金帐户"/>
+		</item>
+		<item icon2="173" icon="173" icon_name="ico_yzzz" id="0" name="资金转账">
+			<item icon2="218" icon="218" icon_name="ico_yzzz" id="520" name="银证转账"/>
+			<item icon2="167" icon="167" icon_name="ico_yhls" id="522" name="银证转账流水"/>
+			<item icon2="218" icon="218" icon_name="ico_yzzz" id="600" name="主辅划转"/>
+			<item icon2="167" icon="167" icon_name="ico_yhls" id="535" name="主辅划转流水"/>
+		</item>
+		<item icon2="171" icon="171" icon_name="ico_xgmm" id="171" name="修改密码"/>
+		<item icon2="473" icon="473" id="254" icon_name="ico_fhsz" name="分红方式"/>
+		<item icon2="218" icon="218" id="395" icon_name="ico_kaihu" name="基金开户"/>
+		<item icon2="218" icon="218" id="514" icon_name="ico_chaxun2" name="查询风险级别"/>
+	</class>
+	<class id="2001" name="报价回购">
+		<item icon2="161" icon="161" icon_name="ico_mairu" id="604" name="买入"/>
+		<item icon2="408" icon="408" icon_name="ico_tqgh" id="606" name="提前购回"/>
+		<item icon2="408" icon="408" icon_name="ico_shuhui" id="631" name="终止续约"/>
+		<item icon2="408" icon="408" icon_name="ico_tqgh" id="632" name="大额提前购回预约"/>
+		<item icon2="408" icon="408" icon_name="ico_chedan" id="668" name="大额提前购回预约撤销"/>
+		<item icon2="167" icon="167" icon_name="ico_chaxun2" id="607" name="查询委托"/>
+		<item icon2="167" icon="167" icon_name="ico_chaxun2" id="609" name="查询历史委托"/>
+		<item icon2="167" icon="167" icon_name="ico_chaxun2" id="610" name="查询历史成交"/>
+		<item icon2="167" icon="167" icon_name="ico_chaxun2" id="611" name="查询未到期"/>
+	</class>
+	<class id="5040" name="OTC">
+		<item icon2="218" icon="218" icon_name="ico_cpxx" id="785" name="产品信息"/>
+		<item icon2="218" icon="218" icon_name="ico_rengou" id="786" name="认购"/>
+		<item icon2="218" icon="218" icon_name="ico_mairu" id="787" name="买入"/>
+		<item icon2="218" icon="218" icon_name="ico_maichu" id="788" name="卖出"/>
+		<item icon2="218" icon="218" icon_name="ico_shengou" id="2048" name="申购"/>
+		<item icon2="218" icon="218" icon_name="ico_shuhui" id="2050" name="赎回"/>
+		<item icon2="218" icon="218" icon_name="ico_chedan" id="5041" name="撤单"/>
+		<item icon2="218" icon="218" icon_name="ico_mairu" id="5042" name="意向买入"/>
+		<item icon2="218" icon="218" icon_name="ico_maichu" id="5043" name="意向卖出"/>
+		<item icon2="218" icon="218" icon_name="ico_mairu" id="5044" name="定价买入"/>
+		<item icon2="218" icon="218" icon_name="ico_maichu" id="5045" name="定价卖出"/>
+		<item icon2="218" icon="218" icon_name="ico_mairu" id="5046" name="成交确认买入"/>
+		<item icon2="218" icon="218" icon_name="ico_maichu" id="5047" name="成交确认卖出"/>
+		<item icon2="218" icon="218" icon_name="ico_zhhq" id="5048" name="OTC综合行情"/>
+		<item name="查询" icon="218" icon2="218" icon_name="ico_chaxun1" expand="1" id="0">
+			<item icon2="167" icon="167" id="5050" icon_name="ico_drwt" name="当日委托"/>
+			<item icon2="167" icon="167" id="5049" icon_name="ico_drcj" name="当日成交"/>
+			<item icon2="167" icon="167" id="790" icon_name="ico_lswt" name="历史委托"/>
+			<item icon2="167" icon="167" id="789" icon_name="ico_lscj" name="历史成交"/>
+		</item>
+	</class>
+</XD_Function>

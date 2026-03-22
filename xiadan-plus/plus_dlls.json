@@ -1,0 +1,46 @@
+[
+    {
+        "name": "quoteunified.dll",
+        "version": "0.0.0.49"
+    },
+    {
+        "name": "zdjy.dll",
+        "version": "0.0.0.25"
+    },
+    {
+        "name": "keyboard.dll",
+        "version": "0.0.0.8"
+    },
+    {
+        "name": "selfstock.dll",
+        "version": "0.0.0.22"
+    },
+    {
+        "name": "libcurl.dll",
+        "version": "7.84.0-DEV"
+    },
+    {
+        "name": "libprotobuf.dll",
+        "version": "3.21.4.0"
+    },
+    {
+        "name": "framework.dll",
+        "version": "0.0.0.7"
+    },
+    {
+        "name": "ads.dll",
+        "version": "0.0.0.35"
+    },
+    {
+        "name": "network.dll",
+        "version": "0.0.0.10"
+    },
+    {
+        "name": "qicstable3.dll",
+        "version": "0.0.0.19"
+    },
+    {
+        "name": "stockplot.dll",
+        "version": "1.0.0.55"
+    }
+]

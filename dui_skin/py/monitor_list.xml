@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window >
+		<!-- 监控列表，key是datatable的column key name -->
+		<TabLayout name="monitorTL" >
+			<ListEx name="cur_sgn_list" >
+				<ListHeader >
+					<ListHeaderItem text="策略ID" key="id" hided="true" />
+					<ListHeaderItem text="账户" key="user" hided="true" />
+					<ListHeaderItem text="策略类型" key="type" />
+					<ListHeaderItem text="策略名称" key="name" />
+					<ListHeaderItem text="监控标的" key="codelist" />
+					<ListHeaderItem text="触发条件" key="condition" />
+					<ListHeaderItem text="执行动作" key="action" />
+					<ListHeaderItem text="备注" key="desc" hided="true" />
+					<ListHeaderItem text="历史状态" key="before" hided="true" />
+					<ListHeaderItem text="状态" key="state" />
+					<ListHeaderItem text="资金账户" key="zjzh" />
+					<ListHeaderItem text="创建时间" key="createtime" />
+					<ListHeaderItem text="触发时间" key="triggertime" />
+					<ListHeaderItem text="执行情况" key="zxqk" hided="true" />
+					<ListHeaderItem text="文件路径" key="path" hided="true" />
+					<ListHeaderItem text="监控标的" key="codelist_desc" hided="true" />
+					<ListHeaderItem text="触发条件" key="condition_desc" hided="true" />
+					<ListHeaderItem text="执行动作" key="action_desc" hided="true" />
+					<ListHeaderItem text="截止日期" key="jzrq" hided="true" />
+					<ListHeaderItem text="结束日期" key="jsrq" hided="true"/>
+				</ListHeader>
+			</ListEx>
+			<ListEx name="his_sgn_list" >
+				<ListHeader >
+					<ListHeaderItem text="策略ID" key="id" hided="true" />
+					<ListHeaderItem text="账户" key="user" hided="true" />
+					<ListHeaderItem text="策略类型" key="type" />
+					<ListHeaderItem text="策略名称" key="name" />
+					<ListHeaderItem text="监控标的" key="codelist" />
+					<ListHeaderItem text="触发条件" key="condition" />
+					<ListHeaderItem text="执行动作" key="action" />
+					<ListHeaderItem text="备注" key="desc" hided="true" />
+					<ListHeaderItem text="历史状态" key="before" hided="true" />
+					<ListHeaderItem text="状态" key="state" />
+					<ListHeaderItem text="资金账户" key="zjzh" />
+					<ListHeaderItem text="创建时间" key="createtime" />
+					<ListHeaderItem text="触发时间" key="triggertime" />
+					<ListHeaderItem text="执行情况" key="zxqk" hided="true" />
+					<ListHeaderItem text="文件路径" key="path" hided="true" />
+					<ListHeaderItem text="监控标的" key="codelist_desc" hided="true" />
+					<ListHeaderItem text="触发条件" key="condition_desc" hided="true" />
+					<ListHeaderItem text="执行动作" key="action_desc" hided="true" />
+					<ListHeaderItem text="截止日期" key="jzrq" hided="true" />
+					<ListHeaderItem text="结束日期" key="jsrq" hided="true"/>
+				</ListHeader>
+			</ListEx>
+			<ListEx name="cur_db_list" >
+				<ListHeader >
+					<ListHeaderItem text="策略编号" key="id"/>
+					<ListHeaderItem text="账户" key="user" hided="true" />
+					<ListHeaderItem text="证券代码" key="codelist" width="70" />
+					<ListHeaderItem text="股票名称" key="codelist_desc" width="70" />
+					<ListHeaderItem text="打板类型" key="dbtype" width="70" />
+					<ListHeaderItem text="打板仓位" key="position" />
+					<ListHeaderItem text="自动撤单" key="chedan_desc" />
+					<ListHeaderItem text="委托状态" key="status" width="70" />
+					<ListHeaderItem text="打板条件" key="condition" hided="true" />
+					<ListHeaderItem text="打板条件" key="condition_desc"/>
+					<ListHeaderItem text="状态" key="state" width="90" />
+					<ListHeaderItem text="资金账户" key="zjzh" width="150" />
+					<ListHeaderItem text="创建时间" key="createtime" />
+					<ListHeaderItem text="触发时间" key="triggertime" />
+					<ListHeaderItem text="策略类型" key="type" hided="true"/>
+					<ListHeaderItem text="截止日期" key="jzrq" hided="true"/>
+					<ListHeaderItem text="打板命令" key="action" hided="true"/>
+					<ListHeaderItem text="撤单命令" key="chedan_action" hided="true"/>
+					<ListHeaderItem text="起始时间" key="begintime" hided="true"/>
+					<ListHeaderItem text="截止时间" key="endtime" hided="true"/>
+					<ListHeaderItem text="结束日期" key="jsrq" hided="true"/>
+				</ListHeader>
+			</ListEx>
+			<ListEx name="his_db_list" >
+				<ListHeader >
+					<ListHeaderItem text="策略编号" key="id"/>
+					<ListHeaderItem text="账户" key="user" hided="true" />
+					<ListHeaderItem text="证券代码" key="codelist" width="70" />
+					<ListHeaderItem text="股票名称" key="codelist_desc" width="70" />
+					<ListHeaderItem text="打板类型" key="dbtype" width="70" />
+					<ListHeaderItem text="打板仓位" key="position" />
+					<ListHeaderItem text="自动撤单" key="chedan_desc" />
+					<ListHeaderItem text="委托状态" key="status" width="70" />
+					<ListHeaderItem text="打板条件" key="condition" hided="true" />
+					<ListHeaderItem text="打板条件" key="condition_desc"/>
+					<ListHeaderItem text="状态" key="state" width="90" />
+					<ListHeaderItem text="资金账户" key="zjzh" width="150" />
+					<ListHeaderItem text="创建时间" key="createtime" />
+					<ListHeaderItem text="触发时间" key="triggertime" />
+					<ListHeaderItem text="策略类型" key="type" hided="true"/>
+					<ListHeaderItem text="截止日期" key="jzrq" hided="true"/>
+					<ListHeaderItem text="打板命令" key="action" hided="true"/>
+					<ListHeaderItem text="撤单命令" key="chedan_action" hided="true"/>
+					<ListHeaderItem text="起始时间" key="begintime" hided="true"/>
+					<ListHeaderItem text="截止时间" key="endtime" hided="true"/>
+					<ListHeaderItem text="结束日期" key="jsrq" hided="true"/>
+				</ListHeader>
+			</ListEx>
+			<ListEx name="cur_grid_list" >
+				<ListHeader >
+					<ListHeaderItem text="策略编号" key="id" hided="true" />
+					<ListHeaderItem text="账户" key="user" hided="true" />
+					<ListHeaderItem text="证券代码" key="codelist" />
+					<ListHeaderItem text="股票名称" key="codelist_desc" />
+					<ListHeaderItem text="网格区间" key="range" />
+					<ListHeaderItem text="当前基准价" key="baseprice" width="70" />
+					<ListHeaderItem text="网格条件" key="condition" hided="true" />
+					<ListHeaderItem text="网格属性" key="condition_desc" />
+					<ListHeaderItem text="委托价格" key="wtjg" />
+					<ListHeaderItem text="委托数量" key="wtsl" />
+					<ListHeaderItem text="创建时间" key="createtime" width="70" />
+					<ListHeaderItem text="状态" key="state" />
+					<ListHeaderItem text="触发次数" key="count" />
+					<ListHeaderItem text="资金账户" key="zjzh" />
+					<ListHeaderItem text="截止日期" key="jzrq" />
+					<ListHeaderItem text="执行情况" key="zxqk" hided="true" />
+					<ListHeaderItem text="策略类型" key="type" hided="true" />
+					<ListHeaderItem text="买入命令" key="buy_action" hided="true" />
+					<ListHeaderItem text="卖出命令" key="sell_action" hided="true" />
+					<ListHeaderItem text="结束日期" key="jsrq" hided="true" />
+				</ListHeader>
+			</ListEx>
+			<ListEx name="his_grid_list" >
+				<ListHeader >
+					<ListHeaderItem text="策略编号" key="id" hided="true" />
+					<ListHeaderItem text="账户" key="user" hided="true" />
+					<ListHeaderItem text="证券代码" key="codelist" />
+					<ListHeaderItem text="股票名称" key="codelist_desc" />
+					<ListHeaderItem text="网格区间" key="range" />
+					<ListHeaderItem text="当前基准价" key="baseprice" width="70" />
+					<ListHeaderItem text="网格条件" key="condition" hided="true" />
+					<ListHeaderItem text="网格属性" key="condition_desc" />
+					<ListHeaderItem text="委托价格" key="wtjg" />
+					<ListHeaderItem text="委托数量" key="wtsl" />
+					<ListHeaderItem text="创建时间" key="createtime" width="70" />
+					<ListHeaderItem text="状态" key="state" />
+					<ListHeaderItem text="触发次数" key="count" />
+					<ListHeaderItem text="资金账户" key="zjzh" />
+					<ListHeaderItem text="截止日期" key="jzrq" />
+					<ListHeaderItem text="执行情况" key="zxqk" hided="true" />
+					<ListHeaderItem text="策略类型" key="type" hided="true" />
+					<ListHeaderItem text="买入命令" key="buy_action" hided="true" />
+					<ListHeaderItem text="卖出命令" key="sell_action" hided="true" />
+					<ListHeaderItem text="结束日期" key="jsrq" hided="true" />
+				</ListHeader>
+			</ListEx>
+		</TabLayout>
+</Window>

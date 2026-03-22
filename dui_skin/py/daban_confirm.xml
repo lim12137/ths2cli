@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window size="280,120" caption="0,0,0,25" >
+	<Font id="0" name="微软雅黑" bold="true" />
+	<Font id="1" name="微软雅黑" size="16" bold="true" />
+	
+	<Default name="Button" value="width=&quot;80&quot; borderround=&quot;6,6&quot; " />
+	<Style name="Label" value="font=&quot;0&quot; height=&quot;23&quot; width=&quot;65&quot; textcolor=&quot;#FF000000&quot; " />
+	<Style name="Info" value="height=&quot;23&quot; endellipsis=&quot;true&quot; textcolor=&quot;#FF000000&quot; " />
+
+	<VerticalLayout bkcolor="#FFECF3F6" inset="0,10,0,10" bordersize="3,3,2,2" bordercolor="#FFC5D1E2">
+		<HorizontalLayout height="25" >
+			<Control />
+			<Label text="请确认打板信息" textcolor="#FF007EFF" font="1" autocalcwidth="true" />
+			<Control />
+		</HorizontalLayout>
+		<VerticalLayout name="infoVL" padding="30,20,30,0" bkcolor="#FFECF3F6" childpadding="10" />
+		<HorizontalLayout height="32" >
+			<Control />
+			<Button text="返回" name="backbtn" textcolor="#FFFFFFFF" bkcolor="#FF95999C" hotbkcolor="#FFB5BABE" pushedbkcolor="#FFB5BABE" />
+			<Control />
+			<Button text="确认提交" name="confirmbtn" textcolor="#FFFFFFFF" bkcolor="#FF349DE5" hotbkcolor="#FF34ACF0" pushedbkcolor="#FF1A69BB" />
+			<Control />
+		</HorizontalLayout>
+	</VerticalLayout>
+</Window>

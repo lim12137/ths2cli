@@ -1,0 +1,40 @@
+{
+  "name": "xiadan-cli",
+  "version": "1.0.0",
+  "description": "同花顺下单命令行接口工具 - 支持下单、查询、撤单功能",
+  "main": "dist/index.js",
+  "bin": {
+    "xiadan": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/cli.ts",
+    "start": "node dist/cli.js",
+    "watch": "tsc --watch"
+  },
+  "keywords": [
+    "同花顺",
+    "交易",
+    "CLI",
+    "下单",
+    "股票"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0",
+    "chalk": "^4.1.2",
+    "ora": "^5.4.1",
+    "cli-table3": "^0.6.3",
+    "inquirer": "^8.2.5",
+    "axios": "^1.6.2",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@types/inquirer": "^9.0.7",
+    "@types/js-yaml": "^4.0.9",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2"
+  }
+}

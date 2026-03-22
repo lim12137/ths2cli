@@ -1,0 +1,162 @@
+strategy('信号条件默认模板')
+
+// 股价
+price_check = input.bool(false, title='股价', tooltip='股价与', inline='1')
+price_cmp = input.string('大于', options=['大于', '小于', '区间'], inline='1')
+price_input = input.spread('', options=['元'], inline='1')
+
+// 涨跌幅
+zf_check = input.bool(false, '涨跌幅', inline='2')
+zf_cmp = input.string('大于', options=['大于', '小于', '区间'], inline='2')
+zf_input = input.spread('', options=['%'], inline='2')
+
+// 涨速
+zs_check = input.bool(false, '涨速', inline='3')
+zs_cmp = input.string('大于', inline='3')
+zs_input = input.spread('', options=['%'], inline='3')
+
+// 换手
+hs_check = input.bool(false, '换手', inline='4')
+hs_cmp = input.string('大于', inline='4')
+hs_input = input.spread('', options=['%'], inline='4')
+
+// 成交额
+cje_check = input.bool(false, '成交额', inline='5')
+cje_cmp = input.string('大于', inline='5')
+cje_input = input.spread('', options=['万元'], inline='5')
+
+// 成交量
+cjl_check = input.bool(false, '成交量', inline='6')
+cjl_cmp = input.string('大于', inline='6')
+cjl_input = input.spread('', options=['手'], inline='6')
+
+// 量比
+lb_check = input.bool(false, '量比', inline='7')
+lb_cmp = input.string('大于', inline='7')
+lb_input = input.float(0, inline='7')
+
+// 止盈止损
+tp_sl_check = input.bool(false, '止盈止损', group='1', inline='8')
+input.text('参考', group='1', inline='8')
+tp_sl_base = input.string('成本价', options=['成本价','最新价','昨收价','开盘价','自定义价格'], group='1', inline='8')
+input.text('止盈', group='1', inline='80')
+tp_limit = input.spread('', '冲高', options=['元','%'], group='1', inline='80')
+tp_rate = input.spread('', '回落', options=['%','元'], group='1', inline='81')
+input.text('止损', group='1', inline='82')
+sl_limit = input.spread('', '下跌', options=['元','%'], group='1', inline='82')
+sl_rate = input.spread('', '反弹', options=['%', '元'], group='1', inline='83')
+
+// 竞价金额
+jjje_check = input.bool(false, '竞价金额', inline='11')
+jjje_cmp = input.string('大于', inline='11')
+jjje_input = input.spread('', options=['万元'], inline='11')
+
+// 涨停板封单
+ztbfd_check = input.bool(false, '涨停板封单', inline='13')
+ztbfd_cmp = input.string('大于', options=['大于', '小于'], inline='13')
+ztbfd_input = input.spread('', options=['万元', '手'], inline='13')
+
+// 跌停板封单
+dtbfd_check = input.bool(false, '跌停板封单', inline='16')
+dtbfd_cmp = input.string('小于', options=['小于', '大于'], inline='16')
+dtbfd_input = input.spread('', options=['万元', '手'], inline='16')
+
+// 主力净额
+zlje_check = input.bool(false, '主力净额', inline='17')
+zlje_cmp = input.string('大于', options=['大于', '小于'], inline='17')
+zlje_input = input.spread('', options=['万元'], inline='17')
+
+// 主力净量
+zljl_check = input.bool(false, '主力净量', inline='18')
+zljl_cmp = input.string('大于', options=['大于', '小于'], inline='18')
+zljl_input = input.float(0, inline='18')
+
+// macd指标
+macd_check = input.index(false, 'MACD', inline='19')
+macd_cmp = input.string('金叉', options=['金叉', '死叉'], inline='19')
+
+// kdj指标
+kdj_check = input.index(false, 'KDJ', inline='20')
+kdj_cmp = input.string('超买', options=['超买', '超卖', '金叉', '死叉'], inline='20')
+
+// rsi指标
+rsi_check = input.index(false, 'RSI', inline='21')
+rsi_cmp = input.string('超买', options=['超买', '超卖', '低位金叉', '高位死叉'], inline='21')
+
+// boll指标
+boll_check = input.index(false, 'BOLL', inline='22')
+boll_cmp = input.string('股价高于上轨', options=['股价高于上轨', '股价高于中轨', '股价低于下轨', '股价低于中轨'], inline='22')
+
+// 均线
+jx_check = input.index(false, '均线', inline='23')
+jx_left = input.string('现价', options=['现价', 'MA5', 'MA10', 'MA20', 'MA30'], inline='23')
+jx_cmd = input.string("高于", options=['高于', '低于'], inline='23')
+jx_right = input.string('MA10', options=['MA5', 'MA10', 'MA20', 'MA30', '现价'], inline='23')
+
+// N日新高
+xg_check = input.index(false, '新高', inline='24')
+input.text('股价创近', inline='24')
+xg_input = input.int(0, inline='24')
+input.text('周期新高', inline='24')
+
+// 股价条件：和内置变量close比较
+if price_check
+    price_check := compare(close, price_input, price_cmp)
+	
+// 涨跌幅条件：和内置变量zf比较
+if zf_check
+    zf_check := compare(zf, zf_input, zf_cmp)
+	
+// 涨速条件：和内置变量zs比较
+if zs_check
+    zs_check := zs > zs_input
+// 换手条件：和内置变量hs比较
+if hs_check
+    hs_check := hs > hs_input
+// 成交额：和内置变量money比较
+if cje_check
+    cje_check := money > cje_input
+// 成交量：和内置变量daily_volume比较
+if cjl_check
+    cjl_check := daily_volume > cjl_input
+// 量比条件：和内置变量lb比较
+if lb_check
+    lb_check := lb > lb_input
+// 止盈止损：内置信号函数signal.tp_sl(base, tp_limit, tp_rate, sl_limit, sl_rate)
+if tp_sl_check
+    tp_sl_check := signal.tp_sl(tp_sl_base, tp_limit, tp_rate, sl_limit, sl_rate)
+// 竞价金额：和内置变量auction_money比较
+if jjje_check
+    jjje_check := auction_money > jjje_input
+// 涨停板封单：和内置变量limit_up_money比较
+if ztbfd_check
+    ztbfd_check := compare(limit_up_money, ztbfd_input, ztbfd_cmp)
+// 跌停板封单：和内置变量limit_down_money比较
+if dtbfd_check
+    dtbfd_check := compare(limit_down_money, dtbfd_input, dtbfd_cmp)
+// 主力净额：和内置变量main_net_money比较
+if zlje_check
+    zlje_check := compare(main_net_money, zlje_input, zlje_cmp)
+// 主力净量：和内置变量main_net_volume比较
+if zljl_check
+    zljl_check := compare(main_net_volume, zljl_input, zljl_cmp)
+// macd指标条件：执行内置指标文件
+if macd_check
+    macd_check := signal.runfile('MACD指标.pine', macd_cmp)
+// kdj指标条件
+if kdj_check
+    kdj_check := signal.runfile('KDJ指标.pine', kdj_cmp)
+// rsi指标条件
+if rsi_check
+    rsi_check := signal.runfile('RSI指标.pine', rsi_cmp)
+// boll指标条件
+if boll_check
+    boll_check := signal.runfile('BOLL指标.pine', boll_cmp)
+// 均线指标条件
+if jx_check
+    jx_check := signal.runfile('均线对比.pine', jx_left, jx_cmd, jx_right)
+// N日新高条件
+if xg_check
+    xg_check := signal.runfile('N日新高.pine', xg_input)
+
+alertcondition('界面勾选条件且满足条件判断后触发')

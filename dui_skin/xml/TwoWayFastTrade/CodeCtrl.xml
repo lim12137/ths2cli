@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window>
+	<VerticalLayout bkcolor="#FFF9F9F9" float="true" height="24" width="64"  mouse="true" bordercolor="#FFAAB8C5" bordersize="1,1,1,1">
+        <Combo name="dui_code_combo" pos="0,0,0,0" style="combo_style" width="62" height="24" scrollselect="false" updownselect="false" itemtextpadding="10,0,0,0" dropboxsize="120,200" dropbox="bordercolor=&quot;#FFBDCEE2&quot; bordersize=&quot;1,1,1,1&quot; padding=&quot;2,0,0,0&quot; bkcolor=&quot;#FFFFFFFF&quot;">
+			<ListLabelElement text="  暂无持仓" height="23"/>
+		</Combo>
+		<Edit name="dui_code_edit" height="18" width="44" float="true" pos="3,3,0,0" maxchar="7"/> <!-- 这三个控件共同维持着证券代码框 -->
+    </VerticalLayout>
+</Window>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window size="300,79" caption="0,0,0,25" sizebox="4,0,4,0" >
+	<Font default="true" shared="true" name="微软雅黑" size="12" />
+	<VerticalLayout bkcolor="#FFAAB7C7" inset="2,2,2,2" bordersize="2,2,2,2" bordercolor="#FFC5D1E2">
+		<HorizontalLayout name="caption" height="25" bkcolor="#FFCDE1F9" bkcolor2="#FFFFFFFF" padding="0,0,0,1">
+			<Label text="组件" padding="5,0,0,0" textcolor="#FF359EE8" />
+			<Control />
+			<Button name="minbtn" tooltip="最小化" width="17" padding="2,4,2,4" bkimage="file=&apos;customwnd/image/min_nor.png&apos; " hotimage="file=&apos;customwnd/image/min_hot.png&apos;" pushedimage="file=&apos;customwnd/image/min_push.png&apos;" />
+			<Button name="closebtn" tooltip="关闭" width="17" padding="2,4,4,4" bkimage="file=&apos;customwnd/image/close_nor.png&apos; " hotimage="file=&apos;customwnd/image/close_hot.png&apos;" pushedimage="file=&apos;customwnd/image/close_push.png&apos;" />
+		</HorizontalLayout>
+		<HorizontalLayout name="toolbar" height="50" bkcolor="#FFFFFFFF" bkcolor2="#FF9BBCDA" >
+			<Button name="combtn" padding="10,8,0,8" width="25" height="34" bkimage="file=&apos;customwnd/image/com.bmp&apos; " hotimage="file=&apos;customwnd/image/com_hot.bmp&apos;" />
+			<Button name="listbtn" padding="0,8,0,8" width="14" height="34" bkimage="file=&apos;customwnd/image/comlist.bmp&apos; " hotimage="file=&apos;customwnd/image/comlist_hot.bmp&apos;" />
+			<Button name="pybtn" padding="0,5,0,5" width="40" height="40" bkimage="file=&apos;customwnd/image/py.bmp&apos; " />
+			<Button name="embbtn" padding="0,5,0,5" width="40" height="40" bkimage="file=&apos;customwnd/image/emb.bmp&apos; " hotimage="file=&apos;customwnd/image/emb_hot.bmp&apos;" />
+			<Button name="probtn" padding="0,5,0,5" width="40" height="40" bkimage="file=&apos;customwnd/image/pro.bmp&apos; " />
+			<Button name="simplebtn" padding="0,5,0,5" width="40" height="40" bkimage="file=&apos;customwnd/image/simple.bmp&apos; " hotimage="file=&apos;customwnd/image/simple_hot.bmp&apos;" pushedimage="file=&apos;customwnd/image/simple_push.bmp&apos;" />
+			<Button name="restorebtn" padding="0,5,0,5" width="40" height="40" bkimage="file=&apos;customwnd/image/restore.bmp&apos; " />
+		</HorizontalLayout>
+	</VerticalLayout>
+</Window>

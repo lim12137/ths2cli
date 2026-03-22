@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="1000,600" sizebox="4,4,4,4" caption="0,0,0,32" roundcorner="6,6,6,6" >
+	<!-- 字体 -->
+	<Font default="true" shared="true" id="0" name="微软雅黑" size="12" />
+	<!-- 滚动条样式 -->
+	<Default name="VScrollBar" value="button1normalimage=&quot;file='py/image/scrollbar.png' source='0,90,16,106' mask='#FFFF00FF'&quot; button1hotimage=&quot;file='py/image/scrollbar.png' source='18,90,34,106' mask='#FFFF00FF'&quot; button1pushedimage=&quot;file='py/image/scrollbar.png' source='36,90,52,106' mask='#FFFF00FF'&quot; button1disabledimage=&quot;file='py/image/scrollbar.png' source='54,90,70,106' mask='#FFFF00FF'&quot; button2normalimage=&quot;file='py/image/scrollbar.png' source='0,108,16,124' mask='#FFFF00FF'&quot; button2hotimage=&quot;file='py/image/scrollbar.png' source='18,108,34,124' mask='#FFFF00FF'&quot; button2pushedimage=&quot;file='py/image/scrollbar.png' source='36,108,52,124' mask='#FFFF00FF'&quot; button2disabledimage=&quot;file='py/image/scrollbar.png' source='54,108,70,124' mask='#FFFF00FF'&quot; thumbnormalimage=&quot;file='py/image/scrollbar.png' source='0,126,16,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbhotimage=&quot;file='py/image/scrollbar.png' source='18,126,34,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbpushedimage=&quot;file='py/image/scrollbar.png' source='18,126,34,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbdisabledimage=&quot;file='py/image/scrollbar.png' source='54,126,70,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; railnormalimage=&quot;file='py/image/scrollbar.png' source='0,144,16,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; railhotimage=&quot;file='py/image/scrollbar.png' source='18,144,34,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; railpushedimage=&quot;file='py/image/scrollbar.png' source='18,144,34,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; raildisabledimage=&quot;file='py/image/scrollbar.png' source='54,144,70,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; bknormalimage=&quot;file='py/image/scrollbar.png' source='0,162,16,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkhotimage=&quot;file='py/image/scrollbar.png' source='18,162,34,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkpushedimage=&quot;file='py/image/scrollbar.png' source='36,162,52,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkdisabledimage=&quot;file='py/image/scrollbar.png' source='54,162,70,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; " />
+	<Default name="HScrollBar" value="button1normalimage=&quot;file='py/image/scrollbar.png' source='0,0,16,16' mask='#FFFF00FF'&quot; button1hotimage=&quot;file='py/image/scrollbar.png' source='18,0,34,16' mask='#FFFF00FF'&quot; button1pushedimage=&quot;file='py/image/scrollbar.png' source='36,0,52,16' mask='#FFFF00FF'&quot; button1disabledimage=&quot;file='py/image/scrollbar.png' source='54,0,70,16' mask='#FFFF00FF'&quot; button2normalimage=&quot;file='py/image/scrollbar.png' source='0,18,16,34' mask='#FFFF00FF'&quot; button2hotimage=&quot;file='py/image/scrollbar.png' source='18,18,34,34' mask='#FFFF00FF'&quot; button2pushedimage=&quot;file='py/image/scrollbar.png' source='36,18,52,34' mask='#FFFF00FF'&quot; button2disabledimage=&quot;file='py/image/scrollbar.png' source='54,18,70,34' mask='#FFFF00FF'&quot; thumbnormalimage=&quot;file='py/image/scrollbar.png' source='0,36,16,52' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbhotimage=&quot;file='py/image/scrollbar.png' source='18,36,34,52' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbpushedimage=&quot;file='py/image/scrollbar.png' source='18,36,34,52' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbdisabledimage=&quot;file='py/image/scrollbar.png' source='54,36,70,52' corner='2,2,2,2' mask='#FFFF00FF'&quot; railnormalimage=&quot;file='py/image/scrollbar.png' source='0,54,16,70' corner='2,2,2,2' mask='#FFFF00FF'&quot; railhotimage=&quot;file='py/image/scrollbar.png' source='18,54,34,70' corner='2,2,2,2' mask='#FFFF00FF'&quot; railpushedimage=&quot;file='py/image/scrollbar.png' source='18,54,34,70' corner='2,2,2,2' mask='#FFFF00FF'&quot; raildisabledimage=&quot;file='py/image/scrollbar.png' source='54,54,70,70' corner='2,2,2,2' mask='#FFFF00FF'&quot; bknormalimage=&quot;file='py/image/scrollbar.png' source='0,72,16,88' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkhotimage=&quot;file='py/image/scrollbar.png' source='18,72,34,88' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkpushedimage=&quot;file='py/image/scrollbar.png' source='36,72,52,88' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkdisabledimage=&quot;file='py/image/scrollbar.png' source='54,72,70,88' corner='2,2,2,2' mask='#FFFF00FF'&quot; " />
+	<!-- 其他控件默认样式 -->
+	<Default name="CheckBox" value="align=&quot;left&quot; textpadding=&quot;17,0,0,0&quot; normalimage=&quot;file=&apos;customwnd/image/untick.bmp&apos; corner=&apos;13,0,0,0&apos;&quot; selectedimage=&quot;file=&apos;customwnd/image/tick.bmp&apos;  corner=&apos;13,0,0,0&apos;&quot; " />
+	<Default name="Combo" value="textpadding=&quot;10,0,26,0&quot; itemvalign=&quot;vcenter&quot; itemtextpadding=&quot;10,0,10,0&quot; endellipsis=&quot;true&quot; itemendellipsis=&quot;true&quot; scrollselect=&quot;false&quot; vscrollbar=&quot;true&quot; dropboxsize=&quot;0,77&quot; dropbox=&quot;bkcolor=&quot;#FF2F2F2F&quot; bordercolor=&quot;#FF252525&quot; &quot; textcolor=&quot;#FFF6F6F6&quot; bkcolor=&quot;#FF2F2F2F&quot; itemtextcolor=&quot;#FFB6B6B6&quot; itemselectedtextcolor=&quot;#FFF6F6F6&quot; itemhottextcolor=&quot;#FFB6B6B6&quot; itembkcolor=&quot;#FF2F2F2F&quot; normalimage=&quot;file='py/image/combo_down.png' source='0,0,20,20' corner='0,0,20,0'&quot; hotimage=&quot;file='py/image/combo_down.png' source='21,0,41,20' corner='0,0,20,0'&quot; itemselectedbkcolor=&quot;#FF3C3C3C&quot; itemhotbkcolor=&quot;#FF252525&quot; " />	
+	<Default name="Option" value="textcolor=&quot;#FFB6B6B6&quot; selectedtextcolor=&quot;#FFF6F6F6&quot; selectedbkcolor=&quot;#FF1B1B1B&quot; " />
+	<Default name="ListEx" value="columnctrl=&quot;true&quot; hscrollbar=&quot;true&quot; vscrollbar=&quot;true&quot; itemhotbkcolor=&quot;#FF1B1B1B&quot; itemselectedbkcolor=&quot;#FF252525&quot; itemlinecolor=&quot;#FF000000&quot; itemshowrowline=&quot;true&quot; itemshowcolumnline=&quot;true&quot; " />
+	<Default name="ListHeader" value="bkcolor=&quot;#FF1B1B1B&quot; height=&quot;24&quot; " />
+	<Default name="ListHeaderItem" value="textcolor=&quot;#FFFFFFFF&quot; " />
+	<Default name="ListContainerElement" value="height=&quot;24&quot; " />
+	
+	<Style name="LabelStyle_ListItem" value="textpadding=&quot;10,0,10,0&quot; endellipsis=&quot;true&quot; textcolor=&quot;#FFCCCCCC&quot; align=&quot;center&quot;" />
+	<Style name="RchEdtStyle_Lst" value="height=&quot;92&quot; textpadding=&quot;40,0,0,0&quot; textcolor=&quot;#FFEEEEEE&quot; enabled=&quot;false&quot; readonly=&quot;true&quot; multiline=&quot;true&quot; vscrollbar=&quot;true&quot;" />
+	
+  <VerticalLayout bkcolor="#FF111111" >
+		<!-- 标题栏 -->
+		<HorizontalLayout height="32" bkcolor="#FF252525" >
+			<Label text="策略监控" height="32" textcolor="#FFB6B6B6" textpadding="10" align="left" valign="vcenter"/>
+			<Control />
+			<Button name="minbtn" tooltip="最小化" width="27" height="32" bkimage="file=&apos;py/image/btn_caption.png&apos; source=&apos;45,0,60,15&apos; dest=&apos;6,8,21,23&apos; " textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" hotimage="file=&apos;py/image/btn_style_caption.png&apos; source=&apos;27,0,54,30&apos;" pushedimage="file=&apos;py/image/btn_style_caption.png&apos; source=&apos;54,0,81,30&apos;" />
+			<Button name="maxbtn" tooltip="最大化" width="27" height="32" bkimage="file=&apos;py/image/btn_caption.png&apos; source=&apos;60,0,75,15&apos; dest=&apos;6,8,21,23&apos; " textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" hotimage="file=&apos;py/image/btn_style_caption.png&apos; source=&apos;27,0,54,30&apos;" pushedimage="file=&apos;py/image/btn_style_caption.png&apos; source=&apos;54,0,81,30&apos;" />
+			<Button name="restorebtn" tooltip="还原" visible="false" width="27" height="32" bkimage="file=&apos;py/image/btn_caption.png&apos; source=&apos;75,0,90,15&apos; dest=&apos;6,8,21,23&apos; " textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" hotimage="file=&apos;py/image/btn_style_caption.png&apos; source=&apos;27,0,54,30&apos;" pushedimage="file=&apos;py/image/btn_style_caption.png&apos; source=&apos;54,0,81,30&apos;" />
+			<Button name="closebtn" tooltip="关闭" width="36" height="32" bkimage="file=&apos;py/image/btn_caption.png&apos; source=&apos;90,0,105,15&apos; dest=&apos;11,8,26,23&apos; " textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" hotimage="file=&apos;py/image/btn_style_close.png&apos; source=&apos;36,0,72,30&apos;" pushedimage="file=&apos;py/image/btn_style_close.png&apos; source=&apos;72,0,108,30&apos;" />
+		</HorizontalLayout>
+		<!-- 控制栏 -->
+		<HorizontalLayout height="24" inset="10,2,10,2" >
+			<Combo name="switchcmb" width="90" visible="false" >
+				<ListLabelElement text="信号列表" selected="true" />
+			</Combo>
+			<Button name="sgnbtn" text="创建条件单" width="80" padding="5,0,0,0" borderround="4,4" bkcolor="#FF3E93E2" textcolor="#FFF6F6F6" hotbkcolor="#FF3889D4" pushedbkcolor="#FF3D9FF8" />
+			<Control />
+			<TabLayout name="ctrlTL" selectedid="0" >
+				<HorizontalLayout childpadding="5" >
+					<Control />
+					<Button name="startbtn" text="启动" width="60" borderround="4,4" bkcolor="#FF3E93E2" textcolor="#FFF6F6F6" hotbkcolor="#FF3889D4" pushedbkcolor="#FF3D9FF8" />
+					<Button name="pausebtn" text="暂停" width="60" borderround="4,4" bkcolor="#FF3E93E2" textcolor="#FFF6F6F6" hotbkcolor="#FF3889D4" pushedbkcolor="#FF3D9FF8" />
+					<Button name="mdfbtn" text="修改" width="60" borderround="4,4" bkcolor="#FF3E93E2" textcolor="#FFF6F6F6" hotbkcolor="#FF3889D4" pushedbkcolor="#FF3D9FF8" visible="false" />
+					<Button name="delbtn" text="删除" width="60" borderround="4,4" bkcolor="#FF3E93E2" textcolor="#FFF6F6F6" hotbkcolor="#FF3889D4" pushedbkcolor="#FF3D9FF8" />
+				</HorizontalLayout>
+				<HorizontalLayout >
+					<Control />
+					<Button name="restartbtn" text="重发" width="60" borderround="4,4" bkcolor="#FF3E93E2" textcolor="#FFF6F6F6" hotbkcolor="#FF3889D4" pushedbkcolor="#FF3D9FF8" />
+				</HorizontalLayout>
+			</TabLayout>
+		</HorizontalLayout>
+		<!-- 监控Tab -->
+		<HorizontalLayout height="24" bkcolor="#FF252525" >
+			<Option name="curopt" group="monitor" text="当前" width="120" selected="true" />
+			<Control bkcolor="#FF111111" width="1" />
+			<Option name="hisopt" group="monitor" text="历史" width="120" />
+		</HorizontalLayout>
+		<!-- 监控列表，key是datatable的column key name -->
+		<TabLayout name="monitorTL" >
+			<ListEx name="curlist" >
+				<ListHeader >
+					<ListHeaderItem text="策略ID" key="id" hided="true" />
+					<ListHeaderItem text="账户" key="user" hided="true" />
+					<ListHeaderItem text="资金账号" key="zjzh" hided="true" />
+					<ListHeaderItem text="策略类型" key="type" />
+					<ListHeaderItem text="策略名称" key="name" />
+					<ListHeaderItem text="监控标的" key="codelist" />
+					<ListHeaderItem text="触发条件" key="condition" />
+					<ListHeaderItem text="执行动作" key="action" />
+					<ListHeaderItem text="备注" key="desc" hided="true" />
+					<ListHeaderItem text="历史状态" key="before" hided="true" />
+					<ListHeaderItem text="状态" key="state" />
+					<ListHeaderItem text="创建时间" key="createtime" />
+					<ListHeaderItem text="触发时间" key="triggertime" />
+					<ListHeaderItem text="执行情况" key="zxqk" hided="true" />
+					<ListHeaderItem text="文件路径" key="path" hided="true" />
+					<ListHeaderItem text="监控标的" key="codelist_desc" hided="true" />
+					<ListHeaderItem text="触发条件" key="condition_desc" hided="true" />
+					<ListHeaderItem text="执行动作" key="action_desc" hided="true" />
+					<ListHeaderItem text="截止日期" key="jzrq" hided="true" />
+				</ListHeader>
+			</ListEx>
+			<ListEx name="hislist" >
+				<ListHeader >
+					<ListHeaderItem text="策略ID" key="id" hided="true" />
+					<ListHeaderItem text="账户" key="user" hided="true" />
+					<ListHeaderItem text="资金账号" key="zjzh" hided="true" />
+					<ListHeaderItem text="策略类型" key="type" />
+					<ListHeaderItem text="策略名称" key="name" />
+					<ListHeaderItem text="监控标的" key="codelist" />
+					<ListHeaderItem text="触发条件" key="condition" />
+					<ListHeaderItem text="执行动作" key="action" />
+					<ListHeaderItem text="备注" key="desc" hided="true" />
+					<ListHeaderItem text="历史状态" key="before" hided="true" />
+					<ListHeaderItem text="状态" key="state" />
+					<ListHeaderItem text="创建时间" key="createtime" />
+					<ListHeaderItem text="触发时间" key="triggertime" />
+					<ListHeaderItem text="执行情况" key="zxqk" hided="true" />
+					<ListHeaderItem text="文件路径" key="path" hided="true" />
+					<ListHeaderItem text="监控标的" key="codelist_desc" hided="true" />
+					<ListHeaderItem text="触发条件" key="condition_desc" hided="true" />
+					<ListHeaderItem text="执行动作" key="action_desc" hided="true" />
+					<ListHeaderItem text="截止日期" key="jzrq" hided="true" />
+				</ListHeader>
+			</ListEx>
+		</TabLayout>
+		<!-- 表格Tab -->
+		<HorizontalLayout height="24" bkcolor="#FF252525" >
+			<Option name="ccopt" group="info" text="持仓" width="120" selected="true" />
+			<Option name="cjopt" group="info" text="成交" width="120" bordersize="1,0,0,0" bordercolor="#FF111111" />
+			<Option name="wtopt" group="info" text="委托" width="120" bordersize="1,0,0,0" bordercolor="#FF111111" />
+			<Option name="logopt" group="info" userdata="log" text="日志" width="120" bordersize="1,0,0,0" bordercolor="#FF111111" />
+			<Control maxwidth="80" bordersize="1,0,0,0" bordercolor="#FF111111" />
+			<Combo name="tablecmb" width="80" bordersize="1,0,0,0" bordercolor="#FF111111" >
+				<ListLabelElement text="账户" value="nor" selected="true" />
+				<ListLabelElement text="策略" value="py" />
+			</Combo>
+			<Combo name="accntcmb" width="170" bordersize="1,0,0,0" bordercolor="#FF111111" />
+			<CheckBox name="tableidchk" text="按选中策略过滤" padding="4,6,0,5" textcolor="#FFB6B6B6" visible="false" />
+			<Combo name="logcmb" width="80" visible="false" bordersize="1,0,0,0" bordercolor="#FF111111" >
+				<ListLabelElement text="全部" value="all"/>
+				<ListLabelElement text="条件单" value="sgn"/>
+				<ListLabelElement text="行情" value="hq" />
+			</Combo>
+			<CheckBox name="logidchk" text="按选中条件过滤" padding="4,6,0,5" textcolor="#FFB6B6B6" visible="false" />
+		</HorizontalLayout>
+		<!-- 表数据 -->
+		<VerticalLayout sepheight="-2" inset="2,2,2,2" >
+			<XdTable />
+			<RichEdit name="logrchedt" readonly="true" textcolor="#FFB6B6B6" bkcolor="#FF111111" bordersize="1,1,1,1" bordercolor="#FF646464" multiline="true" vscrollbar="true" autovscroll="true" visible="false" />
+		</VerticalLayout>
+	</VerticalLayout>
+</Window>

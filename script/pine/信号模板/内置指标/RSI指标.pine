@@ -1,0 +1,25 @@
+//@version=6
+indicator("RSI指标")
+
+
+// 设置RSI的默认参数（6, 12）
+shortPeriod = 6
+longPeriod = 12
+
+// 计算RSI
+rsiShort = ta.rsi(close, shortPeriod)
+rsiLong = ta.rsi(close, longPeriod)
+
+// 超买和超卖条件
+overbought = rsiShort > 80
+oversold = rsiShort < 20
+
+// 金叉和死叉条件
+goldenCross = ta.crossover(rsiShort, rsiLong) and rsiShort < 30 and rsiLong < 30  // 短周期RSI线从下向上穿越长周期RSI线
+deathCross = ta.crossunder(rsiShort, rsiLong) and rsiShort > 70 and rsiLong > 70  // 短周期RSI线从上向下穿越长周期RSI线
+
+// 设置预警条件
+alertcondition(overbought, title="超买")
+alertcondition(oversold, title="超卖")
+alertcondition(goldenCross, title="低位金叉")
+alertcondition(deathCross, title="高位死叉")

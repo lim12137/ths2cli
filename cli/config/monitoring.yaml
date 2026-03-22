@@ -1,0 +1,99 @@
+# 监控和日志配置
+
+log_level: 'info'               # 日志级别: debug, info, warn, error
+log_file: 'logs/trading.log'   # 日志文件路径
+
+# 日志轮转
+log_rotation:
+  enabled: true
+  max_size: '10MB'              # 单个日志文件最大大小
+  max_files: 10                 # 保留的日志文件数量
+
+# 通知配置
+notifications:
+  enabled: true
+
+  # 通知渠道
+  channels:
+    # 控制台通知
+    - type: 'console'
+      enabled: true
+      level: 'info'
+
+    # 文件通知
+    - type: 'file'
+      enabled: true
+      level: 'warn'
+      file: 'logs/notifications.log'
+
+    # 钉钉机器人（可选）
+    - type: 'dingtalk'
+      enabled: false
+      level: 'error'
+      webhook: 'https://oapi.dingtalk.com/robot/send?access_token=YOUR_TOKEN'
+      secret: 'YOUR_SECRET'
+
+    # 企业微信机器人（可选）
+    - type: 'wechat'
+      enabled: false
+      level: 'error'
+      webhook: 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=YOUR_KEY'
+
+    # 邮件通知（可选）
+    - type: 'email'
+      enabled: false
+      level: 'error'
+      smtp:
+        host: 'smtp.example.com'
+        port: 587
+        secure: false
+        auth:
+          user: 'your-email@example.com'
+          password: 'your-password'
+      from: 'your-email@example.com'
+      to:
+        - 'recipient@example.com'
+
+# 性能监控
+performance:
+  enabled: true
+  check_interval: 300           # 5分钟检查一次
+  metrics:
+    - 'cpu_usage'
+    - 'memory_usage'
+    - 'response_time'
+    - 'trade_count'
+    - 'error_rate'
+
+# 告警规则
+alerts:
+  - name: '交易失败率过高'
+    enabled: true
+    condition: 'error_rate > 0.1'
+    level: 'error'
+    message: '交易失败率超过10%'
+
+  - name: '内存使用过高'
+    enabled: true
+    condition: 'memory_usage > 0.8'
+    level: 'warn'
+    message: '内存使用超过80%'
+
+  - name: '连续亏损告警'
+    enabled: true
+    condition: 'consecutive_losses >= 3'
+    level: 'urgent'
+    message: '连续3次交易亏损，请注意风险'
+
+# 数据统计
+statistics:
+  enabled: true
+  save_interval: 3600           # 每小时保存一次
+  file: 'logs/statistics.json'
+
+  metrics:
+    - 'total_trades'
+    - 'win_rate'
+    - 'total_profit'
+    - 'max_drawdown'
+    - 'sharpe_ratio'

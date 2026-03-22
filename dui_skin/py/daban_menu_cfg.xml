@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+	<Default name="Menu" value="bordersize=&quot;1,1,1,1&quot; bordercolor=&quot;#FF339CE4&quot; bkcolor=&quot;#FFEBF3F6&quot; itemtextpadding=&quot;10,0,0,0&quot; itemselectedbkcolor=&quot;#FF86CEF6&quot; itemdisabledbkcolor=&quot;#00000000&quot;" />
+	<Default name="CheckBox" value="textpadding=&quot;30,0,0,0&quot; normalimage=&quot;file=&apos;py/image/untick_menu.png&apos;  corner=&apos;30,0,0,0&apos;&quot; selectedimage=&quot;file=&apos;py/image/tick_menu.png&apos;  corner=&apos;30,0,0,0&apos;&quot; " />
+  <Menu >
+		<MenuElement >
+			<CheckBox name="noconfirm" text="创建时不需要确认" />
+		</MenuElement>
+		<MenuElement >
+			<CheckBox name="autoclose" text="创建完成关闭窗口" />
+		</MenuElement>
+		<MenuElement >
+			<CheckBox name="hq2daban" text="行情代码联动打板" />
+		</MenuElement>
+		<MenuElement >
+			<CheckBox name="daban2hq" text="打板代码联动行情" />
+		</MenuElement>
+		<MenuElement >
+			<CheckBox name="savestate" text="默认保存上次参数" />
+		</MenuElement>
+	</Menu>
+</Window>

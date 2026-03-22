@@ -1,0 +1,87 @@
+/*
+	1)步骤控件,使用方法如下
+	<div .procedure >
+		<div .strip>
+			<div panel="panel-id1" .n1 selected="true" >
+				<span>绑定信息</span>
+			</div>
+		</div>
+		<div name="panel-id1" selected="true">  
+        	测试信息1
+      	</div>
+	</div>
+*/
+//------------------------------------begin----------------------------------------------------
+//--------------------------------------end----------------------------------------------------
+//------------------------------------步骤控件begin---------------------------------------------------
+.n1{ background:url(images/no1.png) no-repeat left 6dip;}
+.n2{ background:url(images/no2.png) no-repeat left 6dip;}
+.n3{ background:url(images/no3.png) no-repeat left 6dip;}
+.n4{ background:url(images/no4.png) no-repeat left 6dip;}
+.n5{ background:url(images/no5.png) no-repeat left 6dip;}
+.n6{ background:url(images/no6.png) no-repeat left 6dip;}
+.n7{ background:url(images/no7.png) no-repeat left 6dip;}
+
+.procedure
+{ 
+	behavior:tabs;
+	margin:2dip; 
+	height:100%%; 
+	width:100%%;
+	overflow:hidden;
+}
+
+.procedure .strip
+{
+	flow:horizontal;
+	font-family: "宋体";
+	font-size: 14pt;
+	padding-left:5dip;
+	height:26dip;
+	color:#96cbff;
+	background:url(images/bg_procedure.png) no-repeat right top;
+	background-repeat: expand;
+	background-position:4dip 4dip 8dip 8dip; /*top right bottom left offsets*/
+}
+
+.procedure .strip [panel]
+{
+	float:left; 
+	line-height:26x; 
+	color:#96cbff; 
+	list-style:none; 
+	padding-left:14dip; 
+	margin-right:2dip; 
+	height:26dip;
+}
+
+.procedure .strip [panel] span
+{
+	height:26dip; 
+	width:68dip; 
+	display:block; 
+	text-align:center;
+}
+
+.procedure .strip [panel][selected] span
+{
+	background:url(images/bg_current.png) no-repeat center 3dip; 
+	color:#1b4391;
+}
+
+.procedure > [name]
+{
+	height:100%%;
+	display:none;
+	padding:10dip;
+	border:1dip solid #888;
+	font-size: 11pt;
+	color:black;
+}
+
+.procedure > [name][selected]
+{
+	display:block;
+}
+
+//------------------------------------步骤控件end--------------------------------------------------

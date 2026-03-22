@@ -1,0 +1,102 @@
+[
+	{
+		"id" : 0,
+		"wp" : {
+			"flags" : 0,
+			"showCmd" : 1,
+			"ptMinX" : -1,
+			"ptMinY" : -1,
+			"ptMaxX" : -1,
+			"ptMaxY" : -1,
+			"rcNormalLeft" : 376,
+			"rcNormalTop" : 246,
+			"rcNormalRight" : 676,
+			"rcNormalBottom" : 325
+		}
+	},
+	{
+		"id" : 1,
+		"type" : "PyCom",
+		"wp" : {
+			"flags" : 0,
+			"showCmd" : 1,
+			"ptMinX" : -1,
+			"ptMinY" : -1,
+			"ptMaxX" : -1,
+			"ptMaxY" : -1,
+			"rcNormalLeft" : 375,
+			"rcNormalTop" : 97,
+			"rcNormalRight" : 1070,
+			"rcNormalBottom" : 132
+		},
+		"file" : "1快捷工具条.py"
+	},
+	{
+		"id" : 2,
+		"type" : "PyCom",
+		"wp" : {
+			"flags" : 0,
+			"showCmd" : 1,
+			"ptMinX" : -1,
+			"ptMinY" : -1,
+			"ptMaxX" : -1,
+			"ptMaxY" : -1,
+			"rcNormalLeft" : 376,
+			"rcNormalTop" : 323,
+			"rcNormalRight" : 876,
+			"rcNormalBottom" : 383
+		},
+		"file" : "2单股票委托.py"
+	},
+	{
+		"id" : 3,
+		"type" : "PyCom",
+		"wp" : {
+			"flags" : 0,
+			"showCmd" : 1,
+			"ptMinX" : -1,
+			"ptMinY" : -1,
+			"ptMaxX" : -1,
+			"ptMaxY" : -1,
+			"rcNormalLeft" : 876,
+			"rcNormalTop" : 323,
+			"rcNormalRight" : 1076,
+			"rcNormalBottom" : 563
+		},
+		"file" : "3双向下单工具.py"
+	},
+	{
+		"id" : 4,
+		"type" : "PyCom",
+		"wp" : {
+			"flags" : 0,
+			"showCmd" : 1,
+			"ptMinX" : -1,
+			"ptMinY" : -1,
+			"ptMaxX" : -1,
+			"ptMaxY" : -1,
+			"rcNormalLeft" : 376,
+			"rcNormalTop" : 383,
+			"rcNormalRight" : 876,
+			"rcNormalBottom" : 443
+		},
+		"file" : "4分时代码切换.py"
+	},
+	{
+		"id" : 5,
+		"type" : "PyCom",
+		"wp" : {
+			"flags" : 0,
+			"showCmd" : 1,
+			"ptMinX" : -1,
+			"ptMinY" : -1,
+			"ptMaxX" : -1,
+			"ptMaxY" : -1,
+			"rcNormalLeft" : 376,
+			"rcNormalTop" : 443,
+			"rcNormalRight" : 876,
+			"rcNormalBottom" : 563
+		},
+		"file" : "5下单常用功能.py"
+	}
+]

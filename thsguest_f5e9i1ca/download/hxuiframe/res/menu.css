@@ -1,0 +1,125 @@
+/*
+	1）
+*/
+//------------------------------------begin----------------------------------------------------
+//--------------------------------------end----------------------------------------------------
+
+//------------------------------------begin公共属性----------------------------------------------------
+button[type="menu"]
+{
+	behavior:button popup-menu;
+}
+
+menu  /* popup menu */
+{
+  font-family: "宋体";
+  font-size: 9pt;
+  behavior:menu; /*is a menu*/
+  flow: vertical;
+  display:none; 
+  margin:0;  
+  padding:1px;
+  max-width:max-intrinsic;
+  min-width:120px;
+  /*min-width: max-intrinsic;*/
+  border:1px solid threedshadow;
+  background-color: window;
+  color:windowtext;
+  margin:0 1px; /* to offset it from parent li */    
+}
+
+menu menu /* secondary popup menu */
+{
+  max-width:max-intrinsic;
+  min-width:120px;
+}
+
+menu li
+{  
+	width:*;
+	padding-left:24px; /* room for icon */
+ 	padding-right:12px; /* room for the arrow */
+  	padding-top:5px; 
+  	padding-bottom:5px; 
+  	foreground-repeat: no-repeat;
+  	foreground-position: 2px 50%;
+  	color:windowtext;
+}
+
+menu li:disabled 
+{ 
+	color:graytext; 
+	foreground-image: none; 
+}
+
+//-增加快捷键操作
+menu li span.accesskey
+{
+  display:inline-block;
+  margin-left:*; /* spring to attach it to the right */
+  padding-left:1em;
+  color:threedshadow;
+}
+
+//鼠标移动到快捷键菜单上，字体显示的颜色
+menu li:current span.accesskey
+{
+  color:#FFD700;
+}
+
+//当有子菜单项的操作
+menu li:has-child-of-type(menu)
+{
+  foreground-image:url(stock:arrow-right); /* that arrow */
+  foreground-repeat: no-repeat;
+  foreground-position: 100% 50%;
+}
+
+menu li[type="check"]
+{ 
+	behavior:check; 
+	foreground-repeat:no-repeat; 
+	foreground-position:1px 50%;
+	foreground-image:url(images/menu/menu_check.png) expand;;  
+}
+
+//文本流从右到走
+menu li:has-child-of-type(menu):rtl
+{
+  foreground-image:url(stock:arrow-left); /* that arrow */
+  foreground-repeat: no-repeat;
+  foreground-position: 0% 50%;
+}
+
+//菜单项选中，或者有子菜单项弹出时
+menu li:hover:owns-popup,
+menu li:current
+{ 
+  background-image:url(images/menu/menu_mouse_on.png);
+  background-repeat: expand;
+  background-position:2px 19px 19px 13px;
+  color:rgb(0,0,0);  
+}
+
+//菜单分割符
+menu hr 
+{
+  margin-left:22px; 
+  margin-top:2px;
+  margin-bottom:2px;
+  border:none;
+  height:2px;
+  background: url(images/menu/menu_hr.png) expand;
+}
+
+//--------------------------------------end公共属性----------------------------------------------------
+
+menu.menulock,
+menu.menulock menu
+{
+  background: url(images/menu/menu-back-office.png) expand;
+  background-position: 0 0 0 24;
+  text-align:left;
+  width:250px;
+  margin:0 12px;
+}

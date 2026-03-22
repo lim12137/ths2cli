@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window size="440,527" caption="0,0,0,527" name="main" >
+	<Font name="宋体" id="0"  shared="true" size="12" default="true" />
+	<Font id="4" name="黑体" size="13" bold="true"/>
+	<Font name="宋体" id="2"  shared="true" size="12" bold="true"/>
+	<Font id="5" name="宋体" size="13" bold="true"/>
+	<Font id="6" name="宋体" size="13" bold="false"/>
+	<Style name="combo_style" value="height=&quot;28&quot; textcolor=&quot;#FF333435&quot; itemvalign=&quot;vcenter&quot; textpadding=&quot;4,1,28,1&quot; normalimage=&quot;res='image/TwoWayFastTrade/combo.png' source='0,0,161,21' corner='2,2,28,2'&quot;"/>
+	<Style name="cwnumjine_mode_btn_style" value="cursor=&quot;hand&quot; textcolor=&quot;#FF000000&quot; textpadding=&quot;2,2,2,2&quot; bkcolor=&quot;#FFFFFFFF&quot; hotbkcolor=&quot;#FF33ABEE&quot; pushedbkcolor=&quot;#FF3E93E2&quot; width=&quot;40&quot; height=&quot;28&quot; bordersize=&quot;1,1,1,1&quot; bordercolor=&quot;#FFBDCEE2&quot;"/>
+	
+	<Style name="chedan_btn_style" value="cursor=&quot;hand&quot; textcolor=&quot;#FF313131&quot; textpadding=&quot;1,1,1,1&quot; normalimage=&quot;image/TwoWayFastTrade/button_chedan_nor.png&quot; pushedimage=&quot;image/TwoWayFastTrade/button_chedan_click.png&quot; hotimage=&quot;image/TwoWayFastTrade/button_chedan_hover.png&quot;height=&quot;20&quot;"/>
+	<Style name="radio_style" shared="true" value="style=&quot;option_style&quot; height=&quot;17&quot; stateimage=&quot;res='image/TwoWayFastTrade/radio_normal.png' dest='0,0,17,17'&quot; statecount=&quot;2&quot; selectedstateimage=&quot;res='image/TwoWayFastTrade/radio_selected.png' dest='0,0,17,17'&quot; selectedstatecount=&quot;2&quot;" />
+	
+	<Default name="VScrollBarBlack" shared="false" value="width=&quot;5&quot; showbutton1=&quot;false&quot; showbutton2=&quot;false&quot; thumbnormalimage=&quot;file='dui_skin/image/TwoWayFastTrade/vscrollbarbk_white.png'&quot; thumbhotimage=&quot;file='dui_skin/image/TwoWayFastTrade/vscrollbarbk_white.png'&quot; thumbpushedimage=&quot;file='dui_skin/image/TwoWayFastTrade/vscrollbarbk_white.png'&quot; railnormalimage=&quot;&quot; railhotimage=&quot;&quot; railpushedimage=&quot;&quot; raildisabledimage=&quot;&quot; bknormalimage=&quot;file='dui_skin/image/TwoWayFastTrade/vscrollbarbk.png'&quot; bkhotimage=&quot;&quot; bkpushedimage=&quot;&quot; bkdisabledimage=&quot;&quot; "/>
+	<Default name="VScrollBarWhite" shared="false" value="width=&quot;5&quot; showbutton1=&quot;false&quot; showbutton2=&quot;false&quot; button1normalimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='0,90,16,106' mask='#FFFF00FF'&quot; button1hotimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='18,90,34,106' mask='#FFFF00FF'&quot; button1pushedimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='36,90,52,106' mask='#FFFF00FF'&quot; button1disabledimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='54,90,70,106' mask='#FFFF00FF'&quot; button2normalimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='0,108,16,124' mask='#FFFF00FF'&quot; button2hotimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='18,108,34,124' mask='#FFFF00FF'&quot; button2pushedimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='36,108,52,124' mask='#FFFF00FF'&quot; button2disabledimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='54,108,70,124' mask='#FFFF00FF'&quot; thumbnormalimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='0,126,16,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbhotimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='18,126,34,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbpushedimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='36,126,52,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbdisabledimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='54,126,70,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; railnormalimage=&quot;file='twoway/scrollbar.bmp' source='0,144,16,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; railhotimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='18,144,34,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; railpushedimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='36,144,52,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; raildisabledimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='54,144,70,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; bknormalimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='0,162,16,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkhotimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='18,162,34,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkpushedimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='36,162,52,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkdisabledimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='54,162,70,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; " />
+	<Default name="VScrollBar" 		shared="true" value="width=&quot;5&quot;  showbutton1=&quot;false&quot; showbutton2=&quot;false&quot; button1normalimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='0,90,16,106' mask='#FFFF00FF'&quot; button1hotimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='18,90,34,106' mask='#FFFF00FF'&quot; button1pushedimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='36,90,52,106' mask='#FFFF00FF'&quot; button1disabledimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='54,90,70,106' mask='#FFFF00FF'&quot; button2normalimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='0,108,16,124' mask='#FFFF00FF'&quot; button2hotimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='18,108,34,124' mask='#FFFF00FF'&quot; button2pushedimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='36,108,52,124' mask='#FFFF00FF'&quot; button2disabledimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='54,108,70,124' mask='#FFFF00FF'&quot; thumbnormalimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='0,126,16,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbhotimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='18,126,34,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbpushedimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='36,126,52,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbdisabledimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='54,126,70,142' corner='2,2,2,2' mask='#FFFF00FF'&quot; railnormalimage=&quot;file='twoway/scrollbar.bmp' source='0,144,16,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; railhotimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='18,144,34,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; railpushedimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='36,144,52,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; raildisabledimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='54,144,70,160' corner='2,2,2,2' mask='#FFFF00FF'&quot; bknormalimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='0,162,16,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkhotimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='18,162,34,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkpushedimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='36,162,52,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkdisabledimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='54,162,70,178' corner='2,2,2,2' mask='#FFFF00FF'&quot; " />
+	<Default name="HScrollBar" shared="true" value="button1normalimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='0,0,16,16' mask='#FFFF00FF'&quot; button1hotimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='18,0,34,16' mask='#FFFF00FF'&quot; button1pushedimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='36,0,52,16' mask='#FFFF00FF'&quot; button1disabledimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='54,0,70,16' mask='#FFFF00FF'&quot; button2normalimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='0,18,16,34' mask='#FFFF00FF'&quot; button2hotimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='18,18,34,34' mask='#FFFF00FF'&quot; button2pushedimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='36,18,52,34' mask='#FFFF00FF'&quot; button2disabledimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='54,18,70,34' mask='#FFFF00FF'&quot; thumbnormalimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='0,36,16,52' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbhotimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='18,36,34,52' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbpushedimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='36,36,52,52' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbdisabledimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='54,36,70,52' corner='2,2,2,2' mask='#FFFF00FF'&quot; railnormalimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='0,54,16,70' corner='2,2,2,2' mask='#FFFF00FF'&quot; railhotimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='18,54,34,70' corner='2,2,2,2' mask='#FFFF00FF'&quot; railpushedimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='36,54,52,70' corner='2,2,2,2' mask='#FFFF00FF'&quot; raildisabledimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='54,54,70,70' corner='2,2,2,2' mask='#FFFF00FF'&quot; bknormalimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='0,72,16,88' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkhotimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='18,72,34,88' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkpushedimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='36,72,52,88' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkdisabledimage=&quot;file='dui_skin\image\TwoWayFastTrade\scrollbar.bmp' source='54,72,70,88' corner='2,2,2,2' mask='#FFFF00FF'&quot; " />
+
+	
+	<VerticalLayout name="uimain" bkcolor="#FFFFFFFF" bordersize="1,1,1,1" bordercolor="#FFAAB8C5" childvalign="top">
+		<HorizontalLayout name="title" height="32" bkcolor="#FFBDD7F4" bkcolor2="#FFFFFFFF" bordersize="1,1,1,1" bordercolor="#FFAAB8C5" childvalign="vcenter">
+			<Control name="titlectrlcodepro" width="6"/>
+			<VerticalLayout>
+				<VerticalLayout height="5"></VerticalLayout>
+				<VerticalLayout name="codectrl" width="62"/>
+			</VerticalLayout>
+			<Button valign="center" align="center"  width="57" name="btnlcode" font="5" cursor="hand" hottextcolor="FF4E8CAF" />
+			<Label textcolor="#FFFF0000" width="60" valign="center" align="center"  name="riselevel" font="5"/>
+			<Control name="titlectrl" width="70"/>
+	
+			<Button name="helpurlbtn"  text="帮助" cursor="hand" width="30" height="30" padding="0,5,1,0" tooltip="帮助" bordersize="0,0,0,0" textcolor="#FF4A71A5" hottextcolor="#FF3754B7" bkcolor="#00000000"/>
+			<Button name="changeskinbtn"  text="" cursor="hand" width="18" height="30" padding="0,0,1,0" tooltip="换肤" bordersize="0,0,0,0" textcolor="#FF4A71A5" hottextcolor="#FF3754B7" bkcolor="#00000000"/>
+		
+			<Button name="refreshbtn" cursor="hand" width="20" height="30" padding="0,0,1,0" tooltip="刷新" normalimage="file='image/TwoWayFastTrade/refresh.png' xtiled='false' ytiled='false' hole='false'" hotimage="file='image/TwoWayFastTrade/refresh.png'" pushedimage="file='image/TwoWayFastTrade/refresh.png'"/>
+			<Button name="tenfivebtn" cursor="hand" width="18" height="30" padding="0,0,1,0" tooltip="切换" normalimage="file='image/TwoWayFastTrade/10.png' xtiled='false' ytiled='false' hole='false'"/>
+			
+			<Button name="copybtn"    cursor="hand" width="20" height="30" padding="0,0,1,0" tooltip="复制" normalimage="file='image/TwoWayFastTrade/copy.png' xtiled='false' ytiled='false' hole='false'" hotimage="file='image/TwoWayFastTrade/copy.png'" pushedimage="file='image/TwoWayFastTrade/copy.png'" disabledimage="image/TwoWayFastTrade/copy.png"/>
+			<Button name="sysSetBtn"  cursor="hand" width="20" height="30" padding="0,0,1,0" tooltip="设置" normalimage="file='image/TwoWayFastTrade/setting.png' xtiled='false' ytiled='false' hole='false'" hotimage="file='image/TwoWayFastTrade/setting.png'" pushedimage="file='image/TwoWayFastTrade/setting.png'"/>
+			<Button name="CloseBtn"   cursor="hand" width="20" height="30" padding="0,0,1,0" tooltip="关闭" normalimage="file='image/TwoWayFastTrade/close.png' xtiled='false' ytiled='false' hole='false'" hotimage="file='image/TwoWayFastTrade/close.png'" pushedimage="file='image/TwoWayFastTrade/close.png'"/>
+				
+
+		</HorizontalLayout>
+		<MfcWnd name="code_mfc_edit" width="0" float="true" pos="3,28,0,0" height="0"/>
+		
+	
+		<HorizontalLayout name="infolayout" height="19" bkcolor="FFF1F1F1" bordercolor="#FFBDCEE2" bordersize="1,0,0,0" padding="0,0,1,0">
+			<Control width="5" bkcolor="#00000000" />
+			<Combo name="ComboUser" height="18" style="combo_style" width="80" dropboxsize="120,600" padding="0,1,0,0" dropbox="bordercolor=&quot;#FFBDCEE2&quot; bordersize=&quot;1,1,1,1&quot; padding=&quot;2,0,0,0&quot; bkcolor=&quot;#FFFFFFFF&quot;"/>
+			<Label name="labeluser" height="18" width="80" textcolor="#FF333435" textpadding="1,1,1,1"/>
+			<Label name="balance_label" text="余额" textcolor="#FF333435" width="28" padding="5,0,0,0"/>
+			<Label name="KyyeData" text="" textcolor="#FF333435" width="70"/>
+			<Label name="keyong_lable" text="可用" textcolor="#FF333435" width="28" padding="5,0,0,0"/>
+			<HorizontalLayout width="86">
+				<Label name="kbuyData" textcolor="#FF333435" autocalcwidth="true" align="right"/>
+				<Label name="kbuysell_division" text="" textpadding="0,1,0,1" width="6"/>
+				<Label name="ksellData" textcolor="#FF333435" width="40"/>
+			</HorizontalLayout>
+			<Label name="duo_lable" text="多空" textcolor="#FF333435" width="28" padding="5,0,0,0" />
+			<Label name="BuyData" textcolor="#FF333435" autocalcwidth="true" align="right"/>
+			<Label name="duokong_division" text="" textpadding="0,1,0,1" width="6"/>
+			<Label name="SellData" textcolor="#FF333435" width="40"/>
+		</HorizontalLayout>
+		
+		<Label height="4"/>	
+		<!--Label name="tip_label" text="nihao" float="true" pos="3,32,0,0" width="300" textcolor="#FF000000" height="20" bkcolor="#FFFFCC99"></Label>
+		<Button name="tip_btn" text="nihao" float="true" pos="303,32,0,0"  textcolor="#FF2487CA"  textpadding="2,2,2,2" bkcolor="#FFFFCC99" width="110" height="20" hottextcolor="#FFFF0000"></Button-->
+		<!--Button name="yujing_btn" cursor="hand" text="预警" float="true" pos="220,5,0,0" textcolor="#FFFFFFFF" textpadding="1,1,1,1"  bkcolor="#FF3E93E2" width="40" height="20" hottextcolor="#FFFF0000"/>
+		<Label name="tip_label_yujing" text="功能开发中，敬请期待~" float="true" pos="225,25,0,0" width="150" textcolor="#FF000000" height="20" bkcolor="#FFFFCC99" visible="false"></Label-->
+		<HorizontalLayout height="21" name="amounteditpanel">
+			<HorizontalLayout>
+					<HorizontalLayout width="6"/>
+					<Combo name="ComboAmount" style="combo_style" width="60" padding="0,0,1,0" dropbox="bordercolor=&quot;#FFBDCEE2&quot; bordersize=&quot;1,1,1,1&quot; padding=&quot;2,0,0,0&quot; bkcolor=&quot;#00000000&quot;" >
+						<ListLabelElement text="数量" height="23" selected="true" />
+						<ListLabelElement text="金额" height="23"/>
+					</Combo>
+					<HorizontalLayout name="EditSpinCtrl">
+					</HorizontalLayout>
+
+					<HorizontalLayout width="2"/>
+					<Button name="mode_btn1" text="1/1" style="cwnumjine_mode_btn_style"/>
+					<HorizontalLayout width="4"/>
+					<Button name="mode_btn2" text="1/2" style="cwnumjine_mode_btn_style"/>
+					<HorizontalLayout width="4"/>
+					<Button name="mode_btn3" text="1/3" style="cwnumjine_mode_btn_style"/>
+					<HorizontalLayout width="4"/>
+					<Button name="mode_btn4" text="1/4" style="cwnumjine_mode_btn_style"/>
+					<HorizontalLayout width="4"/>
+					<Button name="mode_btn5" text="1/5" style="cwnumjine_mode_btn_style"/>
+					<HorizontalLayout width="4"/>
+					<Button name="mode_btn6" text="1/6" style="cwnumjine_mode_btn_style"/>
+					<HorizontalLayout width="4"/>
+			</HorizontalLayout>
+		</HorizontalLayout>
+		<VerticalLayout height="4"/>
+		<HorizontalLayout height="20" name="chedanbtnlayout" padding="5,0,1,0">
+			<Control name="chedan_ctrl" />
+			<Control name="chedaninterval1" width="1"/>
+			<Button  name="twchedanF3" text="撤单[F3]" bkcolor="#FFB0C4DE" padding="0,0,0,0" style="chedan_btn_style" width="54"/>
+			<Control name="chedaninterval2" width="1"/>
+			<Button  name="twchedanall" text="全撤[Z]" bkcolor="#FFB0C4DE" padding="2,0,0,0" style="chedan_btn_style" width="54"/>
+			<Control name="chedaninterval5" width="1"/>
+			<Button  name="twchedanbuy" text="撤买[X]" bkcolor="#FFB0C4DE" padding="2,0,0,0" style="chedan_btn_style" minwidth="48" autocalcwidth="true" endellipsis="false"/>
+			<Control name="chedaninterval3" width="1"/>
+			<Button  name="twchedansell" text="撤卖[C]" bkcolor="#FFB0C4DE" padding="2,0,0,0" style="chedan_btn_style" minwidth="48"  autocalcwidth="true" endellipsis="false"/>
+			<Control name="chedaninterval4" width="3"/>
+			<!--Button  name="twchedanlast" text="撤最后[G]"  bkcolor="#FFB0C4DE" padding="3,0,0,0" style="chedan_btn_style" width="60"/-->
+			
+		</HorizontalLayout>
+		<Control name="mode_chedan_ctrl" width="20" visible="false"/>
+		<Option name="radio_nor" float="true" pos="5,82,0,0" group="radio" text="现" textcolor="#FF333435" padding="15,0,0,0" textpadding="6,0,6,0" style="radio_style" width="50" />
+		<Option name="radio_rzrq" group="radio" float="true" pos="45,82,0,0" text="融" textcolor="#FF333435" padding="20,0,0,0" textpadding="6,0,6,0" style="radio_style" width="50" />
+		
+		<Option name="radio_nor1" float="true" pos="5,107,0,0" group="radio1" text="现" textcolor="#FF333435" padding="15,0,0,0" textpadding="6,0,6,0" style="radio_style" width="50" visible="false"/>
+		<Option name="radio_rzrq1" group="radio1" float="true" pos="45,107,0,0" text="融" textcolor="#FF333435" padding="20,0,0,0" textpadding="6,0,6,0" style="radio_style" width="50" visible="false"/>
+
+		<!--Button name="showbtn" cursor="hand" textcolor="#FFFFFFFF"  width="8" height="40" visible="false" normalimage="file='image/TwoWayFastTrade/show.png'"/>
+		<Button name="unshowbtn" cursor="hand"  textcolor="#FFFFFFFF" float="true" text="111" hottextcolor="#FFFFFFFF" pos="217,300,0,0" width="8" height="40"  normalimage="file='image/TwoWayFastTrade/unshow.png'"/>
+
+		<Button name="showbtn" cursor="hand" float="true" width="5" height="40" pos="100,200,0,0" textcolor="#FFFFFFFF"  visible="true" normalimage="file='image/TwoWayFastTrade/show.png' xtiled='false' ytiled='false' hole='false'"/-->
+		
+		<VerticalLayout height="5"/>
+		<HorizontalLayout name="vPriceAndDeal" childvalign="vcenter" padding="3,0,0,3">
+		
+			<VerticalLayout name="tenprice" width="204">
+			</VerticalLayout>
+			
+			<VerticalLayout name="dealdetail" width="206" padding="-1,0,0,0">
+			</VerticalLayout>
+			<Button name="showbtn" cursor="hand" width="4" height="40" padding="-2,0,-4,0" textcolor="#FFFFFFFF"  visible="false" normalimage="file='image/TwoWayFastTrade/show.png' xtiled='false' ytiled='false' hole='false'"/>
+			<Button name="unshowbtn" cursor="hand" width="4" height="40" textcolor="#FFFFFFFF" padding="-206,0,0,0"  normalimage="file='image/TwoWayFastTrade/unshow.png' xtiled='false' ytiled='false' hole='false'"/>
+
+		</HorizontalLayout>
+		
+	</VerticalLayout>
+</Window>

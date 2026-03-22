@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Resources>
+	<Resource id="0" name="normal">
+		<item key="uimain_bkcolor" value="#FFFFFFFF"/>
+		<item key="uimain_bordercolor" value="#FFAAB8C5"/>
+		<item key="uimain_scrollbar" value="VScrollBarWhite"/>
+		
+		<item key="codecombo_normalimg" value="res='image/TwoWayFastTrade/combo.png' source='0,0,161,21' corner='2,2,28,2'"/>
+		<item key="codecombo_textcolor" value="#FF000000"/>
+		<item key="codecombo_dropboxbordercolor" value="#FFBDCEE2"/>
+		<item key="codecombo_bkcolor" value="#FFFFFFFF"/>
+		<item key="codecombo_nativebkcolor" value="#FFFFFFFF"/>
+		<item key="codecombo_itembkcolor" value="#FFFFFFFF"/>
+		<item key="codecombo_itemtextcolor" value="#FF000000"/>
+		<item key="codecombo_itemhotbkcolor" value="#FFEBF5FE"/>
+		<item key="codecombo_itemhottextcolor" value="#FF000000"/>
+		<item key="codecombo_itemselectedbkcolor" value="#FFC1E3FF"/>
+		<item key="codecombo_itemselectedtextcolor" value="#FF000000"/>
+		
+		<item key="stocknamebtn_textcolor" value="#FF000000"/>
+		<item key="riselevelbtn_uptextcolor" value="#FFE50000"/>
+		<item key="riselevelbtn_downtextcolor" value="#FF014A0E"/>
+		
+		<item key="title_activebkimg" value="image/TwoWayFastTrade/title_active_white.bmp"/>
+		<item key="title_inactivebkimg"  value="image/TwoWayFastTrade/title_inactive_white.bmp"/>
+
+		<item key="skinbtn_active_normalimg" value="image/TwoWayFastTrade/skin_normal_active_white.bmp"/>
+		<item key="skinbtn_active_hotimg" value="image/TwoWayFastTrade/skin_hover_active_white.bmp"/>
+		<item key="skinbtn_active_pushimg" value="image/TwoWayFastTrade/skin_push_active_white.bmp"/>
+		<item key="skinbtn_inactive_normalimg" value="image/TwoWayFastTrade/skin_normal_inactive_white.bmp"/>
+		<item key="skinbtn_inactive_hotimg" value=""/>
+		<item key="skinbtn_inactive_pushimg" value=""/>
+		
+		<item key="refreshbtn_active_normalimg" value="image/TwoWayFastTrade/refresh_normal_active_white.png"/>
+		<item key="refreshbtn_active_hotimg" value="image/TwoWayFastTrade/refresh_hover_active_white.png"/>
+		<item key="refreshbtn_active_pushimg" value="image/TwoWayFastTrade/refresh_push_active_white.png"/>
+		<item key="refreshbtn_active_disableimg" value="image/TwoWayFastTrade/refresh_normal_active_white.png"/>
+		<item key="refreshbtn_inactive_normalimg" value="image/TwoWayFastTrade/refresh_normal_inactive_white.png"/>
+		<item key="refreshbtn_inactive_hotimg" value=""/>
+		<item key="refreshbtn_inactive_pushimg" value=""/>
+		<item key="refreshbtn_inactive_disableimg" value="image/TwoWayFastTrade/refresh_normal_inactive_white.png"/>
+		
+		<item key="fivebtn_active_normalimg" value="image/TwoWayFastTrade/5_normal_active_white.bmp"/>
+		<item key="fivebtn_active_hotimg" value="image/TwoWayFastTrade/5_hover_active_white.bmp"/>
+		<item key="fivebtn_active_pushimg" value="image/TwoWayFastTrade/5_push_active_white.bmp"/>
+		<item key="fivebtn_inactive_normalimg" value="image/TwoWayFastTrade/5_normal_inactive_white.bmp"/>
+		<item key="fivebtn_inactive_hotimg" value=""/>
+		<item key="fivebtn_inactive_pushimg" value=""/>
+		
+		<item key="tenbtn_active_normalimg" value="image/TwoWayFastTrade/10_normal_active_white.bmp"/>
+		<item key="tenbtn_active_hotimg" value="image/TwoWayFastTrade/10_hover_active_white.bmp"/>
+		<item key="tenbtn_active_pushimg" value="image/TwoWayFastTrade/10_push_active_white.bmp"/>
+		<item key="tenbtn_inactive_normalimg" value="image/TwoWayFastTrade/10_normal_inactive_white.bmp"/>
+		<item key="tenbtn_inactive_hotimg" value=""/>
+		<item key="tenbtn_inactive_pushimg" value=""/>
+		
+		<item key="copybtn_active_normalimg" value="image/TwoWayFastTrade/copy_normal_active_white.png"/>
+		<item key="copybtn_active_hotimg" value="image/TwoWayFastTrade/copy_hover_active_white.png"/>
+		<item key="copybtn_active_pushimg" value="image/TwoWayFastTrade/copy_push_active_white.png"/>
+		<item key="copybtn_active_disableimg" value="image/TwoWayFastTrade/copy_normal_active_white.png"/>
+		<item key="copybtn_inactive_normalimg" value="image/TwoWayFastTrade/copy_normal_inactive_white.png"/>
+		<item key="copybtn_inactive_hotimg" value=""/>
+		<item key="copybtn_inactive_pushimg" value=""/>
+		<item key="copybtn_inactive_disableimg" value="image/TwoWayFastTrade/copy_normal_inactive_white.png"/>
+		
+		<item key="syssetbtn_active_normalimg" value="image/TwoWayFastTrade/sysset_normal_active_white.png"/>
+		<item key="syssetbtn_active_hotimg" value="image/TwoWayFastTrade/sysset_hover_active_white.png"/>
+		<item key="syssetbtn_active_pushimg" value="image/TwoWayFastTrade/sysset_push_active_white.png"/>
+		<item key="syssetbtn_inactive_normalimg" value="image/TwoWayFastTrade/sysset_normal_inactive_white.png"/>
+		<item key="syssetbtn_inactive_hotimg" value=""/>
+		<item key="syssetbtn_inactive_pushimg" value=""/>
+
+		<item key="closebtn_active_normalimg" value="image/TwoWayFastTrade/close_normal_active_white.png"/>
+		<item key="closebtn_active_hotimg" value="image/TwoWayFastTrade/close_hover_active_white.png"/>
+		<item key="closebtn_active_pushimg" value="image/TwoWayFastTrade/close_push_active_white.png"/>
+		<item key="closebtn_inactive_normalimg" value="image/TwoWayFastTrade/close_normal_inactive_white.png"/>
+		<item key="closebtn_inactive_hotimg" value=""/>
+		<item key="closebtn_inactive_pushimg" value=""/>
+		
+		<item key="infolayout_usercomboimg" value="res='image/TwoWayFastTrade/combo.png' source='0,0,161,21' corner='2,2,28,2'"/>
+		<item key="infolayout_usercombotextcolor" value="#FF333435"/>
+		<item key="infolayout_usercombodropboxbordercolor" value="#FFBDCEE2"/>
+		<item key="infolayout_useritemtextcolor" value="#FF333435"/>
+		<item key="infolayout_useritembkcolor" value="#FFFFFFFF"/>
+		<item key="infolayout_usercomboitemhotbkcolor" value="#FFEBF5FE"/>
+		<item key="infolayout_usercomboitemhottextcolor" value="#FF000000"/>
+		<item key="infolayout_usercomboitemselectedbkcolor" value="#FFC1E3FF"/>
+		<item key="infolayout_usercomboitemselectedtextcolor" value="#FF000000"/>
+		
+		<item key="infolayout_bkcolor" value="#FFF1F1F1"/>
+		<item key="infolayout_textcolor" value="#FF000000"/>
+		<item key="infolayout_buyzero_textcolor" value="#FF000000"/>
+		<item key="infolayout_buynor_textcolor" value="#FFFF0000"/>
+		<item key="infolayout_sep_textcolor" value="#FF000000"/>
+		<item key="infolayout_sellzero_textcolor" value="#FF333435"/>
+		<item key="infolayout_sellnor_textcolor" value="#FF0000FF"/>
+		
+		<item key="amountcombo_comboimg" value="res='image/TwoWayFastTrade/combo.png' source='0,0,160,20' corner='2,2,2,2'"/>
+		<item key="amountcombo_textcolor" value="#FF000000"/>
+		<item key="amountcombo_dropboxbordercolor" value="#FFBDCEE2"/>
+		<item key="amountcombo_itembkcolor" value="#FFFFFFFF"/>
+		<item key="amountcombo_itemhotbkcolor" value="#FFEBF5FE"/>
+		<item key="amountcombo_itemhottextcolor" value="#FF000000"/>
+		<item key="amountcombo_itemselectedbkcolor" value="#FFC1E3FF"/>
+		<item key="amountcombo_itemselectedtextcolor" value="#FF000000"/>
+		
+		<item key="amountedit_textcolor" value="#FF000000"/>
+		<item key="amountedit_nativebkcolor" value="#FFFFFFFF"/>
+		<item key="amountedit_bordercolor" value="#FFAAB8C5"/>
+		
+		<item key="amountbtn_textcolor" value="#FF000000"/>
+		<item key="amountbtn_hotcolor" value="#FF9FD8F7"/>
+		<item key="amountbtn_pushcolor" value="#FF72C6F3"/>
+		<item key="amountbtn_selectedbkcolor" value="#FF33ABEE"/>
+		<item key="amountbtn_bordercolor" value="#FFAAB8C5"/>
+	
+		<item key="rzrqopt_textcolor" value="#FF000000"/>
+	
+		<item key="chedan_textcolor" value="#FF000000"/>
+		<item key="chedan_norimg" value="image/TwoWayFastTrade/button_chedan_nor.png"/>
+		<item key="chedan_hoverimg" value="image/TwoWayFastTrade/button_chedan_hover.png"/>
+		<item key="chedan_pushimg" value="image/TwoWayFastTrade/button_chedan_click.png"/>
+		
+		<item key="show_img" value="file='image/TwoWayFastTrade/show.png' xtiled='false' ytiled='false' hole='false'"/>
+		<item key="unshow_img" value="file='image/TwoWayFastTrade/unshow.png' xtiled='false' ytiled='false' hole='false'"/>
+		
+		<item key="dealemptybox_bkimage" value="image/TwoWayFastTrade/emptybox.bmp"/>
+		<item key="dealemptylabel_textcolor" value="#FFBBBBBB"/>
+		<item key="dealweituo_itemtextcolor" value="#FF000000"/>
+		<item key="dealweituo_itemhotbkcolor" value="#FFD9EEFF"/>
+		<item key="dealweituo_itemselectedbkcolor" value="#FFC1E3FF"/>
+		<item key="dealweituo_newitembkcolor1" value=""/>
+		<item key="dealweituo_newitembkcolor2" value=""/>		
+		<item key="dealdetail_timetextcolor" value="#FF696969"/>
+		<item key="dealdetail_uptextcolor" value="#FFFF0000"/>
+		<item key="dealdetail_normaltextcolor" value="#FF000000"/>
+		<item key="dealdetail_downtextcolor" value="#FF069800"/>
+		<item key="dealdetail_upbkimage" value="file='dui_skin\\image\\TwoWayFastTrade\\cjmx_up_white.png' xtiled='false' ytiled='false' dest='2,5,10,17'"/>
+		<item key="dealdetail_downbkimage" value="file='dui_skin\\image\\TwoWayFastTrade\\cjmx_down_white.png' xtiled='false' ytiled='false' dest='2,5,10,17'"/>
+		<item key="dealdetail_itemhotbkcolor" value="#FFD9EEFF"/>
+		<item key="dealdetail_itemselectedbkcolor" value="#FFC1E3FF"/>
+		<item key="deal_selectedforeimage" value="res='dui_skin\image\TwoWayFastTrade\label_choosen.PNG'  xtiled='false' ytiled='false'"/>
+		<item key="deal_textcolor" value="#FF000000"/>
+		<item key="deal_selectedtextcolor" value="#00000000"/>
+		<item key="deal_bordercolor" value="#FFAAB8C5"/>
+		<item key="dealwarning_tiptextcolor" value="#FF000000"/>
+		
+	
+		<item key="mmtenprice_bkimage" value="image/TwoWayFastTrade/background.png"/>
+		<item key="tenprice_weituobkimage" value="image/TwoWayFastTrade/order_display.png"/>
+		<item key="tenprice_weituotextcolor" value="#FF000000"/>
+		<item key="tenprice_voltextcolor" value="#FF0051E7"/>
+		
+		<item key="tenprice_saodanbuybtnbkimage" value="image/TwoWayFastTrade/saodan_buy_white.bmp"/>
+		<item key="tenprice_saodansellbtnbkimage" value="image/TwoWayFastTrade/saodan_sell_white.bmp"/>
+		<item key="tenprice_saodanbuybkcolor" value="#FFFFCCCC"/>
+		<item key="tenprice_saodansellbkcolor" value="#FF80CCFF"/>
+		<item key="tenprice_paidanbuyimage" value="image/TwoWayFastTrade/bdgd_buy_white.bmp"/>
+		<item key="tenprice_paidansellimage" value="image/TwoWayFastTrade/bdgd_sell_white.bmp"/>
+		<item key="tenprice_gudanchidanbuyimage" value="image/TwoWayFastTrade/guadanchidanbuy_white.png"/>
+		<item key="tenprice_gudanchidansellimage" value="image/TwoWayFastTrade/guadanchidansell_white.png"/>
+		
+		<item key="jgcolor_up" value="0xFFFF0000"/>
+		<item key="jgcolor_normal" value="0xFF000000"/>
+		<item key="jgcolor_down" value="0xFF069800"/>
+		<item key="tenprice_bordercolor" value="#FFAAB8C5"/>
+		<item key="tenprice_zxjbordercolor" value="#FFD7D7D7"/>
+		<item key="tenprice_suspendbkimage" value="res='dui_skin/image/TwoWayFastTrade/mask.PNG' mask='#D3D3D3' fade='220'"/>
+		<item key="tenprice_suspendcomboimage" value="res='image/TwoWayFastTrade/combo.png' source='0,0,161,20' corner='2,2,28,2'"/>
+		<item key="tenprice_suspendcombodropboxbordercolor" value="#FFBDCEE2"/>
+		<item key="tenprice_suspendcombotextcolor" value="#FF000000"/>
+		<item key="tenprice_suspendcomboitemtextcolor" value="#FF000000"/>
+		<item key="tenprice_suspendcomboitembkcolor" value="#FFFFFFFF"/>
+		<item key="tenprice_suspendcomboitemhotbkcolor" value="#FFEBF5FE"/>
+		<item key="tenprice_suspendcomboitemhottextcolor" value="#FF000000"/>
+		<item key="tenprice_suspendcomboitemselectedbkcolor" value="#FFC1E3FF"/>
+		<item key="tenprice_suspendcomboitemselectedtextcolor" value="#FF000000"/>
+		
+		<item key="tenprice_suspendedittextcolor" value="#FF000000"/>
+		<item key="tenprice_suspendeditnativebkcolor" value="#FFFFFFFF"/>
+		<item key="tenprice_suspendeditbkcolor" value="#FFFFFFFF"/>
+		<item key="tenprice_suspendeditbordercolor" value="#FFAAB8C5"/>
+		<item key="tenprice_suspendbtntextcolor" value="#FF000000"/>
+		<item key="tenprice_suspendbtnbkcolor" value="#FFFFFFFF"/>
+		<item key="tenprice_suspendbtnbordercolor" value="#FFAAB8C5"/>
+		
+		<item key="setdlg_titleimag" value="image/TwoWayFastTrade/sysset_title_white.png"/>
+		<item key="setdlg_titletextcolor" value="#FF000000"/>
+		<item key="setdlg_bkcolor" value="#FFFFFFFF"/>
+		<item key="setdlg_bordercolor" value="#FFAAB8C5"/>
+		<item key="setdlg_textcolor" value="#FF000000"/>
+		<item key="setdlg_editnativebkcolor" value="#FFFFFFFF"/>
+		<item key="setdlg_groupbkcolor" value="#FFFFFFFF"/>
+		<item key="setdlg_combonormalimg" value="res='image/TwoWayFastTrade/combo.png' source='0,0,161,20' corner='2,2,28,2'"/>
+		<item key="setdlg_combotextcolor" value="#FF000000"/>
+		<item key="setdlg_combodropboxbordercolor" value="#FFBDCEE2"/>
+		<item key="setdlg_comboitemtextcolor" value="#FF000000"/>
+		<item key="setdlg_comboitembkcolor" value="#FFFFFFFF"/>
+		<item key="setdlg_comboitemhotbkcolor" value="#FFEBF5FE"/>
+		<item key="setdlg_comboitemhottextcolor" value="#FF000000"/>
+		<item key="setdlg_comboitemselectedbkcolor" value="#FFC1E3FF"/>
+		<item key="setdlg_comboitemselectedtextcolor" value="#FF000000"/>
+		<item key="setdlg_morenweituodisabledbkcolor" value="#FFF5F5F5"/>
+		<item key="setdlg_btnnormalimg" value="res='image/TwoWayFastTrade/sx_normal_white.BMP' corner='4,4,4,4'"/>
+		<item key="setdlg_btnhotimg"   value="res='image/TwoWayFastTrade/sx_hover_white.BMP'  corner='4,4,4,4'"/>
+		
+	</Resource>
+	<Resource id="1" name="black">
+		<item key="uimain_bkcolor" value="#FF000000"/>
+		
+		<item key="uimain_bordercolor" value="#FF474747"/>
+		<item key="uimain_scrollbar" value="VScrollBarBlack"/>
+		
+		<item key="codecombo_normalimg" value="res='image/TwoWayFastTrade/combo_black.png' source='0,0,161,20' corner='2,2,28,2'"/>
+		<item key="codecombo_textcolor" value="#FFBFC0C1"/>
+		<item key="codecombo_dropboxbordercolor" value="#FF474747"/>
+		<item key="codecombo_bkcolor" value="#FF000000"/>
+		<item key="codecombo_nativebkcolor" value="#FF000000"/>
+		<item key="codecombo_itembkcolor" value="#FF000000"/>
+		<item key="codecombo_itemtextcolor" value="#FFBFC0C1"/>
+		<item key="codecombo_itemhotbkcolor" value="#FF1C1C1C"/>
+		<item key="codecombo_itemhottextcolor" value="#FFFFFFFF"/>
+		<item key="codecombo_itemselectedbkcolor" value="#FF424344"/>
+		<item key="codecombo_itemselectedtextcolor" value="#FFFFFFFF"/>
+
+	
+		<item key="stocknamebtn_textcolor" value="#FFFFFFFF"/>
+		<item key="riselevelbtn_uptextcolor" value="#FFE50000"/>
+		<item key="riselevelbtn_downtextcolor" value="#FF39E700"/>
+		
+		<item key="title_activebkimg" value="image/TwoWayFastTrade/title_active_black.bmp"/>
+		<item key="title_inactivebkimg"  value="image/TwoWayFastTrade/title_inactive_black.bmp"/>
+
+		<item key="skinbtn_active_normalimg" value="image/TwoWayFastTrade/skin_normal_active_black.bmp"/>
+		<item key="skinbtn_active_hotimg" value="image/TwoWayFastTrade/skin_hover_active_black.bmp"/>
+		<item key="skinbtn_active_pushimg" value="image/TwoWayFastTrade/skin_push_active_black.bmp"/>
+		<item key="skinbtn_inactive_normalimg" value="image/TwoWayFastTrade/skin_normal_inactive_black.bmp"/>
+		<item key="skinbtn_inactive_hotimg" value=""/>
+		<item key="skinbtn_inactive_pushimg" value=""/>
+		
+		<item key="refreshbtn_active_normalimg" value="image/TwoWayFastTrade/refresh_normal_active_black.bmp"/>
+		<item key="refreshbtn_active_hotimg" value="image/TwoWayFastTrade/refresh_hover_active_black.bmp"/>
+		<item key="refreshbtn_active_pushimg" value="image/TwoWayFastTrade/refresh_push_active_black.bmp"/>
+		<item key="refreshbtn_active_disableimg" value="image/TwoWayFastTrade/refresh_normal_active_black.bmp"/>
+		<item key="refreshbtn_inactive_normalimg" value="image/TwoWayFastTrade/refresh_normal_inactive_black.bmp"/>
+		<item key="refreshbtn_inactive_hotimg" value=""/>
+		<item key="refreshbtn_inactive_pushimg" value=""/>
+		<item key="refreshbtn_inactive_disableimg" value="image/TwoWayFastTrade/refresh_normal_inactive_black.bmp"/>
+		
+		<item key="fivebtn_active_normalimg" value="image/TwoWayFastTrade/5_normal_active_black.bmp"/>
+		<item key="fivebtn_active_hotimg" value="image/TwoWayFastTrade/5_hover_active_black.bmp"/>
+		<item key="fivebtn_active_pushimg" value="image/TwoWayFastTrade/5_push_active_black.bmp"/>
+		<item key="fivebtn_inactive_normalimg" value="image/TwoWayFastTrade/5_normal_inactive_black.bmp"/>
+		<item key="fivebtn_inactive_hotimg" value=""/>
+		<item key="fivebtn_inactive_pushimg" value=""/>
+		
+		<item key="tenbtn_active_normalimg" value="image/TwoWayFastTrade/10_normal_active_black.bmp"/>
+		<item key="tenbtn_active_hotimg" value="image/TwoWayFastTrade/10_hover_active_black.bmp"/>
+		<item key="tenbtn_active_pushimg" value="image/TwoWayFastTrade/10_push_active_black.bmp"/>
+		<item key="tenbtn_inactive_normalimg" value="image/TwoWayFastTrade/10_normal_inactive_black.bmp"/>
+		<item key="tenbtn_inactive_hotimg" value=""/>
+		<item key="tenbtn_inactive_pushimg" value=""/>
+		
+		<item key="copybtn_active_normalimg" value="image/TwoWayFastTrade/copy_normal_active_black.bmp"/>
+		<item key="copybtn_active_hotimg" value="image/TwoWayFastTrade/copy_hover_active_black.bmp"/>
+		<item key="copybtn_active_pushimg" value="image/TwoWayFastTrade/copy_push_active_black.bmp"/>
+		<item key="copybtn_active_disableimg" value="image/TwoWayFastTrade/copy_normal_active_black.bmp"/>
+		<item key="copybtn_inactive_normalimg" value="image/TwoWayFastTrade/copy_normal_inactive_black.bmp"/>
+		<item key="copybtn_inactive_hotimg" value=""/>
+		<item key="copybtn_inactive_pushimg" value=""/>
+		<item key="copybtn_inactive_disableimg" value="image/TwoWayFastTrade/copy_normal_inactive_black.bmp"/>
+		
+		<item key="syssetbtn_active_normalimg" value="image/TwoWayFastTrade/sysset_normal_active_black.bmp"/>
+		<item key="syssetbtn_active_hotimg" value="image/TwoWayFastTrade/sysset_hover_active_black.bmp"/>
+		<item key="syssetbtn_active_pushimg" value="image/TwoWayFastTrade/sysset_push_active_black.bmp"/>
+		<item key="syssetbtn_inactive_normalimg" value="image/TwoWayFastTrade/sysset_normal_inactive_black.bmp"/>
+		<item key="syssetbtn_inactive_hotimg" value=""/>
+		<item key="syssetbtn_inactive_pushimg" value=""/>
+
+		<item key="closebtn_active_normalimg" value="image/TwoWayFastTrade/close_normal_active_black.bmp"/>
+		<item key="closebtn_active_hotimg" value="image/TwoWayFastTrade/close_hover_active_black.bmp"/>
+		<item key="closebtn_active_pushimg" value="image/TwoWayFastTrade/close_push_active_black.bmp"/>
+		<item key="closebtn_inactive_normalimg" value="image/TwoWayFastTrade/close_normal_inactive_black.bmp"/>
+		<item key="closebtn_inactive_hotimg" value=""/>
+		<item key="closebtn_inactive_pushimg" value=""/>
+	
+		<item key="infolayout_usercomboimg" value="res='image/TwoWayFastTrade/combo_black.png' source='0,0,161,20' corner='2,2,28,2'"/>
+		<item key="infolayout_usercombotextcolor" value="#FFBFC0C1"/>
+		<item key="infolayout_usercombodropboxbordercolor" value="#FF474747"/>
+		<item key="infolayout_usercomboitemtextcolor" value="#FFBFC0C1"/>
+		<item key="infolayout_usercomboitembkcolor" value="#FF000000"/>
+		<item key="infolayout_usercomboitemhotbkcolor" value="#FF000000"/>
+		<item key="infolayout_usercomboitemhottextcolor" value="#FFFFFFFF"/>
+		<item key="infolayout_usercomboitemselectedbkcolor" value="#FF424344"/>
+		<item key="infolayout_usercomboitemselectedtextcolor" value="#FFFFFFFF"/>
+			
+		<item key="infolayout_bkcolor" value="#FF1A1B1C"/>
+		<item key="infolayout_textcolor" value="#FFBFC0C1"/>
+		<item key="infolayout_buyzero_textcolor" value="#FFBFC0C1"/>
+		<item key="infolayout_buynor_textcolor" value="#FFFF0000"/>
+		<item key="infolayout_sep_textcolor" value="#FFBFC0C1"/>
+		<item key="infolayout_sellzero_textcolor" value="#FFBFC0C1"/>
+		<item key="infolayout_sellnor_textcolor" value="#FF02E2F4"/>
+		
+		<item key="amountcombo_comboimg" value="res='image/TwoWayFastTrade/combo_black.png' source='0,0,161,20' corner='2,2,28,2'"/>
+		<item key="amountcombo_textcolor" value="#FFBFC0C1"/>
+		<item key="amountcombo_dropboxbordercolor" value="#FF474747"/>
+		<item key="amountcombo_itembkcolor" value="#FF000000"/>
+		<item key="amountcombo_itemhotbkcolor" value="#FF1C1C1C"/>
+		<item key="amountcombo_itemhottextcolor" value="#FFFFFFFF"/>
+		<item key="amountcombo_itemselectedbkcolor" value="#FF424344"/>
+		<item key="amountcombo_itemselectedtextcolor" value="#FFFFFFFF"/>
+		
+		<item key="amountedit_textcolor" value="#FFBFC0C1"/>
+		<item key="amountedit_nativebkcolor" value="#FF000000"/>
+		<item key="amountedit_bordercolor" value="#FF474747"/>
+		
+		<item key="amountbtn_textcolor" value="#FFBFC0C1"/>
+		<item key="amountbtn_hotcolor" value="#FF666666"/>
+		<item key="amountbtn_pushcolor" value="#FF080404"/>
+		<item key="amountbtn_selectedbkcolor" value="#FF424344"/>
+		<item key="amountbtn_bordercolor" value="#FF474747"/>
+		
+		<item key="rzrqopt_textcolor" value="#FFBFC0C1"/>
+		
+		<item key="chedan_textcolor" value="#FFFFFFFF"/>
+		<item key="chedan_norimg" value="image/TwoWayFastTrade/button_chedan_nor_black.png"/>
+		<item key="chedan_hoverimg" value="image/TwoWayFastTrade/button_chedan_hover_black.png"/>
+		<item key="chedan_pushimg" value="image/TwoWayFastTrade/button_chedan_click_black.png"/>
+		
+		<item key="show_img" value="file='image/TwoWayFastTrade/black_show.png' xtiled='false' ytiled='false' hole='false'"/>
+		<item key="unshow_img" value="file='image/TwoWayFastTrade/black_unshow.png' xtiled='false' ytiled='false' hole='false'"/>
+		
+		<item key="dealemptybox_bkimage" value="image/TwoWayFastTrade/emptybox_black.bmp"/>
+		<item key="dealemptylabel_textcolor" value="#FF515253"/>
+		<item key="dealweituo_itemtextcolor" value="#FFC0C0C0"/>
+		<item key="dealweituo_itemhotbkcolor" value="#FF1C1C1C"/>
+		<item key="dealweituo_itemselectedbkcolor" value="#FF424344"/>
+		<item key="dealweituo_newitembkcolor1" value="0xFF292712"/>
+		<item key="dealweituo_newitembkcolor2" value="0xFF402d26"/>
+		
+		<item key="dealdetail_timetextcolor" value="#FFC6C3C6"/>
+		<item key="dealdetail_uptextcolor" value="#FFFF3232"/>
+		<item key="dealdetail_normaltextcolor" value="#FFBFC0C1"/>
+		<item key="dealdetail_downtextcolor" value="#FF00E600"/>
+		<item key="dealdetail_upbkimage" value="file='dui_skin\\image\\TwoWayFastTrade\\cjmx_up_black.png' xtiled='false' ytiled='false' dest='2,5,10,17'"/>
+		<item key="dealdetail_downbkimage" value="file='dui_skin\\image\\TwoWayFastTrade\\cjmx_down_black.png' xtiled='false' ytiled='false' dest='2,5,10,17'"/>
+		<item key="dealdetail_itemhotbkcolor" value="#FF1C1C1C"/>
+		<item key="dealdetail_itemselectedbkcolor" value="#FF424344"/>
+		<item key="deal_selectedforeimage" value=""/>
+		<item key="deal_textcolor" value="#FFBFC0C1"/>
+		<item key="deal_selectedtextcolor" value="#FFFFFFFF"/>
+		<item key="deal_bordercolor" value="#FF800000"/>
+		<item key="dealwarning_tiptextcolor" value="#FFBFC0C1"/>
+		
+		<item key="mmtenprice_bkimage" value="image/TwoWayFastTrade/background_black.png"/>
+		<item key="tenprice_weituobkimage" value="image/TwoWayFastTrade/order_display.png"/>
+		<item key="tenprice_weituotextcolor" value="#FFFFFFFF"/>
+		<item key="tenprice_voltextcolor" value="#FF02E2F4"/>
+		
+		<item key="tenprice_saodanbuybtnbkimage" value="image/TwoWayFastTrade/saodan_buy_black.bmp"/>
+		<item key="tenprice_saodansellbtnbkimage" value="image/TwoWayFastTrade/saodan_sell_black.bmp"/>
+		<item key="tenprice_saodanbuybkcolor" value="#FF280000"/>
+		<item key="tenprice_saodansellbkcolor" value="#FF002C0A"/>
+		<item key="tenprice_paidanbuyimage" value="image/TwoWayFastTrade/bdgd_buy_black.png"/>
+		<item key="tenprice_paidansellimage" value="image/TwoWayFastTrade/bdgd_sell_black.png"/>
+		<item key="tenprice_gudanchidanbuyimage" value="image/TwoWayFastTrade/guadanchidanbuy_black.png"/>
+		<item key="tenprice_gudanchidansellimage" value="image/TwoWayFastTrade/guadanchidansell_black.png"/>
+		
+		<item key="jgcolor_up" value="0xFFFF3232"/>
+		<item key="jgcolor_normal" value="0xFFFFFFFF"/>
+		<item key="jgcolor_down" value="0xFF00E600"/>
+		<item key="tenprice_bordercolor" value="#FF800000"/>
+		<item key="tenprice_zxjbordercolor" value="#FF696969"/>
+		<item key="tenprice_suspendbkimage" value="res='dui_skin/image/TwoWayFastTrade/mask.PNG' mask='#FFFFFF' fade='200'"/>
+		<item key="tenprice_suspendcomboimage" value="res='image/TwoWayFastTrade/combo_black.png' source='0,0,161,20' corner='2,2,28,2'"/>
+		<item key="tenprice_suspendcombodropboxbordercolor" value="#FF474747"/>
+		<item key="tenprice_suspendcombotextcolor" value="#FFBFC0C1"/>
+		<item key="tenprice_suspendcomboitemtextcolor" value="#FFBFC0C1"/>
+		<item key="tenprice_suspendcomboitembkcolor" value="#FF000000"/>
+		<item key="tenprice_suspendcomboitemhotbkcolor" value="#FF000000"/>
+		<item key="tenprice_suspendcomboitemhottextcolor" value="#FFFFFFFF"/>
+		<item key="tenprice_suspendcomboitemselectedbkcolor" value="#FF424344"/>
+		<item key="tenprice_suspendcomboitemselectedtextcolor" value="#FFFFFFFF"/>
+		
+		<item key="tenprice_suspendedittextcolor" value="#FFBFC0C1"/>
+		<item key="tenprice_suspendeditnativebkcolor" value="#FF000000"/>
+		<item key="tenprice_suspendeditbkcolor" value="#FF000000"/>
+		<item key="tenprice_suspendeditbordercolor" value="#FFBFC0C1"/>
+		<item key="tenprice_suspendbtntextcolor" value="#FFBFC0C1"/>
+		<item key="tenprice_suspendbtnbkcolor" value="#FF000000"/>
+		<item key="tenprice_suspendbtnbordercolor" value="#FFBFC0C1"/>
+		
+		<item key="setdlg_titleimag" value="image/TwoWayFastTrade/sysset_title_black.bmp"/>
+		<item key="setdlg_titletextcolor" value="#FFFFFFFF"/>
+		<item key="setdlg_bkcolor" value="#FF000000"/>
+		<item key="setdlg_bordercolor" value="#FF474747"/>
+		<item key="setdlg_textcolor" value="#FFBFC0C1"/>
+		<item key="setdlg_editnativebkcolor" value="#FF000000"/>
+		<item key="setdlg_groupbkcolor" value="#FF000000"/>
+		<item key="setdlg_combonormalimg" value="res='image/TwoWayFastTrade/combo_black.png' source='0,0,161,20' corner='2,2,28,2'"/>	
+		<item key="setdlg_combotextcolor" value="#FFBFC0C1"/>
+		<item key="setdlg_combodropboxbordercolor" value="#FF474747"/>
+		<item key="setdlg_comboitemtextcolor" value="#FFBFC0C1"/>
+		<item key="setdlg_comboitembkcolor" value="#FF000000"/>
+		<item key="setdlg_comboitemhotbkcolor" value="#FF1C1C1C"/>
+		<item key="setdlg_comboitemhottextcolor" value="#FFFFFFFF"/>
+		<item key="setdlg_comboitemselectedbkcolor" value="#FF424344"/>
+		<item key="setdlg_comboitemselectedtextcolor" value="#FFFFFFFF"/>
+		<item key="setdlg_morenweituodisabledbkcolor" value="#FF424344"/>
+		<item key="setdlg_btnnormalimg" value="image/TwoWayFastTrade/sx_normal_black.png"/>
+		<item key="setdlg_btnhotimg"   value="image/TwoWayFastTrade/sx_hover_black.png"/>
+		
+
+	</Resource>
+	<Resource id="2" name="black">
+	</Resource>
+</Resources>

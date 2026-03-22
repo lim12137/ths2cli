@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window >
+	<!-- 风控参数页 -->
+	<VerticalLayout name="riskVL" width="400" childpadding="8" inset="9,4,15,4" vscrollbar="true" >
+		<Label text="我的风控策略：" font="3" />
+		<!-- 总委托比例风控 -->
+		<VerticalLayout name="r_stockpos" height="88" bordersize="1" bordercolor="#FF323232" inset="5,5,5,5" childpadding="2" >
+			<HorizontalLayout height="24" >
+				<Label text="总委托比例风控" font="1" textcolor="#FFE6E6E6" />
+				<Control />
+				<CheckBox name="r_stockpos_chk" width="32" padding="0,4,0,4" normalimage="file=&apos;py/image/risk_close.png&apos;" selectedimage="file=&apos;py/image/risk_open.png&apos;" />
+			</HorizontalLayout>
+			<HorizontalLayout height="24" >
+				<Label text="单只股票最大买入数量不超过基金净值的" />
+				<Edit name="r_stockpos_edt" numberonly="true" width="80" align="center" padding="4,0,4,0" />
+				<Label text="%" />
+			</HorizontalLayout>
+			<Control height="1" padding="0,4,0,0" bkcolor="#FF323232" />
+			<HorizontalLayout height="14" padding="0,5,0,5">
+				<Label text="风控类型：" />
+				<Option name="r_stockpos_forbid" text="禁止委托" group="r_stockpos" textcolor="#FFB6B6B6" width="80" normalimage="file='py/image/risk_uncheck.png' corner='14,0,0,0'" selectedimage="file='py/image/risk_check.png' corner='14,0,0,0'" />
+				<Option name="r_stockpos_popup" text="弹窗提示" group="r_stockpos" selected="true" textcolor="#FFB6B6B6" width="80" normalimage="file='py/image/risk_uncheck.png' corner='14,0,0,0'" selectedimage="file='py/image/risk_check.png' corner='14,0,0,0'" />
+			</HorizontalLayout>
+		</VerticalLayout>
+		<!-- 标的风控 -->
+		<VerticalLayout name="r_blacklist" height="88" bordersize="1" bordercolor="#FF323232" inset="5,5,5,5" childpadding="2" >
+			<HorizontalLayout height="24" >
+				<Label text="标的风控" font="1" textcolor="#FFE6E6E6" />
+				<Control />
+				<CheckBox name="r_blacklist_chk" width="32" padding="0,4,0,4" normalimage="file=&apos;py/image/risk_close.png&apos;" selectedimage="file=&apos;py/image/risk_open.png&apos;" />
+			</HorizontalLayout>
+			<HorizontalLayout height="24" >
+				<Label text="不允许买入名单内的股票：" />
+				<Combo name="r_blacklist_cmb" tipvalue="添加名单" tipvaluecolor="#FF787878" multiselect="true" itemtextpadding="24,0,10,0" itemselectedimage="file='py/image/tick.png' corner='24,0,0,0'"/>
+			</HorizontalLayout>
+			<Control height="1" padding="0,4,0,0" bkcolor="#FF323232" />
+			<HorizontalLayout height="14" padding="0,5,0,5">
+				<Label text="风控类型：" />
+				<Option name="r_blacklist_forbid" text="禁止委托" group="r_blacklist" textcolor="#FFB6B6B6" width="80" normalimage="file='py/image/risk_uncheck.png' corner='14,0,0,0'" selectedimage="file='py/image/risk_check.png' corner='14,0,0,0'" />
+				<Option name="r_blacklist_popup" text="弹窗提示" group="r_blacklist" selected="true" textcolor="#FFB6B6B6" width="80" normalimage="file='py/image/risk_uncheck.png' corner='14,0,0,0'" selectedimage="file='py/image/risk_check.png' corner='14,0,0,0'" />
+			</HorizontalLayout>
+		</VerticalLayout>
+		<!-- 价格风控 -->
+		<VerticalLayout name="r_priceoffset" height="114" bordersize="1" bordercolor="#FF323232" inset="5,5,5,5" childpadding="2" >
+			<HorizontalLayout height="24" >
+				<Label text="价格风控" font="1" textcolor="#FFE6E6E6" />
+				<Control />
+				<CheckBox name="r_priceoffset_chk" width="32" padding="0,4,0,4" normalimage="file=&apos;py/image/risk_close.png&apos;" selectedimage="file=&apos;py/image/risk_open.png&apos;" />
+			</HorizontalLayout>
+			<HorizontalLayout height="24" >
+				<!-- <Combo name="r_priceoffset_cmb1" width="110" dropbox="bordercolor=&quot;#FF252525&quot; " padding="0,0,4,0" /> -->
+				<Label text="上证50" textcolor="#FFF6F6F6" autocalcwidth="false" width="55" />
+				<Label text="买卖双向委托价格不得偏离当前价格" />
+				<Edit name="r_priceoffset_edt1" width="80" align="center" padding="4,0,4,0" />
+				<Label text="%" />
+			</HorizontalLayout>
+			<HorizontalLayout height="24" >
+				<!-- <Combo name="r_priceoffset_cmb2" width="110" dropbox="bordercolor=&quot;#FF252525&quot; " padding="0,0,4,0" /> -->
+				<Label text="其他股票" textcolor="#FFF6F6F6" autocalcwidth="false" width="55" />
+				<Label text="买卖双向委托价格不得偏离当前价格" />
+				<Edit name="r_priceoffset_edt2" width="80" align="center" padding="4,0,4,0" />
+				<Label text="%" />
+			</HorizontalLayout>
+			<Control height="1" padding="0,4,0,0" bkcolor="#FF323232" />
+			<HorizontalLayout height="14" padding="0,5,0,5">
+				<Label text="风控类型：" />
+				<Option name="r_priceoffset_forbid" text="禁止委托" group="r_priceoffset" textcolor="#FFB6B6B6" width="80" normalimage="file='py/image/risk_uncheck.png' corner='14,0,0,0'" selectedimage="file='py/image/risk_check.png' corner='14,0,0,0'" />
+				<Option name="r_priceoffset_popup" text="弹窗提示" group="r_priceoffset" selected="true" textcolor="#FFB6B6B6" width="80" normalimage="file='py/image/risk_uncheck.png' corner='14,0,0,0'" selectedimage="file='py/image/risk_check.png' corner='14,0,0,0'" />
+			</HorizontalLayout>
+		</VerticalLayout>
+		<!-- 委托量风控 -->
+		<VerticalLayout name="r_totalwt" height="114" bordersize="1" bordercolor="#FF323232" inset="5,5,5,5" childpadding="2" >
+			<HorizontalLayout height="24" >
+				<Label text="委托量风控" font="1" textcolor="#FFE6E6E6" />
+				<Control />
+				<CheckBox name="r_totalwt_chk" width="32" padding="0,4,0,4" normalimage="file=&apos;py/image/risk_close.png&apos;" selectedimage="file=&apos;py/image/risk_open.png&apos;" />
+			</HorizontalLayout>
+			<HorizontalLayout height="24" >
+				<Label text="单只股票当日累计委托金额不超过" />
+				<Edit name="r_totalwt_edt1" numberonly="true" width="80" align="center" padding="4,0,4,0" />
+				<Label text="万元" />
+			</HorizontalLayout>
+			<HorizontalLayout height="24" >
+				<Label text="单只股票当日累计委托数量不超过" />
+				<Edit name="r_totalwt_edt2" numberonly="true" width="80" align="center" padding="4,0,4,0" />
+				<Label text="万手" />
+			</HorizontalLayout>
+			<Control height="1" padding="0,4,0,0" bkcolor="#FF323232" />
+			<HorizontalLayout height="14" padding="0,5,0,5">
+				<Label text="风控类型：" />
+				<Option name="r_totalwt_forbid" text="禁止委托" group="r_totalwt" textcolor="#FFB6B6B6" width="80" normalimage="file='py/image/risk_uncheck.png' corner='14,0,0,0'" selectedimage="file='py/image/risk_check.png' corner='14,0,0,0'" />
+				<Option name="r_totalwt_popup" text="弹窗提示" group="r_totalwt" selected="true" textcolor="#FFB6B6B6" width="80" normalimage="file='py/image/risk_uncheck.png' corner='14,0,0,0'" selectedimage="file='py/image/risk_check.png' corner='14,0,0,0'" />
+			</HorizontalLayout>
+		</VerticalLayout>
+	</VerticalLayout>
+</Window>

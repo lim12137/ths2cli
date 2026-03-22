@@ -1,0 +1,15 @@
+//@version=6
+strategy("连续阳线")
+
+consecutiveBars = input.int(3, "阳线数量")// 连续阳线数量
+
+// 计算阳线条件
+isBullishBar = close > open
+consecutiveCount = 0
+consecutiveCount := isBullishBar ? 
+     nz(consecutiveCount[1], 0) + 1 : 
+     0
+
+
+// 设置警报条件
+alertcondition(consecutiveCount >= consecutiveBars, title="连续阳线警报")

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+	<Default name="Menu" shared="true" value="bordersize=&quot;1,1,1,1&quot; bordercolor=&quot;#FF339CE4&quot; bkcolor=&quot;#FFEBF3F6&quot; itemtextpadding=&quot;10,0,0,0&quot; itemselectedbkcolor=&quot;#FF86CEF6&quot; " />
+  <Menu />
+</Window>

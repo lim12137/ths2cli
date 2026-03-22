@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window size="17,17">
+	<VerticalLayout bkcolor="#FFF9F9F9" float="false" height="17" width="17" >
+        <Label name="reddot" float="false" visible="true" padding="0,0,0,0"  height="17" width="17" bkimage="file='dui_skin/image/GuidanceIcon/rednew.png' source='1,0,18,17' "/>
+    </VerticalLayout>
+</Window>

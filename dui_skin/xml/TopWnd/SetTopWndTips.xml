@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window size="160,24" roundcorner="3,3">
+	<Font id="1" name="宋体" size="12" bold="false"/>
+	<HorizontalLayout name="topwndHorMainFrame" bkcolor="#FFE4E4E4"  bordercolor="##FFBBBBBB" bordersize="1" >
+		<Label name="topwndbkimage"  visible="true"    padding="8,4,0,0" height="16" width="16" bkimage="dui_skin/xml/TopWnd/success_tips.png" />  	
+        <Label name="topwndtips"    visible="true"  valign="center"   padding="10,0,0,0" text="您设置了窗口置顶" textcolor="#FF181818" height="24"  autocalcwidth="true" font="1" />
+    </HorizontalLayout>
+</Window>

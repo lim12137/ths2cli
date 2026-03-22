@@ -1,0 +1,18 @@
+strategy('信号条件默认模板')
+
+// 止盈止损
+tp_sl_check = input.bool(true, '止盈止损', group='1', inline='8')
+input.text('参考', group='1', inline='8')
+tp_sl_base = input.string('成本价', options=['成本价','最新价','昨收价','开盘价','自定义价格'], group='1', inline='8')
+input.text('止盈', group='1', inline='80')
+tp_limit = input.spread('', '冲高', options=['元','%'], group='1', inline='80')
+tp_rate = input.spread('', '回落', options=['%','元'], group='1', inline='81')
+input.text('止损', group='1', inline='82')
+sl_limit = input.spread('', '下跌', options=['元','%'], group='1', inline='82')
+sl_rate = input.spread('', '反弹', options=['%', '元'], group='1', inline='83')
+
+// 止盈止损：内置信号函数signal.tp_sl(base, tp_limit, tp_rate, sl_limit, sl_rate)
+if tp_sl_check
+    tp_sl_check := signal.tp_sl(tp_sl_base, tp_limit, tp_rate, sl_limit, sl_rate)
+
+alertcondition('界面勾选条件且满足条件判断后触发')

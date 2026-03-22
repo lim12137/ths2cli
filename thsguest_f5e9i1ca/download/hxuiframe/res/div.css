@@ -1,0 +1,99 @@
+/*
+	1）可用数量显示
+	2）资金控件类，
+	3) 资金功能控件
+	4）协议框
+*/
+//------------------------------------begin----------------------------------------------------
+//--------------------------------------end----------------------------------------------------
+
+//------------------------------------begin公共属性-可用数量显示---------------------------------------------------
+
+.div_amount
+{
+	height:12px;
+	width:80px;
+	-ctrl-lua-script: "bp://amount.lua"; 
+	active-on!: self.onClick();
+}
+
+.div_amount:hover
+{
+	border:1px double rgb(255,0,0);
+}
+//--------------------------------------end公共属性-可用数量显示---------------------------------------------------
+
+//------------------------------------begin资金控件----------------------------------------------------
+.zijin
+{
+	dispaly:none;//默认不显示
+	height:0px;
+	width:0px;
+	-ctrl-lua-script: "bp://zijin.lua"; 
+}
+
+.ggt_zijin
+{
+	dispaly:none;//默认不显示
+	height:0px;
+	width:150px;
+	-ctrl-lua-script: "bp://ggt_zijin.lua"; 
+}
+
+/*---- 为同步增加的广发版本和东方版本的港股通可用资金查询lua脚本文件*/
+.ggt_zijin_gf
+{
+	dispaly:none;//默认不显示
+	height:0px;
+	width:150px;
+	-ctrl-lua-script: "bp://ggt_zijin_gf.lua"; 
+}
+
+.ggt_zijin_df
+{
+	dispaly:none;//默认不显示
+	height:0px;
+	width:150px;
+	-ctrl-lua-script: "bp://ggt_zijin_df.lua"; 
+}
+
+//-- 为同步增加的广发版本和东方版本的港股通可用资金查询lua脚本文件-------
+
+//--------------------------------------end资金控件----------------------------------------------------
+
+//------------------------------------begin协议框----------------------------------------------------
+.div_protocol
+{
+	color:black;
+	font-size:13px;
+	readonly:true;
+	height:270px;
+	width:510px;
+	background-color:#EFEBE9;
+	border:1px solid; 
+	border-color: silver silver silver silver;
+	overflow-y:auto;
+}
+
+.div_protocol frame.protocolarea
+{
+	background-color:#FCFCFC;
+	border:1px solid; 
+	border-color: transparent silver silver transparent;
+	height:220px;
+	width:480px;
+	margin-left:10px;
+	margin-top:5px;
+}
+
+.div_protocol a.protocolurl
+{
+	margin-left:10px;
+}
+
+.div_protocol input[type="checkbox"]
+{
+	margin-left:10px;
+}
+
+//--------------------------------------end协议框----------------------------------------------------
