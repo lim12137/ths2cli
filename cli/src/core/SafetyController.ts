@@ -5,6 +5,8 @@
 import { EventEmitter } from 'events';
 import type { SafetyConfig, TradeRequest, SafetyCheckResult, TradeResult } from '../types-auto';
 import { httpRequest } from '../utils';
+import { Logger } from '../utils/logger';
+import { TradeStorage } from '../utils/storage';
 
 export class SafetyController extends EventEmitter {
   private dailyTradeAmount: number = 0;
@@ -12,9 +14,14 @@ export class SafetyController extends EventEmitter {
   private isCircuitBroken: boolean = false;
   private circuitBreakUntil: number = 0;
   private tradeHistory: TradeResult[] = [];
+  private readonly MAX_HISTORY_SIZE = 10000;
+  private logger: Logger;
+  private storage: TradeStorage;
 
   constructor(private config: SafetyConfig) {
     super();
+    this.logger = new Logger('SafetyController');
+    this.storage = new TradeStorage();
   }
 
   /**
@@ -32,7 +39,7 @@ export class SafetyController extends EventEmitter {
       } else {
         this.isCircuitBroken = false;
         this.consecutiveLosses = 0;
-        console.log('✓ 熔断已解除');
+        this.logger.info('熔断已解除');
       }
     }
 
@@ -92,14 +99,26 @@ export class SafetyController extends EventEmitter {
   async recordTrade(result: TradeResult): Promise<void> {
     this.tradeHistory.push(result);
 
+    // 限制历史记录大小，防止内存泄漏
+    if (this.tradeHistory.length > this.MAX_HISTORY_SIZE) {
+      this.tradeHistory = this.tradeHistory.slice(-this.MAX_HISTORY_SIZE);
+    }
+
+    // 保存到持久化存储
+    try {
+      await this.storage.save(result);
+    } catch (err) {
+      this.logger.error('保存交易记录失败:', err);
+    }
+
     if (result.success) {
       this.dailyTradeAmount += result.amount || 0;
-      console.log(`✓ 交易成功，累计交易金额: ${this.dailyTradeAmount}元`);
+      this.logger.info(`交易成功，累计交易金额: ${this.dailyTradeAmount}元`);
     } else {
       // 检查是否是亏损
       if (result.profit && result.profit < 0) {
         this.consecutiveLosses++;
-        console.log(`✗ 交易亏损，连续亏损次数: ${this.consecutiveLosses}`);
+        this.logger.warn(`交易亏损，连续亏损次数: ${this.consecutiveLosses}`);
 
         // 触发熔断
         if (this.config.circuit_breaker.enabled) {
@@ -122,9 +141,9 @@ export class SafetyController extends EventEmitter {
     this.isCircuitBroken = true;
     this.circuitBreakUntil = Date.now() + this.config.circuit_breaker.cooldown_minutes * 60000;
 
-    const message = `🛑 熔断触发！连续 ${this.consecutiveLosses} 次亏损，系统暂停 ${this.config.circuit_breaker.cooldown_minutes} 分钟`;
+    const message = `熔断触发！连续 ${this.consecutiveLosses} 次亏损，系统暂停 ${this.config.circuit_breaker.cooldown_minutes} 分钟`;
 
-    console.log(message);
+    this.logger.error(message);
     this.emit('circuit_breaker:triggered', {
       losses: this.consecutiveLosses,
       cooldown_minutes: this.config.circuit_breaker.cooldown_minutes
@@ -140,43 +159,62 @@ export class SafetyController extends EventEmitter {
   }
 
   /**
-   * 获取当前资金
+   * 获取当前资金（带重试机制）
    */
   private async getCurrentMoney(): Promise<number> {
-    try {
-      const moneyData = await httpRequest('/money') as { kyje?: number };
-      return moneyData.kyje || 0;
-    } catch (error) {
-      console.error('获取资金信息失败:', error);
-      return 0;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const moneyData = await httpRequest('/money') as { kyje?: number };
+        return moneyData.kyje || 0;
+      } catch (error) {
+        if (attempt === 2) {
+          this.logger.error('获取资金信息失败，已重试3次:', error);
+          return 0;
+        }
+        // 等待后重试，指数退避
+        await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
+      }
     }
+    return 0;
   }
 
   /**
-   * 获取当前持仓
+   * 获取当前持仓（带重试机制）
    */
   private async getCurrentPosition(code: string): Promise<number> {
-    try {
-      const positionData = await httpRequest('/position') as Record<string, { sz?: number }>;
-      const position = positionData[code];
-      return position?.sz || 0;
-    } catch (error) {
-      console.error('获取持仓信息失败:', error);
-      return 0;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const positionData = await httpRequest('/position') as Record<string, { sz?: number }>;
+        const position = positionData[code];
+        return position?.sz || 0;
+      } catch (error) {
+        if (attempt === 2) {
+          this.logger.error(`获取持仓信息失败，已重试3次 (${code}):`, error);
+          return 0;
+        }
+        await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
+      }
     }
+    return 0;
   }
 
   /**
-   * 获取总资产
+   * 获取总资产（带重试机制）
    */
   private async getTotalAssets(): Promise<number> {
-    try {
-      const moneyData = await httpRequest('/money') as { zzc?: number };
-      return moneyData.zzc || 0;
-    } catch (error) {
-      console.error('获取总资产失败:', error);
-      return 0;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const moneyData = await httpRequest('/money') as { zzc?: number };
+        return moneyData.zzc || 0;
+      } catch (error) {
+        if (attempt === 2) {
+          this.logger.error('获取总资产失败，已重试3次:', error);
+          return 0;
+        }
+        await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
+      }
     }
+    return 0;
   }
 
   /**
@@ -184,7 +222,7 @@ export class SafetyController extends EventEmitter {
    */
   resetDailyCounters(): void {
     this.dailyTradeAmount = 0;
-    console.log('✓ 每日计数器已重置');
+    this.logger.info('每日计数器已重置');
     this.emit('daily:reset');
   }
 
@@ -210,6 +248,6 @@ export class SafetyController extends EventEmitter {
    */
   clearHistory(): void {
     this.tradeHistory = [];
-    console.log('✓ 交易历史已清理');
+    this.logger.info('交易历史已清理');
   }
 }

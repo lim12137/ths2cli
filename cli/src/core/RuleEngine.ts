@@ -4,11 +4,18 @@
 
 import { EventEmitter } from 'events';
 import type { RuleConfig, RuleCondition, MarketData, TradeAction } from '../types-auto';
+import { Logger } from '../utils/logger';
 
 export class RuleEngine extends EventEmitter {
   private rules: Map<string, RuleConfig> = new Map();
   private checkInterval: NodeJS.Timeout | null = null;
   private ruleExecutions: Map<string, number> = new Map(); // 记录规则执行次数
+  private logger: Logger;
+
+  constructor() {
+    super();
+    this.logger = new Logger('RuleEngine');
+  }
 
   /**
    * 加载规则配置
@@ -29,7 +36,7 @@ export class RuleEngine extends EventEmitter {
     }
 
     this.emit('rules:loaded', { count: this.rules.size });
-    console.log(`✓ 已加载 ${this.rules.size} 条交易规则`);
+    this.logger.info(`已加载 ${this.rules.size} 条交易规则`);
   }
 
   /**
@@ -84,7 +91,7 @@ export class RuleEngine extends EventEmitter {
           break;
 
         default:
-          console.warn(`未知的条件类型: ${condition.type}`);
+          this.logger.warn(`未知的条件类型: ${condition.type}`);
           return false;
       }
 
@@ -122,7 +129,7 @@ export class RuleEngine extends EventEmitter {
       case '>=': return price >= value;
       case '==': return price === value;
       default:
-        console.warn(`未知的操作符: ${condition.operator}`);
+        this.logger.warn(`未知的操作符: ${condition.operator}`);
         return false;
     }
   }
@@ -131,13 +138,24 @@ export class RuleEngine extends EventEmitter {
    * 评估时间条件
    */
   private evaluateTimeCondition(condition: RuleCondition): boolean {
-    const now = new Date();
-    const currentTime = now.toTimeString();
+    const currentTime = this.getCurrentTimeStr();
 
     const start = condition.start as string;
     const end = condition.end as string;
 
     return currentTime >= start && currentTime <= end;
+  }
+
+  /**
+   * 获取当前时间字符串（格式: HH:MM:SS）
+   */
+  private getCurrentTimeStr(): string {
+    const now = new Date();
+    return [
+      String(now.getHours()).padStart(2, '0'),
+      String(now.getMinutes()).padStart(2, '0'),
+      String(now.getSeconds()).padStart(2, '0')
+    ].join(':');
   }
 
   /**
@@ -175,7 +193,7 @@ export class RuleEngine extends EventEmitter {
   private async evaluateExternalCondition(condition: RuleCondition): Promise<boolean> {
     // TODO: 实现从 WebSocket/HTTP/File 读取外部信号
     // 这里先返回 false，实际使用时需要实现
-    console.log(`外部信号条件: ${condition.source}`);
+    this.logger.debug(`外部信号条件: ${condition.source}`);
     return false;
   }
 
@@ -187,11 +205,11 @@ export class RuleEngine extends EventEmitter {
     callback: (rule: RuleConfig) => Promise<void>
   ): void {
     if (this.checkInterval) {
-      console.log('规则监控已在运行中');
+      this.logger.info('规则监控已在运行中');
       return;
     }
 
-    console.log(`🔍 启动规则监控，检查间隔: ${intervalSeconds}秒`);
+    this.logger.info(`启动规则监控，检查间隔: ${intervalSeconds}秒`);
 
     this.checkInterval = setInterval(async () => {
       try {
@@ -206,7 +224,7 @@ export class RuleEngine extends EventEmitter {
           if (shouldTrade) {
             const rule = this.rules.get(ruleId);
             if (rule) {
-              console.log(`\n📌 规则触发: ${rule.name} (${ruleId})`);
+              this.logger.info(`规则触发: ${rule.name} (${ruleId})`);
               await callback(rule);
 
               // 记录执行次数
@@ -224,7 +242,7 @@ export class RuleEngine extends EventEmitter {
         }
       } catch (error) {
         this.emit('rule:error', { error });
-        console.error('规则监控出错:', error);
+        this.logger.error('规则监控出错:', error);
       }
     }, intervalSeconds * 1000);
   }
@@ -236,7 +254,7 @@ export class RuleEngine extends EventEmitter {
     if (this.checkInterval) {
       clearInterval(this.checkInterval);
       this.checkInterval = null;
-      console.log('⏹️  规则监控已停止');
+      this.logger.info('规则监控已停止');
     }
   }
 
@@ -266,7 +284,7 @@ export class RuleEngine extends EventEmitter {
   resetExecutionCounts(): void {
     for (const [id, count] of this.ruleExecutions) {
       if (count > 0) {
-        console.log(`重置规则执行计数: ${id} (${count} → 0)`);
+        this.logger.debug(`重置规则执行计数: ${id} (${count} → 0)`);
       }
     }
     this.ruleExecutions.clear();

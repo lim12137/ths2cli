@@ -8,6 +8,7 @@ import { EventEmitter } from 'events';
 import { spawn } from 'child_process';
 import type { Plugin, PluginConfig, PluginContext, MarketData } from '../types-auto';
 import { httpRequest } from '../utils';
+import { Logger } from '../utils/logger';
 
 interface PluginInstance {
   config: PluginConfig;
@@ -21,12 +22,18 @@ interface PluginInstance {
 export class PluginManager extends EventEmitter {
   private plugins: Map<string, PluginInstance> = new Map();
   private watchInterval: NodeJS.Timeout | null = null;
+  private alertHistory: Array<{ pluginId: string; timestamp: number; message: string }> = [];
+  private readonly MAX_ALERT_HISTORY = 100;
+  private lastCleanupTime: number = 0;
+  private readonly CLEANUP_INTERVAL = 3600000; // 1小时清理一次
+  private logger: Logger;
 
   constructor(
     private pluginDir: string,
     private configManager: any
   ) {
     super();
+    this.logger = new Logger('PluginManager');
   }
 
   /**
@@ -35,7 +42,7 @@ export class PluginManager extends EventEmitter {
   async loadAllPlugins(): Promise<void> {
     const pluginsConfig = this.configManager.getPluginsConfig();
     if (!pluginsConfig || !pluginsConfig.plugins) {
-      console.log('⚠️  未找到插件配置');
+      this.logger.info('⚠️  未找到插件配置');
       return;
     }
 
@@ -46,7 +53,7 @@ export class PluginManager extends EventEmitter {
     }
 
     this.emit('plugins:loaded', { count: this.plugins.size });
-    console.log(`✓ 已加载 ${this.plugins.size} 个插件`);
+    this.logger.info(`✓ 已加载 ${this.plugins.size} 个插件`);
   }
 
   /**
@@ -82,12 +89,12 @@ export class PluginManager extends EventEmitter {
         if (pluginInstance.instance) {
           await pluginInstance.instance.init(config.config || {});
         }
-        console.log(`✓ JavaScript 插件已加载: ${config.name} (${config.id})`);
+        this.logger.info(`✓ JavaScript 插件已加载: ${config.name} (${config.id})`);
 
       } else if (config.type === 'python') {
         // 启动 Python 插件进程
         pluginInstance.process = this.spawnPythonPlugin(pluginPath, config);
-        console.log(`✓ Python 插件已启动: ${config.name} (${config.id})`);
+        this.logger.info(`✓ Python 插件已启动: ${config.name} (${config.id})`);
       }
 
       this.plugins.set(config.id, pluginInstance);
@@ -95,7 +102,7 @@ export class PluginManager extends EventEmitter {
 
     } catch (error) {
       this.emit('plugin:error', { pluginId: config.id, error });
-      console.error(`✗ 插件加载失败: ${config.name}`, error);
+      this.logger.error(`✗ 插件加载失败: ${config.name}`, error);
     }
   }
 
@@ -112,16 +119,16 @@ export class PluginManager extends EventEmitter {
         const message = JSON.parse(data.toString());
         this.handlePluginMessage(config.id, message);
       } catch (error) {
-        console.error(`解析插件消息失败: ${config.id}`, error);
+        this.logger.error(`解析插件消息失败: ${config.id}`, error);
       }
     });
 
     pythonProcess.stderr.on('data', (data: Buffer) => {
-      console.error(`插件 ${config.id} 错误:`, data.toString());
+      this.logger.error(`插件 ${config.id} 错误:`, data.toString());
     });
 
     pythonProcess.on('exit', (code: number) => {
-      console.log(`插件 ${config.id} 退出，代码: ${code}`);
+      this.logger.info(`插件 ${config.id} 退出，代码: ${code}`);
       this.emit('plugin:exited', { pluginId: config.id, code });
     });
 
@@ -158,7 +165,7 @@ export class PluginManager extends EventEmitter {
         break;
 
       default:
-        console.warn(`未知的插件消息类型: ${message.type}`);
+        this.logger.warn(`未知的插件消息类型: ${message.type}`);
     }
   }
 
@@ -173,7 +180,7 @@ export class PluginManager extends EventEmitter {
         await this.checkPlugin(id, marketData);
       } catch (error) {
         this.emit('plugin:error', { pluginId: id, error });
-        console.error(`插件检查失败: ${id}`, error);
+        this.logger.error(`插件检查失败: ${id}`, error);
       }
     }
   }
@@ -205,7 +212,7 @@ export class PluginManager extends EventEmitter {
 
         if (shouldExecute) {
           this.emit('plugin:triggered', { pluginId });
-          console.log(`📌 插件触发: ${plugin.config.name} (${pluginId})`);
+          this.logger.info(`📌 插件触发: ${plugin.config.name} (${pluginId})`);
           await this.executePlugin(pluginId);
         }
 
@@ -221,7 +228,7 @@ export class PluginManager extends EventEmitter {
 
     } catch (error) {
       this.emit('plugin:error', { pluginId, error });
-      console.error(`插件检查出错: ${pluginId}`, error);
+      this.logger.error(`插件检查出错: ${pluginId}`, error);
     }
 
     return false;
@@ -248,7 +255,7 @@ export class PluginManager extends EventEmitter {
 
     } catch (error) {
       this.emit('plugin:error', { pluginId, error });
-      console.error(`插件执行出错: ${pluginId}`, error);
+      this.logger.error(`插件执行出错: ${pluginId}`, error);
     }
   }
 
@@ -307,7 +314,7 @@ export class PluginManager extends EventEmitter {
 
       notify: (message: string, level: 'info' | 'warn' | 'error' = 'info') => {
         this.emit('notification', { type: level, message });
-        console.log(`[${level.toUpperCase()}] ${config.name}: ${message}`);
+        this.logger.info(`[${level.toUpperCase()}] ${config.name}: ${message}`);
       },
     };
   }
@@ -317,22 +324,38 @@ export class PluginManager extends EventEmitter {
    */
   startMonitoring(intervalSeconds: number): void {
     if (this.watchInterval) {
-      console.log('插件监控已在运行中');
+      this.logger.info('插件监控已在运行中');
       return;
     }
 
-    console.log(`🔍 启动插件监控，检查间隔: ${intervalSeconds}秒`);
+    this.logger.info(`🔍 启动插件监控，检查间隔: ${intervalSeconds}秒`);
 
     this.watchInterval = setInterval(async () => {
       try {
+        // 定期清理告警历史（避免每次check都执行）
+        const now = Date.now();
+        if (now - this.lastCleanupTime > this.CLEANUP_INTERVAL) {
+          this.cleanupAlertHistory();
+          this.lastCleanupTime = now;
+        }
+
         // 获取市场数据（可选）
         const marketData = await this.fetchMarketData();
         await this.checkAllPlugins(marketData);
       } catch (error) {
         this.emit('plugin:error', { error });
-        console.error('插件监控出错:', error);
+        this.logger.error('插件监控出错:', error);
       }
     }, intervalSeconds * 1000);
+  }
+
+  /**
+   * 清理告警历史（避免内存泄漏）
+   */
+  private cleanupAlertHistory(): void {
+    if (this.alertHistory.length > this.MAX_ALERT_HISTORY) {
+      this.alertHistory = this.alertHistory.slice(-this.MAX_ALERT_HISTORY);
+    }
   }
 
   /**
@@ -342,7 +365,7 @@ export class PluginManager extends EventEmitter {
     if (this.watchInterval) {
       clearInterval(this.watchInterval);
       this.watchInterval = null;
-      console.log('⏹️  插件监控已停止');
+      this.logger.info('⏹️  插件监控已停止');
     }
   }
 
@@ -382,7 +405,7 @@ export class PluginManager extends EventEmitter {
 
     if (config) {
       await this.loadPlugin(config);
-      console.log(`✓ 插件已重载: ${pluginId}`);
+      this.logger.info(`✓ 插件已重载: ${pluginId}`);
     }
   }
 
@@ -406,10 +429,10 @@ export class PluginManager extends EventEmitter {
 
       this.plugins.delete(pluginId);
       this.emit('plugin:unloaded', { pluginId });
-      console.log(`✓ 插件已卸载: ${pluginId}`);
+      this.logger.info(`✓ 插件已卸载: ${pluginId}`);
 
     } catch (error) {
-      console.error(`插件卸载失败: ${pluginId}`, error);
+      this.logger.error(`插件卸载失败: ${pluginId}`, error);
     }
   }
 
@@ -420,7 +443,7 @@ export class PluginManager extends EventEmitter {
     const plugin = this.plugins.get(pluginId);
     if (plugin) {
       plugin.enabled = enabled;
-      console.log(`✓ 插件 ${enabled ? '启用' : '禁用'}: ${pluginId}`);
+      this.logger.info(`✓ 插件 ${enabled ? '启用' : '禁用'}: ${pluginId}`);
       this.emit('plugin:toggled', { pluginId, enabled });
     }
   }
@@ -453,13 +476,23 @@ export class PluginManager extends EventEmitter {
   }
 
   /**
-   * 清理所有插件
+   * 清理所有插件（改进：使用 Promise.allSettled 确保所有插件都被清理）
    */
   async cleanup(): Promise<void> {
-    for (const [id] of this.plugins) {
-      await this.unloadPlugin(id);
+    const cleanupPromises = [];
+
+    for (const [id, plugin] of this.plugins) {
+      cleanupPromises.push(
+        this.unloadPlugin(id).catch(err => {
+          this.logger.error(`清理插件${id}失败:`, err);
+          // 继续清理其他插件，不中断整个流程
+        })
+      );
     }
+
+    // 等待所有清理操作完成（即使部分失败）
+    await Promise.allSettled(cleanupPromises);
     this.stopMonitoring();
-    console.log('✓ 所有插件已清理');
+    this.logger.info('✓ 所有插件已清理');
   }
 }

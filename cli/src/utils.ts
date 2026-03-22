@@ -84,7 +84,8 @@ export const ORDER_STATUS = {
 const CACHE_CONFIG = {
   enabled: true,
   ttl: 1000, // 1秒缓存
-};
+  maxSize: 1000, // 最大缓存条目数（LRU）
+} as const;
 
 // ==================== HTTP 缓存 ====================
 
@@ -103,6 +104,21 @@ function cleanExpiredCache(): void {
   for (const [key, entry] of requestCache.entries()) {
     if (now - entry.timestamp > CACHE_CONFIG.ttl) {
       requestCache.delete(key);
+    }
+  }
+}
+
+/**
+ * 确保 LRU 缓存大小限制
+ */
+function ensureCacheSizeLimit(): void {
+  // 如果缓存超过最大限制，删除最旧的条目
+  while (requestCache.size >= CACHE_CONFIG.maxSize) {
+    const firstKey = requestCache.keys().next().value;
+    if (firstKey) {
+      requestCache.delete(firstKey);
+    } else {
+      break;
     }
   }
 }
@@ -145,8 +161,9 @@ export async function httpRequest<T = unknown>(
 
     const result = response.data as T;
 
-    // 缓存 GET 请求结果
+    // 缓存 GET 请求结果（先检查大小限制）
     if (method === 'GET' && useCache && CACHE_CONFIG.enabled) {
+      ensureCacheSizeLimit();
       requestCache.set(url, { data: result, timestamp: Date.now() });
     }
 

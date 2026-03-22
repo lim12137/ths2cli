@@ -3,6 +3,7 @@
  */
 
 import { Scheduler } from './core/Scheduler';
+import { Logger } from './utils/logger';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -38,15 +39,16 @@ const CONFIG: SchedulerConfig = {
 
 // 全局调度器实例
 let scheduler: Scheduler | null = null;
+const logger = new Logger('Automation');
 
 /**
  * 启动自动化交易系统
  */
 async function start(): Promise<void> {
   try {
-    console.log('========================================');
-    console.log('   同花顺自动化交易系统 v1.0.0');
-    console.log('========================================\n');
+    logger.info('========================================');
+    logger.info('   同花顺自动化交易系统 v1.0.0');
+    logger.info('========================================\n');
 
     // 确保必要的目录存在
     ensureDirectories();
@@ -57,14 +59,14 @@ async function start(): Promise<void> {
     // 启动调度器
     await scheduler.start();
 
-    console.log('\n✅ 系统启动成功！');
-    console.log('\n💡 提示:');
-    console.log('  - 按 Ctrl+C 停止系统');
-    console.log('  - 查看日志文件: logs/trading.log');
-    console.log('  - 修改配置文件后自动重载\n');
+    logger.info('\n✅ 系统启动成功！');
+    logger.info('\n💡 提示:');
+    logger.info('  - 按 Ctrl+C 停止系统');
+    logger.info('  - 查看日志文件: logs/trading.log');
+    logger.info('  - 修改配置文件后自动重载\n');
 
   } catch (error) {
-    console.error('\n❌ 系统启动失败:', error);
+    logger.error('\n❌ 系统启动失败:', error);
     process.exit(1);
   }
 }
@@ -74,9 +76,9 @@ async function start(): Promise<void> {
  */
 async function stop(): Promise<void> {
   if (scheduler) {
-    console.log('\n\n⏹️  正在停止系统...');
+    logger.info('\n\n⏹️  正在停止系统...');
     await scheduler.stop();
-    console.log('✅ 系统已停止\n');
+    logger.info('✅ 系统已停止\n');
   }
 }
 
@@ -94,7 +96,7 @@ function ensureDirectories(): void {
     const dirPath = path.join(__dirname, '..', dir);
     if (!fs.existsSync(dirPath)) {
       fs.mkdirSync(dirPath, { recursive: true });
-      console.log(`✓ 创建目录: ${dir}`);
+      logger.info(`✓ 创建目录: ${dir}`);
     }
   }
 }
@@ -136,16 +138,16 @@ async function main(): Promise<void> {
   } else if (command === 'status') {
     // 查询状态
     // TODO: 实现状态查询
-    console.log('状态查询功能待实现');
+    logger.info('状态查询功能待实现');
 
   } else if (command === 'test') {
     // 测试模式
-    console.log('测试模式\n');
+    logger.info('测试模式\n');
     await start();
 
   } else if (command === 'help') {
     // 显示帮助
-    console.log(`
+    logger.info(`
 自动化交易系统
 
 用法:
@@ -174,15 +176,15 @@ async function main(): Promise<void> {
     `);
 
   } else {
-    console.log(`未知命令: ${command}`);
-    console.log('使用 "node automation.js help" 查看帮助');
+    logger.info(`未知命令: ${command}`);
+    logger.info('使用 "node automation.js help" 查看帮助');
     process.exit(1);
   }
 }
 
 // 运行主函数
 main().catch(error => {
-  console.error('未捕获的错误:', error);
+  logger.error('未捕获的错误:', error);
   process.exit(1);
 });
 

@@ -10,6 +10,7 @@ import { PluginManager } from './PluginManager';
 import type { TradeRequest, TradeResult as AutoTradeResult, MarketData, SchedulerConfig } from '../types-auto';
 import type { TradeResult as ApiTradeResult } from '../types';
 import { executeTrade, executeCancel, httpRequest } from '../utils';
+import { Logger } from '../utils/logger';
 
 export class Scheduler extends EventEmitter {
   private configManager: ConfigManager;
@@ -22,8 +23,14 @@ export class Scheduler extends EventEmitter {
   private allowEmpty: boolean = false;
   private checkInterval: number = 5;
 
+  // 交易锁机制：防止同一股票的并发交易
+  private tradeLocks: Map<string, Promise<void>> = new Map();
+  private logger: Logger;
+
   constructor(private config: SchedulerConfig) {
     super();
+
+    this.logger = new Logger('Scheduler');
 
     // 初始化配置管理器
     this.configManager = new ConfigManager({
@@ -52,16 +59,16 @@ export class Scheduler extends EventEmitter {
    */
   async start(): Promise<void> {
     if (this.isRunning) {
-      console.log('⚠️  调度器已在运行中');
+      this.logger.warn('调度器已在运行中');
       return;
     }
 
     try {
-      console.log('🚀 启动自动化交易调度器...\n');
+      this.logger.info('启动自动化交易调度器...\n');
 
       // 1. 加载所有配置
       await this.configManager.loadAllConfigs();
-      console.log('✓ 配置加载完成\n');
+      this.logger.info('✓ 配置加载完成\n');
 
       // 2. 加载规则
       const rulesConfig = this.configManager.getRulesConfig();
@@ -82,15 +89,15 @@ export class Scheduler extends EventEmitter {
       this.setupDailyReset();
 
       this.isRunning = true;
-      console.log('\n✓ 调度器启动成功！');
-      console.log(`✓ 交易时间: ${this.tradeTimeRange.start} - ${this.tradeTimeRange.end}`);
-      console.log(`✓ 检查间隔: ${this.checkInterval}秒`);
-      console.log(`✓ 允许空仓: ${this.allowEmpty ? '是' : '否'}\n`);
+      this.logger.info('\n✓ 调度器启动成功！');
+      this.logger.info(`✓ 交易时间: ${this.tradeTimeRange.start} - ${this.tradeTimeRange.end}`);
+      this.logger.info(`✓ 检查间隔: ${this.checkInterval}秒`);
+      this.logger.info(`✓ 允许空仓: ${this.allowEmpty ? '是' : '否'}\n`);
 
       this.emit('scheduler:started');
 
     } catch (error) {
-      console.error('❌ 调度器启动失败:', error);
+      this.logger.error('❌ 调度器启动失败:', error);
       this.emit('scheduler:error', { error });
       throw error;
     }
@@ -104,7 +111,7 @@ export class Scheduler extends EventEmitter {
       return;
     }
 
-    console.log('\n⏹️  停止调度器...');
+    this.logger.info('\n⏹️  停止调度器...');
 
     // 停止规则监控
     this.ruleEngine.stopMonitoring();
@@ -119,7 +126,7 @@ export class Scheduler extends EventEmitter {
     this.configManager.stopWatching();
 
     this.isRunning = false;
-    console.log('✓ 调度器已停止');
+    this.logger.info('✓ 调度器已停止');
     this.emit('scheduler:stopped');
   }
 
@@ -129,7 +136,7 @@ export class Scheduler extends EventEmitter {
   private setupEventListeners(): void {
     // 配置重载
     this.configManager.on('config:reloaded', async ({ filename }) => {
-      console.log(`📝 配置文件已重载: ${filename}`);
+      this.logger.info(`📝 配置文件已重载: ${filename}`);
 
       if (filename === 'rules.yaml') {
         const rulesConfig = this.configManager.getRulesConfig();
@@ -143,17 +150,17 @@ export class Scheduler extends EventEmitter {
 
     // 规则触发
     this.ruleEngine.on('rule:triggered', ({ ruleId, rule }) => {
-      console.log(`📌 规则触发: ${rule.name} (${ruleId})`);
+      this.logger.info(`📌 规则触发: ${rule.name} (${ruleId})`);
     });
 
     // 插件触发
     this.pluginManager.on('plugin:triggered', ({ pluginId }) => {
-      console.log(`🔌 插件触发: ${pluginId}`);
+      this.logger.info(`🔌 插件触发: ${pluginId}`);
     });
 
     // 熔断器触发
     this.safetyController.on('circuit_breaker:triggered', ({ losses, cooldown_minutes }) => {
-      console.log(`🛑 熔断触发！连续 ${losses} 次亏损，暂停 ${cooldown_minutes} 分钟`);
+      this.logger.info(`🛑 熔断触发！连续 ${losses} 次亏损，暂停 ${cooldown_minutes} 分钟`);
     });
 
     // 交易请求
@@ -163,20 +170,20 @@ export class Scheduler extends EventEmitter {
 
     // 通知
     this.on('notification', ({ type, message }) => {
-      console.log(`[${type.toUpperCase()}] ${message}`);
+      this.logger.info(`[${type.toUpperCase()}] ${message}`);
     });
 
     // 错误处理
     this.on('scheduler:error', ({ error }) => {
-      console.error('调度器错误:', error);
+      this.logger.error('调度器错误:', error);
     });
 
     this.ruleEngine.on('rule:error', ({ error }) => {
-      console.error('规则错误:', error);
+      this.logger.error('规则错误:', error);
     });
 
     this.pluginManager.on('plugin:error', ({ error }) => {
-      console.error('插件错误:', error);
+      this.logger.error('插件错误:', error);
     });
   }
 
@@ -198,30 +205,60 @@ export class Scheduler extends EventEmitter {
       await this.processTradeRequest(tradeRequest);
 
     } catch (error) {
-      console.error('处理规则触发失败:', error);
+      this.logger.error('处理规则触发失败:', error);
     }
   }
 
   /**
-   * 处理交易请求
+   * 处理交易请求（改进：添加交易锁机制，防止并发交易）
    */
   async processTradeRequest(request: TradeRequest): Promise<void> {
+    // 获取交易锁的键（按股票代码锁定，如果没有代码则使用全局锁）
+    const lockKey = request.code || 'global';
+
+    // 等待现有的锁
+    while (this.tradeLocks.has(lockKey)) {
+      try {
+        await this.tradeLocks.get(lockKey);
+      } catch (error) {
+        // 如果等待的交易失败，继续尝试
+        this.logger.warn(`等待交易锁失败 (${lockKey}):`, error);
+        break;
+      }
+    }
+
+    // 创建新的锁
+    const tradePromise = this.executeTradeInternal(request);
+    this.tradeLocks.set(lockKey, tradePromise);
+
+    try {
+      await tradePromise;
+    } finally {
+      // 释放锁
+      this.tradeLocks.delete(lockKey);
+    }
+  }
+
+  /**
+   * 内部执行交易逻辑
+   */
+  private async executeTradeInternal(request: TradeRequest): Promise<void> {
     // 1. 检查交易时间
     if (!this.isTradeTime()) {
-      console.log(`⏰ 非交易时间，忽略交易请求: ${request.id}`);
+      this.logger.info(`⏰ 非交易时间，忽略交易请求: ${request.id}`);
       return;
     }
 
     // 2. 安全检查
     const safetyCheck = await this.safetyController.checkTrade(request);
     if (!safetyCheck.allowed) {
-      console.log(`🚫 安全检查失败: ${safetyCheck.message}`);
+      this.logger.info(`🚫 安全检查失败: ${safetyCheck.message}`);
       this.emit('trade:rejected', { request, reason: safetyCheck.reason });
       return;
     }
 
     // 3. 执行交易
-    console.log(`\n💰 执行交易: ${request.action.toUpperCase()} ${request.code} ${request.amount}元`);
+    this.logger.info(`\n💰 执行交易: ${request.action.toUpperCase()} ${request.code} ${request.amount}元`);
 
     try {
       let apiResult: ApiTradeResult;
@@ -241,15 +278,15 @@ export class Scheduler extends EventEmitter {
       await this.safetyController.recordTrade(result);
 
       if (result.success) {
-        console.log(`✅ 交易成功: ${result.htbh}`);
+        this.logger.info(`✅ 交易成功: ${result.htbh}`);
         this.emit('trade:success', { request, result });
       } else {
-        console.log(`❌ 交易失败: ${result.error}`);
+        this.logger.info(`❌ 交易失败: ${result.error}`);
         this.emit('trade:failed', { request, result });
       }
 
     } catch (error) {
-      console.error('交易执行出错:', error);
+      this.logger.error('交易执行出错:', error);
       this.emit('trade:error', { request, error });
     }
   }
@@ -284,11 +321,10 @@ export class Scheduler extends EventEmitter {
   }
 
   /**
-   * 检查是否在交易时间
+   * 检查是否在交易时间（改进：修复时间格式化错误）
    */
   private isTradeTime(): boolean {
-    const now = new Date();
-    const currentTime = now.toTimeString();
+    const currentTime = this.getCurrentTimeStr();
 
     const isOpen = currentTime >= this.tradeTimeRange.start && currentTime <= this.tradeTimeRange.end;
 
@@ -298,6 +334,18 @@ export class Scheduler extends EventEmitter {
     }
 
     return isOpen;
+  }
+
+  /**
+   * 获取当前时间字符串（格式: HH:MM:SS）
+   */
+  private getCurrentTimeStr(): string {
+    const now = new Date();
+    return [
+      String(now.getHours()).padStart(2, '0'),
+      String(now.getMinutes()).padStart(2, '0'),
+      String(now.getSeconds()).padStart(2, '0')
+    ].join(':');
   }
 
   /**
@@ -317,14 +365,14 @@ export class Scheduler extends EventEmitter {
       setInterval(() => this.performDailyReset(), 24 * 60 * 60 * 1000);
     }, msUntilMidnight);
 
-    console.log(`✓ 每日重置定时器已设置: ${tomorrow.toLocaleString()}`);
+    this.logger.info(`✓ 每日重置定时器已设置: ${tomorrow.toLocaleString()}`);
   }
 
   /**
    * 执行每日重置
    */
   private performDailyReset(): void {
-    console.log('\n🔄 执行每日重置...');
+    this.logger.info('\n🔄 执行每日重置...');
 
     // 重置安全控制器
     this.safetyController.resetDailyCounters();
@@ -332,7 +380,7 @@ export class Scheduler extends EventEmitter {
     // 重置规则引擎
     this.ruleEngine.resetExecutionCounts();
 
-    console.log('✓ 每日重置完成\n');
+    this.logger.info('✓ 每日重置完成\n');
     this.emit('daily:reset');
   }
 
@@ -361,14 +409,14 @@ export class Scheduler extends EventEmitter {
       const marketData = await this.fetchMarketData();
       const results = await this.ruleEngine.evaluateAllRules(marketData);
 
-      console.log(`\n🔍 手动触发规则检查，共 ${results.size} 条规则`);
+      this.logger.info(`\n🔍 手动触发规则检查，共 ${results.size} 条规则`);
 
       for (const [ruleId, shouldTrade] of results) {
-        console.log(`  ${ruleId}: ${shouldTrade ? '✅ 触发' : '❌ 未触发'}`);
+        this.logger.info(`  ${ruleId}: ${shouldTrade ? '✅ 触发' : '❌ 未触发'}`);
       }
 
     } catch (error) {
-      console.error('规则检查失败:', error);
+      this.logger.error('规则检查失败:', error);
     }
   }
 
@@ -379,9 +427,9 @@ export class Scheduler extends EventEmitter {
     try {
       const marketData = await this.fetchMarketData();
       await this.pluginManager.checkAllPlugins(marketData);
-      console.log('✓ 插件检查完成');
+      this.logger.info('✓ 插件检查完成');
     } catch (error) {
-      console.error('插件检查失败:', error);
+      this.logger.error('插件检查失败:', error);
     }
   }
 
