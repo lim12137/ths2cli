@@ -72,3 +72,14 @@ coverage/
 
 # Claude Code 本地数据
 .claude/
+
+# Windows DLL 文件（动态链接库）
+*.dll
+!*.dll  # 取消所有 DLL 的忽略（如果需要跟踪特定 DLL）
+*.so
+*.dylib
+
+# Qt 和 CEF 运行时文件
+Qt5WebEngineCore.dll
+libcef.dll
+cef/
